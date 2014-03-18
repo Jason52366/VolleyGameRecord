@@ -16,6 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name="com.volleygamerecord.app.Start"
             android:label="@string/app_name" >
@@ -45,6 +46,42 @@
             android:name="com.volleygamerecord.app.Record3"
             android:label="@string/app_name" >
         </activity>
+
+        <activity
+            android:name="com.volleygamerecord.app.GameStart1"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name="com.volleygamerecord.app.GameStart2"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name="com.volleygamerecord.app.Record1"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name="com.volleygamerecord.app.Record2"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name="com.volleygamerecord.app.MyGame"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name="com.volleygamerecord.app.NoInternet"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name="com.volleygamerecord.app.Search"
+            android:label="@string/app_name" >
+        </activity>
     </application>
+
 
 </manifest>

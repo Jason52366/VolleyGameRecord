@@ -24,38 +24,30 @@
         android:ems="10"
         android:id="@+id/editText_password"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="請輸入密碼"
-        android:id="@+id/textView_password"
-        android:textSize="24dp"
-        android:layout_above="@+id/editText_password"
-        android:layout_alignLeft="@+id/editText_password"
-        android:layout_alignStart="@+id/editText_password" />
+        android:layout_centerHorizontal="true"
+        android:textAlignment="pre"
+        android:hint="@string/password_placeholder"
+        android:password="false" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="輸入帳號"
         android:ems="10"
         android:id="@+id/editText_account"
-        android:layout_above="@+id/textView_password"
-        android:layout_alignLeft="@+id/textView_password"
-        android:layout_alignStart="@+id/textView_password"
-        android:layout_marginBottom="5dp" />
+        android:layout_marginBottom="5dp"
+        android:layout_above="@+id/editText_password"
+        android:hint="@string/password_placeholder"
+        android:layout_alignLeft="@+id/editText_password" />
 
-    <TextView
+    <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView_account"
-        android:layout_above="@+id/editText_account"
-        android:layout_alignLeft="@+id/editText_account"
-        android:layout_alignStart="@+id/editText_account"
-        android:layout_marginBottom="5dp"
-        android:textSize="24dp"
-        android:text="輸入帳號" />
+        android:text="記住我"
+        android:id="@+id/checkBox_remember"
+        android:layout_below="@+id/editText_password"
+        android:layout_alignLeft="@+id/editText_password"
+        android:layout_alignStart="@+id/editText_password"
+        android:checked="false"
+        android:textSize="18dp" />
 </RelativeLayout>

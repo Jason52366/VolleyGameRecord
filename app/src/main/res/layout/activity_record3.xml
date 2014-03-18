@@ -1,7 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="對方攻擊"
+        android:id="@+id/textView_enemy_attack"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="149dp"
+        android:textSize="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="防守失誤"
+        android:id="@+id/button_defend_error"
+        android:textSize="24dp"
+        android:layout_below="@+id/textView_enemy_attack"
+        android:layout_alignLeft="@+id/textView_enemy_attack"
+        android:layout_alignStart="@+id/textView_enemy_attack"
+        android:layout_marginTop="112dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="攻擊失誤"
+        android:id="@+id/button_attack_error"
+        android:layout_alignTop="@+id/button_defend_error"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="49dp"
+        android:textSize="24dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="接發失誤"
+        android:id="@+id/button_first_ball_error"
+        android:textSize="24dp"
+        android:layout_above="@+id/button_sure"
+        android:layout_toLeftOf="@+id/button_sure" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="我方犯規"
+        android:id="@+id/button_break_rule"
+        android:textSize="24dp"
+        android:layout_above="@+id/button_sure"
+        android:layout_alignLeft="@+id/button_attack_error"
+        android:layout_alignStart="@+id/button_attack_error" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="確定"
+        android:id="@+id/button_sure"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="24dp" />
+</RelativeLayout>

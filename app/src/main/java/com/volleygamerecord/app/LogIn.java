@@ -1,26 +1,51 @@
 package com.volleygamerecord.app;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 
 public class LogIn extends Activity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
-    }
 
+        //Login的確定按鈕
+        Button btn_loginLogin = (Button)findViewById(R.id.button_loginLogin);
+        btn_loginLogin.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent();
+                intent.setClass(LogIn.this, Start.class);
+                startActivity(intent);
+                LogIn.this.finish();
+            }
+
+        });
+
+
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.log_in, menu);
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

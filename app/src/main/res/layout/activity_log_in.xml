@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enter"
-        android:id="@+id/button_login"
+        android:id="@+id/button_loginLogin"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="112dp" />
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/editText_password"
+        android:id="@+id/editText_loginPassword"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:textAlignment="viewStart"
@@ -34,20 +34,21 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText_account"
+        android:id="@+id/editText_loginAccount"
         android:layout_marginBottom="5dp"
-        android:layout_above="@+id/editText_password"
+        android:layout_above="@+id/editText_loginPassword"
         android:hint="@string/password_placeholder"
-        android:layout_alignLeft="@+id/editText_password" />
+        android:layout_alignLeft="@+id/editText_loginPassword" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="記住我"
-        android:id="@+id/checkBox_remember"
-        android:layout_below="@+id/editText_password"
-        android:layout_alignLeft="@+id/editText_password"
-        android:layout_alignStart="@+id/editText_password"
+        android:id="@+id/checkBox_loginRemember"
+        android:layout_below="@+id/editText_loginPassword"
+        android:layout_alignLeft="@+id/editText_loginPassword"
+        android:layout_alignStart="@+id/editText_loginPassword"
         android:checked="false"
         android:textSize="18dp" />
+
 </RelativeLayout>

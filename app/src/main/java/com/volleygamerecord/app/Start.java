@@ -32,6 +32,44 @@ public class Start  extends Activity {
 
         });
 
+        //button_startManageTeam
+        Button btn_startManageTeam = (Button)findViewById(R.id.button_startManageTeam);
+        btn_startManageTeam.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
 
+                Intent intent = new Intent();
+                intent.setClass(Start.this, Team1.class);
+                startActivity(intent);
+
+            }
+
+        });
+
+        //button_startManageTeam
+        Button btn_startOnlineRecord = (Button)findViewById(R.id.button_startOnlineRecord);
+        btn_startOnlineRecord.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent();
+                intent.setClass(Start.this, MyGame.class);
+                startActivity(intent);
+
+            }
+        });
+
+        //button_startConfiguration
+//        Button btn_startConfiguration = (Button)findViewById(R.id.button_startConfiguration);
+//        btn_startConfiguration.setOnClickListener(new Button.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//
+//                Intent intent = new Intent();
+//                intent.setClass(Start.this, 沒有設定.class);
+//                startActivity(intent);
+//
+//            }
+//        });
     }
 }

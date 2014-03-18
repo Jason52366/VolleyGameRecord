@@ -25,7 +25,7 @@
         android:id="@+id/editText_password"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:textAlignment="pre"
+        android:textAlignment="viewStart"
         android:hint="@string/password_placeholder"
         android:password="false" />
 

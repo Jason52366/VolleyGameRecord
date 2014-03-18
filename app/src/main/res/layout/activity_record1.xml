@@ -58,11 +58,10 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="5566"
         android:id="@+id/textView_record1OurScore"
+        android:textSize="42dp"
         android:layout_below="@+id/textView_record1OurTeam"
         android:layout_alignRight="@+id/textView_record1OurTeam"
-        android:layout_alignEnd="@+id/textView_record1OurTeam"
-        android:layout_marginTop="20dp"
-        android:textSize="24dp" />
+        android:layout_alignEnd="@+id/textView_record1OurTeam" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -70,9 +69,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="5566"
         android:id="@+id/textView_record1RivalScore"
-        android:layout_alignTop="@+id/textView_record1OurScore"
+        android:textSize="42dp"
+        android:layout_below="@+id/textView_record1RivalTeam"
         android:layout_alignLeft="@+id/textView_record1RivalTeam"
-        android:layout_alignStart="@+id/textView_record1RivalTeam"
-        android:textSize="24dp" />
+        android:layout_alignStart="@+id/textView_record1RivalTeam" />
 
 </RelativeLayout>

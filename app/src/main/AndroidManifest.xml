@@ -31,7 +31,20 @@
             android:label="@string/app_name" >
         </activity>
 
+        <activity
+            android:name="com.volleygamerecord.app.count1"
+            android:label="@string/app_name" >
+        </activity>
 
+        <activity
+            android:name="com.volleygamerecord.app.count2"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name="com.volleygamerecord.app.Record3"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>

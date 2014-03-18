@@ -1,7 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</LinearLayout>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/teamName_placeholder"
+        android:layout_marginTop="30dp"
+        android:textSize="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="球員"
+        android:id="@+id/textView_playerName"
+        android:layout_below="@+id/editText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="背號"
+        android:id="@+id/textView_playerNumber"
+        android:layout_alignTop="@+id/textView_playerName"
+        android:layout_toLeftOf="@+id/textView_playerName"
+        android:textSize="30dp"
+        android:layout_marginRight="66dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="位置"
+        android:id="@+id/textView_playerPosition"
+        android:layout_alignBottom="@+id/textView_playerName"
+        android:layout_toRightOf="@+id/textView_playerName"
+        android:textSize="30dp"
+        android:layout_marginLeft="66dp" />
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="300dp"
+        android:layout_height="320dp"
+        android:divider="#b5b5b5"
+        android:dividerHeight="2dp"
+        android:cacheColorHint="#00000000"
+        android:minHeight="60dp"
+        android:textFilterEnabled="true"
+        android:layout_below="@+id/textView_playerName"
+        android:layout_alignRight="@+id/textView_playerPosition"
+        android:layout_alignEnd="@+id/textView_playerPosition"
+        android:layout_alignLeft="@+id/textView_playerNumber"
+        android:layout_alignStart="@+id/textView_playerNumber" />
+</RelativeLayout>

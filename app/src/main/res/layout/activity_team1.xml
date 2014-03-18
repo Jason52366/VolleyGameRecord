@@ -1,7 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <ListView
+        android:id="@+id/listview_teamName"
+        android:layout_width="300dp"
+        android:layout_height="320dp"
+        android:divider="#b5b5b5"
+        android:dividerHeight="2dp"
+        android:cacheColorHint="#00000000"
+        android:minHeight="60dp"
+        android:textFilterEnabled="true"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:choiceMode="none" />
 
-</LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="新增球隊"
+        android:id="@+id/button_addTeam"
+        android:layout_below="@+id/listview_teamName"
+        android:layout_centerHorizontal="true"
+        android:textSize="24dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="我的球隊"
+        android:id="@+id/textView_myTeam"
+        android:textSize="50dp"
+        android:layout_above="@+id/listview_teamName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp" />
+
+
+</RelativeLayout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="開  始  比  賽"
+        android:id="@+id/textView_gameStart"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="48dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="時  間"
+        android:id="@+id/textView_gameTime"
+        android:textSize="24dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/textView_gameStart"
+        android:layout_alignLeft="@+id/textView_gameStart"
+        android:layout_alignStart="@+id/textView_gameStart" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="盃  賽"
+        android:id="@+id/textView_gameCup"
+        android:layout_below="@+id/textView_gameTime"
+        android:layout_alignLeft="@+id/textView_gameTime"
+        android:layout_alignStart="@+id/textView_gameTime"
+        android:layout_marginTop="20dp"
+        android:textSize="24dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="地  點"
+        android:id="@+id/textView_gameArena"
+        android:layout_below="@+id/textView_gameCup"
+        android:layout_alignLeft="@+id/textView_gameCup"
+        android:layout_alignStart="@+id/textView_gameCup"
+        android:layout_marginTop="20dp"
+        android:textSize="24dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="球  隊"
+        android:id="@+id/textView_gameOurTeam"
+        android:layout_below="@+id/textView_gameArena"
+        android:layout_alignLeft="@+id/textView_gameArena"
+        android:layout_alignStart="@+id/textView_gameArena"
+        android:singleLine="false"
+        android:textSize="24dp"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="對  手"
+        android:id="@+id/textView_gameRivalTeam"
+        android:layout_below="@+id/textView_gameOurTeam"
+        android:layout_alignLeft="@+id/textView_gameOurTeam"
+        android:layout_alignStart="@+id/textView_gameOurTeam"
+        android:layout_marginTop="20dp"
+        android:textSize="24dp"
+        android:singleLine="false" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="確  定"
+        android:id="@+id/button_gameSure"
+        android:layout_below="@+id/textView_gameRivalTeam"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:textSize="24dp" />
+</RelativeLayout>

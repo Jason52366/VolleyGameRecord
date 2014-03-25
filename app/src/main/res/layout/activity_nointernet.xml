@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="請開啟網路連線"
-        android:id="@+id/OpenInternet"
-        android:textSize="50dp" />
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="點一下重試"
         android:id="@+id/ReRun"
-        android:layout_gravity="center_horizontal"
-        android:textSize="40dp" />
-</LinearLayout>
+        android:textSize="40dp"
+        android:layout_gravity="center|bottom"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="229dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="請開啟網路連線"
+        android:id="@+id/OpenInternet"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="50dp" />
+</RelativeLayout>

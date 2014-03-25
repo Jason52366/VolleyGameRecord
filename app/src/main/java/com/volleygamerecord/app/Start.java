@@ -19,18 +19,7 @@ public class Start  extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        Button btn_startGameStart = (Button)findViewById(R.id.button_startGameStart);
-        btn_startGameStart.setOnClickListener(new Button.OnClickListener(){
-            @Override
-            public void onClick(View v) {
 
-                Intent intent = new Intent();
-                intent.setClass(Start.this, GameStart1.class);
-                startActivity(intent);
-                onPause();
-            }
-
-        });
 
         //button_startManageTeam
         Button btn_startManageTeam = (Button)findViewById(R.id.button_startManageTeam);
@@ -45,6 +34,22 @@ public class Start  extends Activity {
             }
 
         });
+
+
+
+            Button btn_startGameStart = (Button)findViewById(R.id.button_startGameStart);
+        btn_startGameStart.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent();
+                intent.setClass(Start.this, GameStart1.class);
+                startActivity(intent);
+                onPause();
+            }
+
+        });
+
 
         //button_startManageTeam
         Button btn_startOnlineRecord = (Button)findViewById(R.id.button_startOnlineRecord);

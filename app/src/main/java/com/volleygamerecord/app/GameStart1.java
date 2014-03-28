@@ -8,8 +8,11 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by A on 2014/3/18.
@@ -21,6 +24,15 @@ public class GameStart1  extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gamestart1);
+
+        /*Date*/
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date dt=new Date();
+        String dts=sdf.format(dt);
+        TextView date = (TextView)findViewById(R.id.textView_gamestart1Date) ;
+        date.setText(dts);
+        DataCenter.getInstance().setValue("Date",dts);
+
 
         //button_gamestart1Sure
         Button btn_gamestart1Sure = (Button)findViewById(R.id.button_gamestart1Sure);

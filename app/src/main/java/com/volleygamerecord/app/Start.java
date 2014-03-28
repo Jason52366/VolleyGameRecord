@@ -3,10 +3,15 @@ package com.volleygamerecord.app;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 /**
@@ -27,9 +32,9 @@ public class Start  extends Activity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent();
-                intent.setClass(Start.this, Team1.class);
-                startActivity(intent);
+                Intent 企圖 = new Intent();
+                企圖.setClass(Start.this, Team1.class);
+                startActivity(企圖);
 
             }
 
@@ -37,7 +42,7 @@ public class Start  extends Activity {
 
 
 
-            Button btn_startGameStart = (Button)findViewById(R.id.button_startGameStart);
+        Button btn_startGameStart = (Button)findViewById(R.id.button_startGameStart);
         btn_startGameStart.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -64,6 +69,8 @@ public class Start  extends Activity {
             }
         });
 
+
+
         //button_startConfiguration
 //        Button btn_startConfiguration = (Button)findViewById(R.id.button_startConfiguration);
 //        btn_startConfiguration.setOnClickListener(new Button.OnClickListener(){
@@ -76,5 +83,38 @@ public class Start  extends Activity {
 //
 //            }
 //        });
+    }
+
+    //
+    private static Boolean isExit = false;
+    private static Boolean hasTask = false;
+    Timer tExit = new Timer();
+    TimerTask task = new TimerTask() {
+
+        @Override
+        public void run() {
+            isExit = false;
+            hasTask = true;
+        }
+    };
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        System.out.println("TabHost_Index.java onKeyDown");
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if(isExit == false ) {
+                isExit = true;
+                Toast.makeText(this, "再按一次返回鍵退出程式",
+
+                        Toast.LENGTH_SHORT).show();
+                if(!hasTask) {
+                    tExit.schedule(task, 2000);
+                }
+            } else {
+                finish();
+                System.exit(0);
+            }
+        }
+        return false;
     }
 }

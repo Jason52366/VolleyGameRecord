@@ -5,5 +5,5 @@ import android.app.Activity;
 /**
  * Created by user on 2014/3/18.
  */
-public class count2  extends Activity {
+public class Count2 extends Activity {
 }

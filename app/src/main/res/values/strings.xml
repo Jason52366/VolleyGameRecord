@@ -7,4 +7,6 @@
     <string name="password_placeholder">請輸入密碼</string>
     <string name="account_placeholder">請輸入帳號</string>
     <string name="teamName_placeholder">請輸入球隊名稱</string>
+    <string name="app_id">1393614940913937</string>
+
 </resources>

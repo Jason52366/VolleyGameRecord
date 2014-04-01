@@ -108,7 +108,7 @@ public class Start  extends Activity {
 
                         Toast.LENGTH_SHORT).show();
                 if(!hasTask) {
-                    tExit.schedule(task, 2000);
+                    tExit.schedule(task, 0);
                 }
             } else {
                 finish();

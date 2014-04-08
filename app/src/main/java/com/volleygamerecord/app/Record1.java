@@ -41,7 +41,7 @@ public class Record1 extends Activity {
                 gameScore.saveInBackground();
 
                 Intent 企圖 = new Intent();
-                企圖.setClass(Record1.this, Start.class);
+                企圖.setClass(Record1.this, Count1.class);
                 startActivity(企圖);
 
             }

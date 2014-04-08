@@ -25,6 +25,21 @@
         </activity>
 
         <activity
+            android:name="com.volleygamerecord.app.Easyrecord"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name="com.volleygamerecord.app.Count1"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name="com.volleygamerecord.app.Count2"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
             android:name="com.volleygamerecord.app.Team1"
             android:label="@string/app_name" >
         </activity>

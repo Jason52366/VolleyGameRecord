@@ -20,11 +20,13 @@ import java.util.ArrayList;
 public class Record1 extends Activity {
 
     ArrayList gamePoint = new ArrayList();
+
     //從datacenter拿資料
     String place = DataCenter.getInstance().getStringValue("place");
     String rival = DataCenter.getInstance().getStringValue("rival");
     String cup = DataCenter.getInstance().getStringValue("cup");
     String ourteam = DataCenter.getInstance().getStringValue("team");
+    String dts = DataCenter.getInstance().getStringValue("date");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,9 +51,10 @@ public class Record1 extends Activity {
                 gameScore.put("user", user);
                 gameScore.put("userName", user.getUsername());
                 gameScore.put("gamePlace", place);
-                gameScore.put("rival", rival);
+                gameScore.put("rivalTeam", rival);
                 gameScore.put("cup", cup);
-                gameScore.put("OurTeam",ourteam);
+                gameScore.put("ourTeam",ourteam);
+                gameScore.put("date", dts);
                 gameScore.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {

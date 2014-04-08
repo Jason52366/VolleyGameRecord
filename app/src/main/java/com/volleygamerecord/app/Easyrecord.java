@@ -2,16 +2,15 @@ package com.volleygamerecord.app;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -45,29 +44,29 @@ public class Easyrecord extends Activity {
         Date dt=new Date();
         //透過SimpleDateFormat的format方法將Date轉為字串
         String dts=sdf.format(dt);
-        TextView date = (TextView)findViewById(R.id.date) ;
-        date.setText(dts);
-
+        TextView date = (TextView)findViewById(R.id.easyRecordDate);
+        date.setText("");
 
         /*button area*/
-        btn1 = (Button) findViewById(R.id.button1) ;//從R.java中得到按鈕
+        btn1 = (Button) findViewById(R.id.easyRecordbutton1) ;//從R.java中得到按鈕
         //button= 代表了按鈕為 (Button) Android layout端的按鈕，findViewById為指定Android端的某名稱按鈕
         View.OnClickListener btn1_listener = new ourscore(); //ourscore為函式
         btn1.setOnClickListener(btn1_listener); //button1按下去以後的觸發事件
+        btn1.setText("easyRecordDate");
 
-        btn2 = (Button) findViewById(R.id.button2);
+        btn2 = (Button) findViewById(R.id.easyRecordbutton2);
         btn2.setOnClickListener(btn1_listener);
-        btn3 = (Button) findViewById(R.id.button3);
+        btn3 = (Button) findViewById(R.id.easyRecordbutton3);
         btn3.setOnClickListener(btn1_listener);
 
-        btn4 = (Button) findViewById(R.id.button4) ;
+        btn4 = (Button) findViewById(R.id.easyRecordbutton4) ;
         View.OnClickListener btn4_listener = new theirscore();
         btn4.setOnClickListener(btn4_listener);
 
-        btn5 = (Button) findViewById(R.id.button5);
+        btn5 = (Button) findViewById(R.id.easyRecordbutton5);
         btn5.setOnClickListener(btn4_listener);
 
-        btn6 = (Button) findViewById(R.id.button6);
+        btn6 = (Button) findViewById(R.id.easyRecordbutton6);
         btn6.setOnClickListener(btn4_listener);
 
     }
@@ -76,7 +75,7 @@ public class Easyrecord extends Activity {
         public void onClick(View v)
         {
 
-            TextView a_score = (TextView)findViewById(R.id.ascore);
+            TextView a_score = (TextView)findViewById(R.id.easyRecordAscore);
             int score = Integer.parseInt(a_score.getText().toString());
             score = score + 1 ;
             //a_score.setText(score);
@@ -91,7 +90,7 @@ public class Easyrecord extends Activity {
         public void onClick(View v)
         {
 
-            TextView b_score = (TextView)findViewById(R.id.bscore);
+            TextView b_score = (TextView)findViewById(R.id.easyRecordBScore);
             int score = Integer.parseInt(b_score.getText().toString());
             score = score + 1 ;
             //a_score.setText(score);

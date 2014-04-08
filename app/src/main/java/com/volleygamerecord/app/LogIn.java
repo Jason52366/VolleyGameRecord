@@ -108,7 +108,7 @@ public class LogIn extends Activity {
                                 String fbName = (String)userProfile.get("name");
                                 Log.e("fbName!!!", fbName);
                                 DataCenter.getInstance().setValue("fbName",fbName);
-
+                                //登入成功後才切換畫面
                                 Intent intent = new Intent();
                                 intent.setClass(LogIn.this, Loginsuccess.class);
                                 startActivity(intent);

@@ -43,4 +43,12 @@
         android:layout_alignStart="@+id/button_startOnlineRecord"
         android:layout_marginTop="10dp"
         android:textSize="24dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="簡易紀錄"
+        android:id="@+id/btn_easy_record"
+        android:layout_above="@+id/button_startGameStart"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

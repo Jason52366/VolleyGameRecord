@@ -62,8 +62,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="確定"
-        android:id="@+id/button_record3Sure"
+        android:id="@+id/btn_record3Confirm"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:textSize="24dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="失分"
+        android:id="@+id/text_lost_point"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

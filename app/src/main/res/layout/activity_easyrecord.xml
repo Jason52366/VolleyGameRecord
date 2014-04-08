@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.volleyballscore.app.Main"
+    tools:ignore="MergeRootFrame" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:id="@+id/ascore"
+        android:layout_marginTop="33dp"
+        android:textSize="40dp"
+        android:layout_marginLeft="43dp"
+        android:layout_below="@+id/ateam"
+        android:layout_alignLeft="@+id/ateam" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:id="@+id/bscore"
+        android:textSize="40dp"
+        android:layout_alignTop="@+id/ascore"
+        android:layout_toRightOf="@+id/date"
+        android:layout_alignBottom="@+id/ascore" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="攻擊得分"
+        android:id="@+id/button1"
+        android:layout_below="@+id/ascore"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="40dp"
+        android:textSize="25dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="攔網得分"
+        android:id="@+id/button2"
+        android:layout_alignTop="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="對方失誤"
+        android:id="@+id/button3"
+        android:textSize="25dp"
+        android:layout_above="@+id/button4"
+        android:layout_alignParentRight="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="攻擊失誤"
+        android:id="@+id/button4"
+        android:layout_marginTop="33dp"
+        android:layout_below="@+id/button1"
+        android:layout_alignParentLeft="true"
+        android:textSize="25dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="攔網失誤"
+        android:id="@+id/button5"
+        android:layout_alignTop="@+id/button4"
+        android:layout_alignLeft="@+id/button2"
+        android:textSize="25dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="防守失誤"
+        android:id="@+id/button6"
+        android:layout_alignTop="@+id/button5"
+        android:layout_alignParentRight="true"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="心理系"
+        android:id="@+id/ateam"
+        android:textSize="40dp"
+        android:layout_below="@+id/date"
+        android:layout_alignRight="@+id/button1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Other系"
+        android:id="@+id/bteam"
+        android:textSize="40dp"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/ateam"
+        android:layout_alignRight="@+id/bscore" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0000/00/00"
+        android:id="@+id/date"
+        android:textSize="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New game"
+        android:id="@+id/btn_new_game"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/button6"
+        android:layout_marginBottom="40dp" />
+
+</RelativeLayout>

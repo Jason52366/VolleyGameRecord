@@ -3,57 +3,54 @@ package com.volleygamerecord.app;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.parse.ParseObject;
+
+import java.util.ArrayList;
 
 /**
  * Created by A on 2014/3/18.
  */
 public class Record1 extends Activity {
 
+    ArrayList gameScore = new ArrayList();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_record1);
-        Button btn_set_end= (Button)findViewById(R.id.btn_set_end);
-        btn_set_end.setOnClickListener(new Button.OnClickListener(){
-            @Override
-            public void onClick (View v){
 
-                Intent intent = new Intent();
-                intent.setClass(Record1.this, Count1.class);
-                startActivity(intent);
+        String aaa = "a";
+        String bbb = "b";
+
+        gameScore.add(aaa);
+        gameScore.add(bbb);
+        Button btn_startManageTeam = (Button)findViewById(R.id.button_record1UploadGame);
+        btn_startManageTeam.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                Log.e("UPPPPP", gameScore.toString());
+                ParseObject gameScore = new ParseObject("GameScore");
+                gameScore.put("score", gameScore);
+                gameScore.put("userName", "ABC");
+                gameScore.saveInBackground();
+
+                Intent 企圖 = new Intent();
+                企圖.setClass(Record1.this, Start.class);
+                startActivity(企圖);
+
             }
 
         });
 
 
-        setContentView(R.layout.activity_record1);
-        Button btn_record1GetPoint= (Button)findViewById(R.id.btn_record1GetPoint);
-        btn_record1GetPoint.setOnClickListener(new Button.OnClickListener(){
-            @Override
-            public void onClick (View v){
-
-                Intent intent = new Intent();
-                intent.setClass(Record1.this, Record2.class);
-                startActivity(intent);
-            }
-
-        });
 
 
-        setContentView(R.layout.activity_record1);
-        Button btn_record1LosePoint= (Button)findViewById(R.id.btn_record1LosePoint);
-        btn_record1LosePoint.setOnClickListener(new Button.OnClickListener(){
-            @Override
-            public void onClick (View v){
 
-                Intent intent = new Intent();
-                intent.setClass(Record1.this, Record3.class);
-                startActivity(intent);
-            }
-
-        });
     }
 }

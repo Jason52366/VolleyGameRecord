@@ -16,7 +16,7 @@
             android:layout_width="120dp"
             android:layout_height="60dp"
             android:text="得 分"
-            android:id="@+id/btn_record1GetPoint"
+            android:id="@+id/button_record1GetPoint"
             android:layout_gravity="left|center_vertical"
             android:textSize="40dp"
             android:layout_marginLeft="60dp" />
@@ -25,7 +25,7 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="失 分"
-            android:id="@+id/btn_record1LosePoint"
+            android:id="@+id/button_record1LosePoint"
             android:layout_gravity="right|center_vertical"
             android:textSize="40dp"
             android:layout_marginRight="60dp" />
@@ -78,9 +78,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="本局結束"
-        android:id="@+id/btn_set_end"
+        android:id="@+id/button_record1UploadGame"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/textView_record1OurScore"
-        android:layout_marginBottom="101dp" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

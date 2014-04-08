@@ -33,8 +33,8 @@ public class LogIn extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
-
-        Parse.initialize(this, "fxeOW9nXZeLpl9cdzkIl7Bytdk0GWgOwFIO8BYm5", "gVjrvp2trzCD8hfbhZguZKJ1luOSRsjbI1WMJ5GG");
+        /*                               Application ID                  ,     Application ID     */
+        Parse.initialize(this, "OOyy4I805eCgkyEGCiZtAH2RybkVl2tWi4qulbkw", "AOXZIHWss8wAiupkyTQuhEelITKfQ3LUeXAdHVTL");
         ParseFacebookUtils.initialize("1393614940913937");
 
         //Login的確定按鈕
@@ -51,11 +51,11 @@ public class LogIn extends Activity {
                         if(session != null && session.isOpened()) makeMeRequest();
                     }
 
-                });
-//                Intent intent = new Intent();
-//                intent.setClass(LogIn.this, Start.class);
-//                startActivity(intent);
-//                LogIn.this.finish();
+              });
+                Intent intent = new Intent();
+                intent.setClass(LogIn.this, Start.class);
+                startActivity(intent);
+                LogIn.this.finish();
             }
 
         });

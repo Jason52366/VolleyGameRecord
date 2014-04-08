@@ -45,9 +45,11 @@ public class LogIn extends Activity {
                 ParseFacebookUtils.logIn(permissions, LogIn.this,new LogInCallback() {
                     @Override
                     public void done(ParseUser user, ParseException err) {
+                        DataCenter.getInstance().setValue("parseUserName", user.getUsername());
                         // Code to handle login.
                         Session session = ParseFacebookUtils.getSession();
                         if(session != null && session.isOpened()) makeMeRequest();
+
                     }
 
               });

@@ -4,12 +4,19 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.parse.FindCallback;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by A on 2014/3/18.
@@ -19,11 +26,6 @@ public class MyGame extends Activity {
     ArrayList<String> items;
     ArrayAdapter<String> adapter;
 
-    String place = DataCenter.getInstance().getStringValue("place");
-    String rival = DataCenter.getInstance().getStringValue("rival");
-    String cup = DataCenter.getInstance().getStringValue("cup");
-    String ourteam = DataCenter.getInstance().getStringValue("team");
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mygame);
@@ -31,10 +33,29 @@ public class MyGame extends Activity {
         listInput = (ListView) findViewById(R.id.listView);
         items = new ArrayList<String>();
 
-        items.add(place+" " +rival + " " + cup +" " +ourteam);
-
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
-        listInput.setAdapter(adapter);
+
+
+        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("GameScore");
+
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> parseObjects, com.parse.ParseException e) {
+                if (e == null) {
+                    for(int i = 0; i < parseObjects.size(); i++) {
+                        if(parseObjects.get(i).getString("userName").equals(DataCenter.getInstance().getStringValue("parseUserName"))) {
+                            items.add(parseObjects.get(i).getString("ourTeam") + " v.s " +
+                                    parseObjects.get(i).getString("rivalTeam"));
+                        }
+                    }
+                    listInput.setAdapter(adapter);
+                } else {
+                    // handle Parse Exception here
+                    Log.e("parseReturn", e.toString());
+                }
+            }
+        });
+
         listInput.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {

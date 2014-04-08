@@ -8,7 +8,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 
 import com.facebook.Request;
 import com.facebook.Response;
@@ -52,10 +51,7 @@ public class LogIn extends Activity {
                     }
 
               });
-                Intent intent = new Intent();
-                intent.setClass(LogIn.this, Start.class);
-                startActivity(intent);
-                LogIn.this.finish();
+
             }
 
         });
@@ -108,8 +104,17 @@ public class LogIn extends Activity {
 
                                 // Now add the data to the UI elements
                                 // ...
-                            CheckBox aaa = (CheckBox)findViewById(R.id.checkBox_loginRemember);
-                                aaa.setText("哈哈哈"+userProfile.get("name"));
+
+                                String fbName = (String)userProfile.get("name");
+                                Log.e("fbName!!!", fbName);
+                                DataCenter.getInstance().setValue("fbName",fbName);
+
+                                Intent intent = new Intent();
+                                intent.setClass(LogIn.this, Loginsuccess.class);
+                                startActivity(intent);
+                                LogIn.this.finish();
+
+
                             } catch (JSONException e) {
                                 Log.d("Myapp",
                                         "Error parsing returned user data.");

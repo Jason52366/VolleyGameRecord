@@ -92,6 +92,7 @@ public class LogIn extends Activity {
         ParseFacebookUtils.finishAuthentication(requestCode, resultCode, data);
     }
 
+    //檢查連線是否成功
     private void makeMeRequest() {
         Request request = Request.newMeRequest(ParseFacebookUtils.getSession(),
                 new Request.GraphUserCallback() {

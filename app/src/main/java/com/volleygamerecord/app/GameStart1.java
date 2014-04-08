@@ -23,7 +23,7 @@ public class GameStart1  extends Activity {
     Spinner spinner = null;
     Spinner spinner2 = null;
     Date dt=new Date();
-
+    String dts = null;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +40,6 @@ public class GameStart1  extends Activity {
         date.setText(dts);
         DataCenter.getInstance().setValue("date",dts);
 
-
-        //DataCenter.getInstance().setValue("Date",dts);
-
-
-        //button_gamestart1Sure
-
-
         Button btn_gamestart1Sure = (Button)findViewById(R.id.button_gamestart1Sure);
         btn_gamestart1Sure.setOnClickListener(new Button.OnClickListener(){
             @Override
@@ -59,6 +52,7 @@ public class GameStart1  extends Activity {
                 Log.e("team",spinner2.getSelectedItem().toString());
                 Log.e("place", place);
                 Log.e("rival", rival);
+                //把比賽訊息傳到DATACENTER
                 DataCenter.getInstance().setValue("cup",spinner.getSelectedItem().toString());
                 DataCenter.getInstance().setValue("team",spinner2.getSelectedItem().toString());
                 DataCenter.getInstance().setValue("place",place);

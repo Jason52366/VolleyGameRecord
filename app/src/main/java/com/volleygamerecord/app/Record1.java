@@ -20,8 +20,11 @@ import java.util.ArrayList;
 public class Record1 extends Activity {
 
     ArrayList gamePoint = new ArrayList();
-
-
+    //從datacenter拿資料
+    String place = DataCenter.getInstance().getStringValue("place");
+    String rival = DataCenter.getInstance().getStringValue("rival");
+    String cup = DataCenter.getInstance().getStringValue("cup");
+    String ourteam = DataCenter.getInstance().getStringValue("team");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,13 +41,17 @@ public class Record1 extends Activity {
             public void onClick(View v) {
 
                 Log.e("UPPPPP", gamePoint.toString());
+
                 ParseObject gameScore = new ParseObject("GameScore");
                 gameScore.put("score", gamePoint);
                 ParseUser user = ParseUser.getCurrentUser();
                 //This retrieves the currently logged in ParseUser with a valid session
                 gameScore.put("user", user);
                 gameScore.put("userName", user.getUsername());
-
+                gameScore.put("gamePlace", place);
+                gameScore.put("rival", rival);
+                gameScore.put("cup", cup);
+                gameScore.put("OurTeam",ourteam);
                 gameScore.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {

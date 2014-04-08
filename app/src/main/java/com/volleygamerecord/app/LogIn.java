@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 
 import com.facebook.Request;
 import com.facebook.Response;
@@ -49,11 +50,12 @@ public class LogIn extends Activity {
                         Session session = ParseFacebookUtils.getSession();
                         if(session != null && session.isOpened()) makeMeRequest();
                     }
+
                 });
-                Intent intent = new Intent();
-                intent.setClass(LogIn.this, Start.class);
-                startActivity(intent);
-                LogIn.this.finish();
+//                Intent intent = new Intent();
+//                intent.setClass(LogIn.this, Start.class);
+//                startActivity(intent);
+//                LogIn.this.finish();
             }
 
         });
@@ -90,7 +92,6 @@ public class LogIn extends Activity {
         ParseFacebookUtils.finishAuthentication(requestCode, resultCode, data);
     }
 
-    //關於request的部份
     private void makeMeRequest() {
         Request request = Request.newMeRequest(ParseFacebookUtils.getSession(),
                 new Request.GraphUserCallback() {
@@ -106,6 +107,8 @@ public class LogIn extends Activity {
 
                                 // Now add the data to the UI elements
                                 // ...
+                            CheckBox aaa = (CheckBox)findViewById(R.id.checkBox_loginRemember);
+                                aaa.setText("哈哈哈"+userProfile.get("name"));
                             } catch (JSONException e) {
                                 Log.d("Myapp",
                                         "Error parsing returned user data.");

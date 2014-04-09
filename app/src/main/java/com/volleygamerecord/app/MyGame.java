@@ -24,6 +24,7 @@ import java.util.List;
 public class MyGame extends Activity {
     ListView listInput;
     ArrayList<String> items;
+    ArrayList<String> objectsId;
     ArrayAdapter<String> adapter;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +33,12 @@ public class MyGame extends Activity {
 
         listInput = (ListView) findViewById(R.id.listView);
         items = new ArrayList<String>();
+        objectsId = new ArrayList<String>();
 
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
 
-
+        //get all objects from Parse
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("GameScore");
-
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> parseObjects, com.parse.ParseException e) {
@@ -46,11 +47,11 @@ public class MyGame extends Activity {
                         if(parseObjects.get(i).getString("userName").equals(DataCenter.getInstance().getStringValue("parseUserName"))) {
                             items.add(parseObjects.get(i).getString("ourTeam") + " v.s " +
                                     parseObjects.get(i).getString("rivalTeam"));
+                            objectsId.add(parseObjects.get(i).getObjectId());
                         }
                     }
                     listInput.setAdapter(adapter);
                 } else {
-                    // handle Parse Exception here
                     Log.e("parseReturn", e.toString());
                 }
             }
@@ -68,6 +69,13 @@ public class MyGame extends Activity {
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 items.remove(pos);
                                 listInput.setAdapter(adapter);
+                                //delete object in parse
+                                try {
+                                    ParseObject.createWithoutData("GameScore",objectsId.get(pos)).deleteEventually();
+                                    objectsId.remove(pos);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
                             }
                         })
                         .setNegativeButton("否", new DialogInterface.OnClickListener() {

@@ -84,7 +84,7 @@ public class MyGame extends Activity {
                             }
                         })
                         .show();
-                return false;
+                return true;
             }
         });
 

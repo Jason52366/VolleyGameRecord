@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -18,13 +16,25 @@ import java.util.TimerTask;
  * Created by Jay on 2014/3/18.
  */
 public class Start  extends Activity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
+        Button btn_startConfiguration = (Button)findViewById(R.id.button_startConfiguration);
+        btn_startConfiguration.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
 
+//                Intent 企圖 = new Intent();
+//                企圖.setClass(Start.this, .class);
+//                startActivity(企圖);
+
+
+
+            }
+        });
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         //button_startManageTeam
         Button btn_startManageTeam = (Button)findViewById(R.id.button_startManageTeam);

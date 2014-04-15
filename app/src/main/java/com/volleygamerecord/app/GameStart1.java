@@ -48,10 +48,12 @@ public class GameStart1  extends Activity {
                 EditText rivaltxt = (EditText)findViewById(R.id.editText_gamestart1RivalTeam);
                 String place = arena.getText().toString();
                 String rival  = rivaltxt.getText().toString();
-                Log.e("cup", spinner.getSelectedItem().toString());
-                Log.e("team",spinner2.getSelectedItem().toString());
-                Log.e("place", place);
-                Log.e("rival", rival);
+                Log.d("TAG", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                Log.d("cup", spinner.getSelectedItem().toString());
+                Log.d("team",spinner2.getSelectedItem().toString());
+                Log.d("place", place);
+                Log.d("rival", rival);
+                Log.d("TAG", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                 //把比賽訊息傳到DATACENTER
                 DataCenter.getInstance().setValue("cup",spinner.getSelectedItem().toString());
                 DataCenter.getInstance().setValue("team",spinner2.getSelectedItem().toString());

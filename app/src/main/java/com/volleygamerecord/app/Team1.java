@@ -20,7 +20,6 @@ public class Team1 extends Activity {
         button_addTeam.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent();
                 intent.setClass(Team1.this, Team2.class);
                 startActivity(intent);

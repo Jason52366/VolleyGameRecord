@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -56,7 +57,24 @@ public class MyGame extends Activity {
                 }
             }
         });
+        /*
+        listInput.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
+            @Override
+            public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+                menu.setHeaderTitle("数据操作");
+                menu.add(0, 0, 0, "增加");
+                menu.add(0, 1, 0, "删除");
+                menu.add(0, 2, 0, "修改");
+            }
+        });*/
+        listInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                Log.d("myApp","HI");
+
+            }
+        });
         listInput.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -84,7 +102,7 @@ public class MyGame extends Activity {
                             }
                         })
                         .show();
-                return true;
+                return false;
             }
         });
 

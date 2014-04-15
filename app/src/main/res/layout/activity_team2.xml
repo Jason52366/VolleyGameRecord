@@ -4,15 +4,16 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/teamName"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:hint="@string/teamName_placeholder"
+        android:text="台大心理系"
         android:layout_marginTop="30dp"
-        android:textSize="40dp" />
+        android:textSize="40dp"
+        android:editable="false" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -20,7 +21,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="球員"
         android:id="@+id/textView_playerName"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/teamName"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:textSize="30dp" />
@@ -60,4 +61,5 @@
         android:layout_alignEnd="@+id/textView_playerPosition"
         android:layout_alignLeft="@+id/textView_playerNumber"
         android:layout_alignStart="@+id/textView_playerNumber" />
+
 </RelativeLayout>

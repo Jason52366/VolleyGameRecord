@@ -20,11 +20,11 @@ public class Loginsuccess extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loginsuccess);
 
+
         fbName = DataCenter.getInstance().getStringValue("fbName");
         TextView loginsuccess = (TextView)findViewById(R.id.text_loginsuccess);
 
         Log.e("fbName", fbName);
-
         loginsuccess.setText("登入成功，歡迎"+fbName);
 
         Button btn_startManageTeam = (Button)findViewById(R.id.btn_enter_start);

@@ -3,6 +3,7 @@ package com.volleygamerecord.app;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,7 +15,6 @@ import com.parse.FindCallback;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,6 +57,22 @@ public class MyGame extends Activity {
             }
         });
 
+        //比賽資料
+        listInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String obID = objectsId.get(position);
+                Log.d("MyGame!!!!!!","The objectID is ''"+obID+"''");
+                DataCenter.getInstance().setValue("objectsId",obID);
+
+                Intent intent = new Intent();
+                intent.setClass(MyGame.this, Count1_MyGame.class);
+                startActivity(intent);
+                MyGame.this.finish();
+            }
+        });
+
+        //刪除比賽資料
         listInput.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -76,6 +92,7 @@ public class MyGame extends Activity {
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
+
                             }
                         })
                         .setNegativeButton("否", new DialogInterface.OnClickListener() {

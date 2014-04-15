@@ -13,14 +13,14 @@ import android.widget.TextView;
  */
 public class Loginsuccess extends Activity {
 
-    String fbName = DataCenter.getInstance().getStringValue("fbName");
-
+    String fbName = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loginsuccess);
 
+        fbName = DataCenter.getInstance().getStringValue("fbName");
         TextView loginsuccess = (TextView)findViewById(R.id.text_loginsuccess);
 
         Log.e("fbName", fbName);

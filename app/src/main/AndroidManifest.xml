@@ -58,7 +58,10 @@
             android:name="com.volleygamerecord.app.GameStart1"
             android:label="@string/app_name" >
         </activity>
-
+        <activity
+            android:name="com.volleygamerecord.app.Count1_MyGame"
+            android:label="@string/app_name" >
+        </activity>
         <activity
             android:name="com.volleygamerecord.app.GameStart2"
             android:label="@string/app_name" >
@@ -97,6 +100,8 @@
         <meta-data android:name="com.facebook.sdk.ApplicationId"
                    android:value="@string/app_id" />
         <activity  android:name="com.facebook.LoginActivity"/>
+
+
     </application>
 
 

@@ -42,15 +42,15 @@ public class LogIn extends Activity {
             @Override
             public void onClick(View v) {
                 List<String> permissions = Arrays.asList("basic_info","user_about_me");
-                ParseFacebookUtils.logIn(permissions, LogIn.this,new LogInCallback() {
+                ParseFacebookUtils.logIn(LogIn.this,new LogInCallback() {
                     @Override
                     public void done(ParseUser user, ParseException err) {
-                        // Code to handle login.
                         Session session = ParseFacebookUtils.getSession();
                         if(session != null && session.isOpened()) makeMeRequest();
+
                     }
 
-              });
+                });
 
             }
 
@@ -101,13 +101,11 @@ public class LogIn extends Activity {
                                 // Populate the JSON object
                                 userProfile.put("facebookId", user.getId());
                                 userProfile.put("name", user.getName());
-
-                                // Now add the data to the UI elements
-                                // ...
-
                                 String fbName = (String)userProfile.get("name");
                                 Log.e("fbName!!!", fbName);
                                 DataCenter.getInstance().setValue("fbName",fbName);
+
+
                                 //登入成功後才切換畫面
                                 Intent intent = new Intent();
                                 intent.setClass(LogIn.this, Loginsuccess.class);

@@ -57,16 +57,7 @@ public class Count1_MyGame extends Activity {
 
         TextView textView_count1 = (TextView)findViewById(R.id.textView_count1);
         Button btn_next_game = (Button)findViewById(R.id.btn_next_game);
-        btn_next_game.setOnClickListener(new Button.OnClickListener(){
-            @Override
-            public void onClick (View v){
-
-                Intent intent = new Intent();
-                intent.setClass(Count1_MyGame.this, Record1.class);
-                startActivity(intent);
-            }
-
-        });
+        btn_next_game.setAlpha(0);
 
 
         Button btn_end_game = (Button)findViewById(R.id.btn_end_game);

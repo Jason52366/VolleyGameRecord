@@ -7,7 +7,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/editText_team2TeamName"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:hint="@string/teamName_placeholder"
@@ -20,7 +20,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="球員"
         android:id="@+id/textView_playerName"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/editText_team2TeamName"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:textSize="30dp" />
@@ -47,7 +47,7 @@
         android:textSize="30dp"
         android:layout_marginLeft="66dp" />
     <ListView
-        android:id="@+id/list"
+        android:id="@+id/listview_team2List"
         android:layout_width="300dp"
         android:layout_height="320dp"
         android:divider="#b5b5b5"

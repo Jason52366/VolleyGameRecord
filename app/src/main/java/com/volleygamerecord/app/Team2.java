@@ -2,20 +2,32 @@ package com.volleygamerecord.app;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 /**
  * Created by Jay on 2014/3/18.
  */
 public class Team2 extends Activity {
+
+
+    ListView listInput;
+    ArrayList<String> items;
+    ArrayAdapter<String> adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team2);
 
-        Button teamName = (TextView)findViewById(R.id.textView_team2TeamName);
-        TextView.setOnClickListener(new Button.OnClickListener(){
+        EditText teamName = (EditText)findViewById(R.id.editText_team2TeamName);
+        listInput = (ListView) findViewById(R.id.listview_team2List);
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+        items = new ArrayList<String>();
+
 
 
     }

@@ -14,7 +14,7 @@ public class Record2 extends Activity {
    protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    setContentView(R.layout.activity_record2);
+   setContentView(R.layout.activity_record2);
     Button btn_record2Confirm= (Button)findViewById(R.id.btn_record2Confirm);
         btn_record2Confirm.setOnClickListener(new Button.OnClickListener(){
         @Override

@@ -56,7 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="5566"
+        android:text="55"
         android:id="@+id/textView_record1OurScore"
         android:textSize="42dp"
         android:layout_below="@+id/textView_record1OurTeam"
@@ -67,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="5566"
+        android:text="66"
         android:id="@+id/textView_record1RivalScore"
         android:textSize="42dp"
         android:layout_below="@+id/textView_record1RivalTeam"
@@ -81,5 +81,15 @@
         android:id="@+id/button_record1UploadGame"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="場上球員"
+        android:id="@+id/textView_player"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/button_record1UploadGame"
+        android:layout_alignStart="@+id/button_record1UploadGame" />
 
 </RelativeLayout>

@@ -25,8 +25,9 @@ public class Team2 extends Activity {
 
         EditText teamName = (EditText)findViewById(R.id.editText_team2TeamName);
         listInput = (ListView) findViewById(R.id.listview_team2List);
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+        adapter = new ArrayAdapter<String>(this, R.layout.listcontent_team2, items);
         items = new ArrayList<String>();
+
 
 
 

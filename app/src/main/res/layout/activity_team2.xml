@@ -8,11 +8,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_team2TeamName"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:hint="@string/teamName_placeholder"
-        android:layout_marginTop="30dp"
-        android:textSize="40dp" />
+        android:textSize="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -20,10 +19,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="球員"
         android:id="@+id/textView_playerName"
-        android:layout_below="@+id/editText_team2TeamName"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:layout_above="@+id/listview_team2List"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,10 +29,10 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="背號"
         android:id="@+id/textView_playerNumber"
-        android:layout_alignTop="@+id/textView_playerName"
-        android:layout_toLeftOf="@+id/textView_playerName"
         android:textSize="30dp"
-        android:layout_marginRight="66dp" />
+        android:layout_above="@+id/listview_team2List"
+        android:layout_alignLeft="@+id/listview_team2List"
+        android:layout_alignStart="@+id/listview_team2List" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -55,9 +53,16 @@
         android:cacheColorHint="#00000000"
         android:minHeight="60dp"
         android:textFilterEnabled="true"
-        android:layout_below="@+id/textView_playerName"
-        android:layout_alignRight="@+id/textView_playerPosition"
-        android:layout_alignEnd="@+id/textView_playerPosition"
-        android:layout_alignLeft="@+id/textView_playerNumber"
-        android:layout_alignStart="@+id/textView_playerNumber" />
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/editText_team2TeamName"
+        android:layout_alignEnd="@+id/editText_team2TeamName" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="新增球隊"
+        android:id="@+id/button_team2AddNewTeam"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/editText_team2TeamName"
+        android:layout_alignStart="@+id/editText_team2TeamName" />
 </RelativeLayout>

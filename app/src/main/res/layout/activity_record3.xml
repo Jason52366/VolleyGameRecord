@@ -4,60 +4,6 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="對方攻擊"
-        android:id="@+id/textView_enemy_attack"
-        android:layout_marginLeft="38dp"
-        android:layout_marginTop="149dp"
-        android:textSize="24dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="防守失誤"
-        android:id="@+id/button_record3ErrorDefend"
-        android:textSize="24dp"
-        android:layout_below="@+id/textView_enemy_attack"
-        android:layout_alignLeft="@+id/textView_enemy_attack"
-        android:layout_alignStart="@+id/textView_enemy_attack"
-        android:layout_marginTop="112dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="攻擊失誤"
-        android:id="@+id/button_record3ErrorAttack"
-        android:layout_alignTop="@+id/button_record3ErrorDefend"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="49dp"
-        android:textSize="24dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="接發失誤"
-        android:id="@+id/button_record3ErrorServeReturn"
-        android:textSize="24dp"
-        android:layout_alignTop="@+id/button_record3BreakRule"
-        android:layout_alignLeft="@+id/button_record3ErrorDefend"
-        android:layout_alignStart="@+id/button_record3ErrorDefend" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="我方犯規"
-        android:id="@+id/button_record3BreakRule"
-        android:textSize="24dp"
-        android:layout_below="@+id/button_record3ErrorAttack"
-        android:layout_alignLeft="@+id/button_record3ErrorAttack"
-        android:layout_alignStart="@+id/button_record3ErrorAttack" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -71,8 +17,93 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="失分"
-        android:id="@+id/text_lost_point"
+        android:text="球員"
+        android:id="@+id/text_record3players"
+        android:textSize="30dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="player3"
+        android:id="@+id/radioButton_record3player3"
+        android:checked="false"
+        android:layout_below="@+id/text_record3players"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:textSize="25dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginBottom="3dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="player4"
+        android:id="@+id/radioButton_record3player4"
+        android:layout_alignTop="@+id/radioButton_record3player3"
+        android:layout_toLeftOf="@+id/radioButton_record3player3"
+        android:checked="false"
+        android:textSize="25dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="player5"
+        android:id="@+id/radioButton_record3player5"
+        android:layout_below="@+id/radioButton_record3player3"
+        android:layout_alignLeft="@+id/radioButton_record3player4"
+        android:layout_alignStart="@+id/radioButton_record3player4"
+        android:checked="false"
+        android:textSize="25dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="player2"
+        android:id="@+id/radioButton_record3player2"
+        android:layout_alignTop="@+id/radioButton_record3player3"
+        android:layout_toRightOf="@+id/radioButton_record3player3"
+        android:checked="false"
+        android:textSize="25dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="player6"
+        android:id="@+id/radioButton"
+        android:layout_below="@+id/radioButton_record3player3"
+        android:layout_toRightOf="@+id/radioButton_record3player5"
+        android:checked="false"
+        android:textSize="25dp"
+        android:layout_marginRight="3dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="player1"
+        android:id="@+id/radioButton_record3player1"
+        android:layout_below="@+id/radioButton_record3player3"
+        android:layout_toRightOf="@+id/radioButton"
+        android:checked="false"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="對方攻擊"
+        android:id="@+id/textView_record3opponentattack"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/radioButton"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New RadioButton"
+        android:id="@+id/radioButton2"
+        android:layout_below="@+id/textView_record3opponentattack"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

@@ -23,6 +23,8 @@ public class Record1 extends Activity {
     Integer ourScore = 0 ;
     Integer rivalScore = 0;
 
+    //ScoreCenter拿資料
+    ArrayList scoreList = ScoreCenter.getInstance().getScoreArray();
 
     //從datacenter拿資料
     String place = DataCenter.getInstance().getStringValue("place");
@@ -40,6 +42,12 @@ public class Record1 extends Activity {
 
         gamePointList.add(0);
         gamePointList.add(0);
+
+        Log.d("Record1","!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        Log.d("Record1",scoreList.toString());
+        Log.d("Record1",ScoreCenter.getInstance().getPlayerArray().toString());
+        Log.d("Record1",ScoreCenter.getInstance().getWayArray().toString());
+        Log.d("Record1","!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
         //結束比賽的按鈕
         Button btn_startManageTeam = (Button)findViewById(R.id.button_record1UploadGame);

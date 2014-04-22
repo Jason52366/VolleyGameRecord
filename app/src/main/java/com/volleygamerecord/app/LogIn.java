@@ -10,8 +10,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
 
 import com.facebook.Request;
 import com.facebook.Response;
@@ -31,7 +29,6 @@ import java.util.List;
 
 
 public class LogIn extends Activity {
-    String value = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,28 +39,19 @@ public class LogIn extends Activity {
         btn_test.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v){
-                AlertDialog.Builder alert = new AlertDialog.Builder(LogIn.this);
-                alert.setTitle("Title");
-                alert.setMessage("Message");
-                // Set an EditText view to get user input
-                final EditText input = new EditText(LogIn.this);
-                alert.setView(input);
 
-                alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                View alertview = findViewById(R.layout.alertdialog_team2);
+                new AlertDialog.Builder(LogIn.this)
+                        .setView(alertview)
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                            }
+                        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        value = input.getText().toString();
-                        // Do something with value!
-                        CheckBox aaa = (CheckBox)findViewById(R.id.checkBox_loginRemember);
-                        aaa.setText(value);
+                        // Do nothing.
                     }
-                });
+                }).show();
 
-                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        // Canceled.
-                    }
-                });
-                alert.show();
             }
         }
         );
@@ -166,4 +154,5 @@ public class LogIn extends Activity {
         request.executeAsync();
 
     }
+
 }

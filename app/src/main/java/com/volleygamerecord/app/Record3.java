@@ -19,6 +19,7 @@ public class Record3  extends Activity {  @Override
         @Override
         public void onClick (View v){
 
+            ScoreCenter.getInstance().setScoreArray(false,"方法","人名");
             Intent intent = new Intent();
             intent.setClass(Record3.this, Record1.class);
             startActivity(intent);

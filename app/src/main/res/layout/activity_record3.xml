@@ -71,7 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="player6"
-        android:id="@+id/radioButton"
+        android:id="@+id/radioButton_record3player6"
         android:layout_below="@+id/radioButton_record3player3"
         android:layout_toRightOf="@+id/radioButton_record3player5"
         android:checked="false"
@@ -84,7 +84,7 @@
         android:text="player1"
         android:id="@+id/radioButton_record3player1"
         android:layout_below="@+id/radioButton_record3player3"
-        android:layout_toRightOf="@+id/radioButton"
+        android:layout_toRightOf="@+id/radioButton_record3player6"
         android:checked="false"
         android:textSize="25dp" />
 
@@ -94,16 +94,111 @@
         android:text="對方攻擊"
         android:id="@+id/textView_record3opponentattack"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/radioButton"
+        android:layout_below="@+id/radioButton_record3player6"
         android:layout_centerHorizontal="true"
         android:textSize="30dp" />
+
+    <RadioGroup android:id="@+id/rdg1"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/textView_record3opponentattack"
+        android:layout_marginTop="10dp"
+        android:focusable="false"
+        android:layout_alignLeft="@+id/textView_record3opponentattack"
+        android:layout_alignStart="@+id/textView_record3opponentattack"
+        android:layout_alignRight="@+id/btn_record3Confirm"
+        android:layout_alignEnd="@+id/btn_record3Confirm">
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="大砲"
+        android:id="@+id/radioButton_record3a1"
+        android:layout_below="@+id/textView_record3opponentattack"
+        android:layout_centerHorizontal="true"
+        android:checked="false"
+        android:textSize="25dp" />
 
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New RadioButton"
-        android:id="@+id/radioButton2"
-        android:layout_below="@+id/textView_record3opponentattack"
-        android:layout_centerHorizontal="true" />
+        android:text="快攻"
+        android:id="@+id/radioButton_record3a2"
+        android:layout_below="@+id/radioButton_record3a1"
+        android:layout_centerHorizontal="true"
+        android:checked="false"
+        android:textSize="25dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="背位"
+        android:id="@+id/radioButton_record3a3"
+        android:layout_below="@+id/radioButton_record3a2"
+        android:layout_alignLeft="@+id/radioButton_record3a1"
+        android:layout_alignStart="@+id/radioButton_record3a1"
+        android:textSize="25dp"
+        android:checked="false" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="後排"
+        android:id="@+id/radioButton_record3a4"
+        android:layout_below="@+id/radioButton_record3a3"
+        android:layout_centerHorizontal="true"
+        android:checked="false"
+        android:textSize="25dp" />
+
+    </RadioGroup>
+
+    <RadioGroup android:id="@+id/rdg2"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignTop="@+id/rdg1"
+        android:layout_toRightOf="@+id/rdg1">
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="直線"
+        android:id="@+id/radioButton_record3b1"
+        android:layout_alignTop="@+id/rdg1"
+        android:layout_toRightOf="@+id/radioButton_record3player6"
+        android:checked="false"
+        android:textSize="25dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="斜線"
+        android:id="@+id/radioButton_record3b2"
+        android:layout_below="@+id/radioButton_record3b1"
+        android:layout_toRightOf="@+id/radioButton_record3player6"
+        android:checked="false"
+        android:textSize="25dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="手尾"
+        android:id="@+id/radioButton_record3b3"
+        android:layout_below="@+id/radioButton_record3b2"
+        android:layout_toRightOf="@+id/rdg1"
+        android:checked="false"
+        android:textSize="25dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="吊球"
+        android:id="@+id/radioButton_record3b4"
+        android:layout_below="@+id/radioButton_record3b3"
+        android:layout_toRightOf="@+id/radioButton_record3player6"
+        android:checked="false"
+        android:textSize="25dp" />
+
+    </RadioGroup>
 
 </RelativeLayout>

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -20,28 +21,25 @@ import java.util.ArrayList;
 public class Record1 extends Activity {
 
     ArrayList gamePointList = new ArrayList();
-    Integer ourScore = 0 ;
-    Integer rivalScore = 0;
+    Integer ourScoreInt = 0 ;
+    Integer rivalScoreInt = 0;
+
 
     //ScoreCenter拿資料
-    ArrayList scoreList = ScoreCenter.getInstance().getScoreArray();
+    ArrayList scoreList = new ArrayList();
 
     //從datacenter拿資料
     String place = DataCenter.getInstance().getStringValue("place");
     String rival = DataCenter.getInstance().getStringValue("rival");
     String cup = DataCenter.getInstance().getStringValue("cup");
-    String ourteam = DataCenter.getInstance().getStringValue("team");
+    String our = DataCenter.getInstance().getStringValue("team");
     String dts = DataCenter.getInstance().getStringValue("date");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("restart","restart");
         setContentView(R.layout.activity_record1);
 
-        String aaa = "a";
-        String bbb = "b";
-
-        gamePointList.add(0);
-        gamePointList.add(0);
 
         Log.d("Record1","!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         Log.d("Record1",scoreList.toString());
@@ -55,6 +53,10 @@ public class Record1 extends Activity {
             @Override
             public void onClick(View v) {
                 Log.e("UPPPPP", gamePointList.toString());
+
+                gamePointList.add(ourScoreInt);
+                gamePointList.add(rivalScoreInt);
+
                 ParseObject gameScore = new ParseObject("GameScore");
                 gameScore.put("score", gamePointList);
                 ParseUser user = ParseUser.getCurrentUser();
@@ -64,7 +66,7 @@ public class Record1 extends Activity {
                 gameScore.put("gamePlace", place);
                 gameScore.put("rivalTeam", rival);
                 gameScore.put("cup", cup);
-                gameScore.put("ourTeam",ourteam);
+                gameScore.put("ourTeam",our);
                 gameScore.put("date", dts);
                 gameScore.saveInBackground(new SaveCallback() {
                     @Override
@@ -76,6 +78,7 @@ public class Record1 extends Activity {
                         }
                     }
                 });
+                ScoreCenter.getInstance().cleanArrays();
                 Intent 企圖 = new Intent();
                 企圖.setClass(Record1.this, Count1.class);
                 startActivity(企圖);
@@ -90,12 +93,51 @@ public class Record1 extends Activity {
             public void onClick(View v) {
                 Intent 得分切換 = new Intent();
                 得分切換.setClass(Record1.this, Record2.class);
-                startActivity(得分切換);
-                Record1.this.finish();
+                startActivityForResult(得分切換, 77);
+            }
+        });
+
+        Button btn_losePoint = (Button)findViewById(R.id.button_record1LosePoint);
+        btn_losePoint.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent 失分切換 = new Intent();
+                失分切換.setClass(Record1.this, Record3.class);
+                startActivityForResult(失分切換, 76);
+
             }
         });
 
 
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d("requestcode",""+requestCode);
+        Log.d("resultcode",""+resultCode);
+        calculateScore();
+
+
+
+        }
+
+    private void calculateScore(){
+    ourScoreInt = 0;
+    rivalScoreInt = 0;
+        scoreList = ScoreCenter.getInstance().getScoreArray();
+        for(int i = 0; i < scoreList.size(); i++)
+        {
+            if ((Boolean)scoreList.get(i))
+            {
+                ourScoreInt = ourScoreInt + 1;
+            }else{
+                rivalScoreInt = rivalScoreInt + 1;
+            }
+        }
+        TextView ourScore = (TextView)findViewById(R.id.textView_record1OurScore);
+        TextView rivalSocre = (TextView)findViewById(R.id.textView_record1RivalScore);
+        rivalSocre.setText(String.valueOf(rivalScoreInt));
+        ourScore.setText(String.valueOf(ourScoreInt));
     }
 }

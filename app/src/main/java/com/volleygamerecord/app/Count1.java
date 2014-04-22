@@ -24,6 +24,10 @@ public class Count1 extends Activity {
                 Intent intent = new Intent();
                 intent.setClass(Count1.this, Record1.class);
                 startActivity(intent);
+                Count1.this.finish();
+
+
+
             }
 
         });

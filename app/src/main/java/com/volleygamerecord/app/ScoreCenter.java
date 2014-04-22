@@ -5,6 +5,7 @@ package com.volleygamerecord.app;
  */
 
 import android.content.Context;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -51,6 +52,7 @@ public class ScoreCenter {
     }
 
     public void cleanArrays(){
+        Log.d("ScoreCenter","清理完成！");
         ScoreArray = null;
         WayArray = null;
         PlayerArray = null;

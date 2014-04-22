@@ -1,7 +1,6 @@
 package com.volleygamerecord.app;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,9 +22,9 @@ public class Record2 extends Activity {
             public void onClick (View v){
 
                 ScoreCenter.getInstance().setScoreArray(true,"方法","人");
-                Intent intent = new Intent();
-                intent.setClass(Record2.this, Record1.class);
-                startActivity(intent);
+                setResult(56);
+                Record2.this.finish();
+
             }
 
         }

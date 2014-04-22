@@ -22,7 +22,7 @@ public class Record2 extends Activity {
             public void onClick (View v){
 
                 ScoreCenter.getInstance().setScoreArray(true,"方法","人");
-                setResult(56);
+                setResult(2);
                 Record2.this.finish();
 
             }

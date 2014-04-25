@@ -100,15 +100,11 @@
 
     <RadioGroup android:id="@+id/rdg1"
         android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@+id/textView_record3opponentattack"
-        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:focusable="false"
-        android:layout_alignLeft="@+id/textView_record3opponentattack"
-        android:layout_alignStart="@+id/textView_record3opponentattack"
-        android:layout_alignRight="@+id/btn_record3Confirm"
-        android:layout_alignEnd="@+id/btn_record3Confirm">
+        android:layout_below="@+id/textView_record3opponentattack"
+        android:layout_toLeftOf="@+id/radioButton_record3player6">
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -154,10 +150,10 @@
 
     <RadioGroup android:id="@+id/rdg2"
         android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignTop="@+id/rdg1"
-        android:layout_toRightOf="@+id/rdg1">
+        android:layout_toRightOf="@+id/text_record3players">
 
     <RadioButton
         android:layout_width="wrap_content"
@@ -200,5 +196,119 @@
         android:textSize="25dp" />
 
     </RadioGroup>
+
+
+    <RadioGroup android:id="@+id/rdg3"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:layout_alignTop="@+id/rdg1"
+        android:layout_marginTop="130dp"
+        >
+
+
+        <LinearLayout android:id="@+id/rdg3_2"
+            android:orientation="horizontal"
+            android:layout_width="472dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true">
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="各種犯規"
+        android:id="@+id/radioButton_record3c4"
+        android:checked="false"
+        android:textSize="23dp"
+        android:layout_below="@+id/rdg3"
+        android:layout_toLeftOf="@+id/textView_record3opponentattack" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="舉球失誤"
+        android:id="@+id/radioButton_record3c5"
+        android:layout_below="@+id/rdg3"
+        android:layout_toRightOf="@+id/radioButton_record3c4"
+        android:checked="false"
+        android:textSize="23dp" />
+
+    <RadioButton
+        android:layout_width="106dp"
+        android:layout_height="wrap_content"
+        android:text="對手貼底"
+        android:id="@+id/radioButton_record3c6"
+        android:layout_below="@+id/rdg3"
+        android:layout_toRightOf="@+id/radioButton_record3c5"
+        android:checked="false"
+        android:textSize="23dp" />
+        </LinearLayout>
+
+    </RadioGroup>
+
+    <LinearLayout android:id="@+id/rdg3_3"
+        android:orientation="horizontal"
+        android:layout_width="309dp"
+        android:layout_height="167dp"
+        android:layout_above="@+id/btn_record3Confirm"
+        android:layout_centerHorizontal="true"
+        android:weightSum="1">
+
+        <RadioButton
+        android:layout_width="67dp"
+        android:layout_height="69dp"
+        android:text="防守失誤"
+        android:id="@+id/radioButton_record3c7"
+            android:checked="false"
+        android:textSize="23dp"
+            android:layout_above="@+id/btn_record3Confirm"
+            android:layout_alignRight="@+id/btn_record3Confirm"
+            android:layout_alignEnd="@+id/btn_record3Confirm"
+            android:layout_weight="0.31" />
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/rdg3_1"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rdg3"
+        android:layout_marginTop="55dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+
+<RadioButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="攔網失分"
+    android:id="@+id/radioButton_record3c1"
+    android:checked="false"
+    android:textSize="23dp"
+    android:layout_above="@+id/btn_record3Confirm"
+    android:layout_alignLeft="@+id/radioButton_record3player5"
+    android:layout_alignStart="@+id/radioButton_record3player5" />
+
+        <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="攻擊失誤"
+        android:id="@+id/radioButton_record3c3"
+        android:checked="false"
+        android:textSize="23dp" />
+
+        <RadioButton
+            android:layout_width="287dp"
+            android:layout_height="134dp"
+            android:text="接發失誤"
+            android:id="@+id/radioButton_record3c2"
+            android:checked="false"
+            android:textSize="23dp"
+            android:layout_above="@+id/btn_record3Confirm"
+            android:layout_alignLeft="@+id/radioButton_record3player5"
+            android:layout_alignStart="@+id/radioButton_record3player5" />
+
+    </LinearLayout>
 
 </RelativeLayout>

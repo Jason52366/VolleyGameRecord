@@ -100,8 +100,7 @@
         android:id="@+id/textView_record2others"
         android:textSize="30dp"
         android:layout_above="@+id/rdg4"
-        android:layout_alignLeft="@+id/button_record2confirm"
-        android:layout_alignStart="@+id/button_record2confirm" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"

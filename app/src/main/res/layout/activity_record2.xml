@@ -204,7 +204,7 @@
             android:layout_height="wrap_content"
             android:visibility="visible"
             android:layout_alignWithParentIfMissing="false"
-            android:layout_alignBottom="@+id/button_record2confirm"
+            android:layout_below="@+id/textView_record2others"
             android:layout_centerHorizontal="true">
 
         <RadioButton
@@ -219,7 +219,7 @@
 
         <RadioButton
             android:layout_width="108dp"
-            android:layout_height="135dp"
+            android:layout_height="103dp"
             android:text="對手失誤與犯規"
             android:id="@+id/radioButton_record2other1"
             android:checked="false"

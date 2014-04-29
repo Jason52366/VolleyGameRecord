@@ -118,7 +118,6 @@
         android:orientation="vertical"
         android:layout_width="400dp"
         android:layout_height="wrap_content"
-
         android:layout_alignTop="@+id/record2rdg2"
         android:layout_toRightOf="@+id/textView_record2ways">
 

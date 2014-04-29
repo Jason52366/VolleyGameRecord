@@ -257,13 +257,13 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true">
 
-            <RadioButton
+        <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="舉球失誤"
-        android:id="@+id/radioButton_record3c5"
+        android:id="@+id/radioButton_record3c1"
         android:layout_below="@+id/record3rdg3"
-        android:layout_toRightOf="@+id/radioButton_record3c4"
+        android:layout_toRightOf="@+id/radioButton_record3c3"
         android:checked="false"
         android:textSize="24dp" />
 
@@ -271,9 +271,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="對方攔網"
-        android:id="@+id/radioButton_record3c6"
+        android:id="@+id/radioButton_record3c2"
         android:layout_below="@+id/record3rdg3"
-        android:layout_toRightOf="@+id/radioButton_record3c5"
+        android:layout_toRightOf="@+id/radioButton_record3c1"
         android:checked="false"
         android:textSize="24dp" />
 
@@ -281,7 +281,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="我方犯規"
-                android:id="@+id/radioButton_record3c4"
+                android:id="@+id/radioButton_record3c3"
                 android:checked="false"
                 android:textSize="24dp"
                 android:layout_below="@+id/record3rdg3"

@@ -76,7 +76,7 @@ public class Record1 extends Activity {
             }
         });
 
-
+        //得分了
         Button btn_getPoint = (Button)findViewById(R.id.button_record1GetPoint);
         btn_getPoint.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -88,6 +88,7 @@ public class Record1 extends Activity {
             }
         });
 
+        //失分了
         Button btn_losePoint = (Button)findViewById(R.id.button_record1LosePoint);
         btn_losePoint.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -106,7 +107,7 @@ public class Record1 extends Activity {
         Log.d("requestcode",""+requestCode);
         Log.d("resultcode",""+resultCode);
         calculateScore();
-        }
+    }
     private void calculateScore(){
         //ScoreCenter拿資料
         scoreList = ScoreCenter.getInstance().getScoreArray();
@@ -119,7 +120,10 @@ public class Record1 extends Activity {
             } else {
                 rivalScoreInt = rivalScoreInt + 1;
             }
+        }else{
+
         }
+
         TextView ourScore = (TextView)findViewById(R.id.textView_record1OurScore);
         TextView rivalSocre = (TextView)findViewById(R.id.textView_record1RivalScore);
         rivalSocre.setText(String.valueOf(rivalScoreInt));

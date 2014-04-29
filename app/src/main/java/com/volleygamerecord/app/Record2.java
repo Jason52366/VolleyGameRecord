@@ -5,11 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
+
 
 /**
  * Created by A on 2014/3/18.
  */
 public class Record2 extends Activity {
+
+    ArrayList scoreList = new ArrayList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +34,19 @@ public class Record2 extends Activity {
         }
         );
     }
+/*
+ private void CheckScore(){
+        //ScoreCenter拿資料
+        scoreList = ScoreCenter.getInstance().getScoreArray();
+        int i = (scoreList.size()-2);
+        if ((Boolean) scoreList.get(i)) {
+        }else{
+            i = (scoreList.size() - 1);
+            if ((Boolean)scoreList.get(i))
+            {}
+        }
 
-
+    }
+*/
 
 }

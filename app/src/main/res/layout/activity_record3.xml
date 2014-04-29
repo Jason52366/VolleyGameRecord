@@ -30,12 +30,10 @@
         android:text="3號"
         android:id="@+id/radioButton_record3player3"
         android:checked="false"
-        android:layout_below="@+id/text_record3players"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
         android:textSize="25dp"
-        android:layout_marginRight="3dp"
-        android:layout_marginBottom="3dp" />
+        android:layout_below="@+id/text_record3players"
+        android:layout_toLeftOf="@+id/text_record3players"
+        android:layout_marginTop="8dp" />
 
     <RadioButton
         android:layout_width="wrap_content"
@@ -84,10 +82,10 @@
         android:layout_height="wrap_content"
         android:text="1號"
         android:id="@+id/radioButton_record3player1"
-        android:layout_below="@+id/radioButton_record3player3"
-        android:layout_toRightOf="@+id/radioButton_record3player6"
         android:checked="false"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:layout_below="@+id/radioButton_record3player3"
+        android:layout_toRightOf="@+id/radioButton_record3player3" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -105,7 +103,7 @@
         android:layout_height="wrap_content"
         android:focusable="false"
         android:layout_below="@+id/textView_record3opponentattack"
-        android:layout_toLeftOf="@+id/radioButton_record3player6">
+        android:layout_toLeftOf="@+id/textView_record3opponentattack">
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -316,17 +314,6 @@
                 android:layout_alignEnd="@+id/rdg3_3" />
         </LinearLayout>
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="對方攔網"
-            android:id="@+id/radioButton"
-            android:layout_below="@+id/record3rdg3"
-            android:layout_toRightOf="@+id/radioButton_record3c5"
-            android:checked="false"
-            android:textSize="24dp"
-            android:layout_gravity="right" />
-
     </RadioGroup>
 
     <TextView
@@ -340,5 +327,27 @@
         android:layout_alignStart="@+id/radioButton_record3player6"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="8dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自由1"
+        android:id="@+id/radioButton_record3liberal1"
+        android:checked="false"
+        android:textSize="20dp"
+        android:layout_alignTop="@+id/radioButton_record3player2"
+        android:layout_alignLeft="@+id/radioButton_record3liberal2"
+        android:layout_alignStart="@+id/radioButton_record3liberal2" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自由2"
+        android:id="@+id/radioButton_record3liberal2"
+        android:layout_below="@+id/radioButton_record3liberal1"
+        android:layout_toRightOf="@+id/radioButton_record3player1"
+        android:checked="false"
+        android:textSize="20dp"
+        android:layout_marginLeft="3dp" />
 
 </RelativeLayout>

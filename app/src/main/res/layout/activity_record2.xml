@@ -14,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textSize="30dp"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="3dp" />
 
     <RadioButton
         android:layout_width="wrap_content"
@@ -34,9 +34,8 @@
         android:id="@+id/radiobotton_record2player3"
         android:checked="false"
         android:textSize="25dp"
-        android:layout_below="@+id/textView_record2player"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp" />
+        android:layout_alignTop="@+id/radiobotton_record2player4"
+        android:layout_toLeftOf="@+id/textView_record2player" />
 
     <RadioButton
         android:layout_width="wrap_content"
@@ -46,8 +45,7 @@
         android:checked="false"
         android:textSize="25dp"
         android:layout_alignTop="@+id/radiobotton_record2player3"
-        android:layout_toRightOf="@+id/radiobotton_record2player3"
-        android:layout_marginLeft="5dp" />
+        android:layout_toRightOf="@+id/radiobotton_record2player3" />
 
     <RadioButton
         android:layout_width="wrap_content"
@@ -293,4 +291,25 @@
                 android:textSize="25dp" />
         </RadioGroup>
 
-    </RelativeLayout>
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自由1"
+        android:id="@+id/radioButton_record2liberal1"
+        android:layout_alignTop="@+id/radiobotton_record2player2"
+        android:layout_toRightOf="@+id/radiobotton_record2player2"
+        android:checked="false"
+        android:textSize="20dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自由2"
+        android:id="@+id/radioButton_record2liberal2"
+        android:layout_below="@+id/radioButton_record2liberal1"
+        android:layout_alignLeft="@+id/radioButton_record2liberal1"
+        android:layout_alignStart="@+id/radioButton_record2liberal1"
+        android:checked="false"
+        android:textSize="20dp" />
+
+</RelativeLayout>

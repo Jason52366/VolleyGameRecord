@@ -272,9 +272,9 @@
     <LinearLayout android:id="@+id/rdg3_1"
         android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/rdg3"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="30dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true">
 

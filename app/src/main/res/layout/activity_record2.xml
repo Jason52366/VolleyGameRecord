@@ -19,7 +19,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="player4"
+        android:text="4號"
         android:id="@+id/radiobotton_record2player4"
         android:checked="false"
         android:textSize="25dp"
@@ -30,7 +30,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="player3"
+        android:text="3號"
         android:id="@+id/radiobotton_record2player3"
         android:checked="false"
         android:textSize="25dp"
@@ -41,7 +41,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="player2"
+        android:text="2號"
         android:id="@+id/radiobotton_record2player2"
         android:checked="false"
         android:textSize="25dp"
@@ -52,7 +52,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="player6"
+        android:text="6號"
         android:checked="false"
         android:id="@+id/radiobotton_record2player6"
         android:textSize="25dp"
@@ -63,7 +63,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="player5"
+        android:text="5號"
         android:id="@+id/radiobotton_record2player5"
         android:checked="false"
         android:textSize="25dp"
@@ -74,7 +74,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="player1"
+        android:text="1號"
         android:id="@+id/radiobotton_record2player1"
         android:checked="false"
         android:textSize="25dp"
@@ -99,8 +99,11 @@
         android:text="其他"
         android:id="@+id/textView_record2others"
         android:textSize="30dp"
-        android:layout_above="@+id/rdg4"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/rdg3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="false" />
 
     <Button
         android:layout_width="wrap_content"
@@ -108,7 +111,7 @@
         android:text="確定"
         android:id="@+id/button_record2confirm"
         android:textSize="30dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="20dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
@@ -201,9 +204,10 @@
             android:layout_height="wrap_content"
             android:visibility="visible"
             android:layout_above="@+id/button_record2confirm"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="8dp">
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:layout_alignParentTop="false"
+            android:layout_alignWithParentIfMissing="false">
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -242,11 +246,10 @@
             android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:layout_alignTop="@+id/rdg2"
-            android:layout_toLeftOf="@+id/textView_record2ways"
-            android:layout_above="@+id/rdg4"
-            android:layout_alignLeft="@+id/radiobotton_record2player5"
-            android:layout_alignStart="@+id/radiobotton_record2player5">>
+            android:layout_below="@+id/textView_record2ways"
+            android:layout_toLeftOf="@+id/rdg2"
+            android:layout_alignLeft="@+id/rdg4"
+            android:layout_alignStart="@+id/rdg4">>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -272,7 +275,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="背位"
-                android:id="@+id/radioButton_record2b3"
+                android:id="@+id/radioButton_record2a3"
                 android:layout_below="@+id/radioButton_record2b2"
                 android:layout_alignLeft="@+id/radioButton_record2a2"
                 android:layout_alignStart="@+id/radioButton_record2a2"
@@ -284,9 +287,9 @@
                 android:layout_height="wrap_content"
                 android:text="後排"
                 android:id="@+id/radioButton_record2a4"
-                android:layout_below="@+id/radioButton_record2b3"
-                android:layout_alignLeft="@+id/radioButton_record2b3"
-                android:layout_alignStart="@+id/radioButton_record2b3"
+                android:layout_below="@+id/radioButton_record2a3"
+                android:layout_alignLeft="@+id/radioButton_record2a3"
+                android:layout_alignStart="@+id/radioButton_record2a3"
                 android:checked="false"
                 android:textSize="25dp" />
         </RadioGroup>

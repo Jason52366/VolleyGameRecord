@@ -1,6 +1,8 @@
 package com.volleygamerecord.app;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,11 +29,33 @@ import java.util.List;
 
 
 public class LogIn extends Activity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
+
+
+        Button btn_test = (Button)findViewById(R.id.button_TEST);
+        btn_test.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v){
+
+                View alertview = findViewById(R.layout.alertdialog_team2);
+                new AlertDialog.Builder(LogIn.this)
+                        .setView(alertview)
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                            }
+                        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // Do nothing.
+                    }
+                }).show();
+
+            }
+        }
+        );
+
         /*                               Application ID                  ,     Application ID     */
         Parse.initialize(this, "OOyy4I805eCgkyEGCiZtAH2RybkVl2tWi4qulbkw", "AOXZIHWss8wAiupkyTQuhEelITKfQ3LUeXAdHVTL");
         ParseFacebookUtils.initialize("1393614940913937");
@@ -130,4 +154,5 @@ public class LogIn extends Activity {
         request.executeAsync();
 
     }
+
 }

@@ -1,28 +1,296 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="1">
+    android:layout_height="match_parent">
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="得分"
-        android:id="@+id/text_point_get"
-        android:layout_gravity="center_horizontal"
+        android:text="球員"
+        android:id="@+id/textView_record2player"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:layout_marginTop="5dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4號"
+        android:id="@+id/radiobotton_record2player4"
+        android:checked="false"
+        android:textSize="25dp"
+        android:layout_below="@+id/textView_record2player"
+        android:layout_toLeftOf="@+id/radiobotton_record2player3"
+        android:layout_marginTop="8dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3號"
+        android:id="@+id/radiobotton_record2player3"
+        android:checked="false"
+        android:textSize="25dp"
+        android:layout_below="@+id/textView_record2player"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2號"
+        android:id="@+id/radiobotton_record2player2"
+        android:checked="false"
+        android:textSize="25dp"
+        android:layout_alignTop="@+id/radiobotton_record2player3"
+        android:layout_toRightOf="@+id/radiobotton_record2player3"
+        android:layout_marginLeft="5dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="6號"
+        android:checked="false"
+        android:id="@+id/radiobotton_record2player6"
+        android:textSize="25dp"
+        android:layout_below="@+id/radiobotton_record2player3"
+        android:layout_alignLeft="@+id/radiobotton_record2player3"
+        android:layout_alignStart="@+id/radiobotton_record2player3" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5號"
+        android:id="@+id/radiobotton_record2player5"
+        android:checked="false"
+        android:textSize="25dp"
+        android:layout_below="@+id/radiobotton_record2player4"
+        android:layout_alignLeft="@+id/radiobotton_record2player4"
+        android:layout_alignStart="@+id/radiobotton_record2player4" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1號"
+        android:id="@+id/radiobotton_record2player1"
+        android:checked="false"
+        android:textSize="25dp"
+        android:layout_below="@+id/radiobotton_record2player2"
+        android:layout_alignLeft="@+id/radiobotton_record2player2"
+        android:layout_alignStart="@+id/radiobotton_record2player2" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="得分方式"
+        android:id="@+id/textView_record2ways"
+        android:layout_below="@+id/radiobotton_record2player6"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:minHeight="30dp"
+        android:layout_marginTop="20dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="其他"
+        android:id="@+id/textView_record2others"
+        android:textSize="30dp"
+        android:layout_below="@+id/record2rdg3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="false" />
 
     <Button
-        android:layout_width="104dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="確定"
-        android:id="@+id/btn_record2Confirm"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.06"
-        android:layout_marginBottom="42dp"
+        android:id="@+id/button_record2confirm"
+        android:textSize="30dp"
+        android:layout_marginBottom="10dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
-</RelativeLayout>
+
+
+    <RadioGroup android:id="@+id/record2rdg3"
+        android:orientation="vertical"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+
+        android:layout_alignTop="@+id/record2rdg2"
+        android:layout_toRightOf="@+id/textView_record2ways">
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="直線"
+        android:id="@+id/radioButton_record2c1"
+        android:layout_alignTop="@+id/radioButton_record2b1"
+        android:layout_toRightOf="@+id/radioButton_record2b1"
+        android:checked="false"
+        android:textSize="25dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="斜線"
+        android:id="@+id/radioButton_record2c2"
+        android:checked="false"
+        android:textSize="25dp"
+        android:layout_below="@+id/radioButton_record2c1"
+        android:layout_toRightOf="@+id/radioButton_record2b2" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="手尾"
+        android:id="@+id/radioButton_record2c3"
+        android:layout_below="@+id/radioButton_record2c2"
+        android:layout_toRightOf="@+id/radioButton_record2b2"
+        android:checked="false"
+        android:textSize="25dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="吊球"
+        android:id="@+id/radioButton_record2c4"
+        android:layout_below="@+id/radioButton_record2c3"
+        android:layout_alignLeft="@+id/radioButton_record2c3"
+        android:layout_alignStart="@+id/radioButton_record2c3"
+        android:checked="false"
+        android:textSize="25dp" />
+
+    </RadioGroup>
+
+    <RadioGroup android:id="@+id/record2rdg2"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/textView_record2ways"
+        android:layout_alignRight="@+id/textView_record2others"
+        android:layout_alignEnd="@+id/textView_record2others">
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="好球"
+        android:id="@+id/radioButton_record2b1"
+        android:checked="false"
+        android:textSize="25dp"
+        android:layout_below="@+id/textView_record2ways"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="修正"
+        android:id="@+id/radioButton_record2b2"
+        android:layout_below="@+id/radioButton_record2b1"
+        android:layout_centerHorizontal="true"
+        android:checked="false"
+        android:textSize="25dp" />
+    </RadioGroup>
+
+        <RadioGroup android:id="@+id/record2rdg4"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_above="@+id/button_record2confirm"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="發球得分"
+            android:id="@+id/radioButton_record2other2"
+            android:checked="false"
+            android:layout_below="@+id/textView_record2others"
+            android:layout_centerHorizontal="true"
+            android:textSize="24dp" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="103dp"
+            android:text="對手失誤"
+            android:id="@+id/radioButton_record2other1"
+            android:checked="false"
+            android:layout_alignTop="@+id/radioButton_record2other2"
+            android:layout_toLeftOf="@+id/textView_record2others"
+            android:textSize="24dp" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="攔網得分"
+            android:id="@+id/radioButton_record2other3"
+            android:layout_alignTop="@+id/radioButton_record2other2"
+            android:layout_toRightOf="@+id/radioButton_record2other2"
+            android:checked="false"
+            android:textSize="24dp" />
+
+       </RadioGroup>
+
+        <RadioGroup android:id="@+id/record2rdg1"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/textView_record2ways"
+            android:layout_toLeftOf="@+id/record2rdg2"
+            android:layout_alignLeft="@+id/record2rdg4"
+            android:layout_alignStart="@+id/record2rdg4"
+            android:layout_above="@+id/textView_record2others">>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="大砲"
+                android:id="@+id/radioButton_record2a1"
+                android:layout_alignTop="@+id/radioButton_record2b1"
+                android:layout_toLeftOf="@+id/radioButton_record2b1"
+                android:checked="false"
+                android:textSize="25dp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="快攻"
+                android:id="@+id/radioButton_record2a2"
+                android:layout_below="@+id/radioButton_record2a1"
+                android:layout_alignRight="@+id/radioButton_record2a1"
+                android:layout_alignEnd="@+id/radioButton_record2a1"
+                android:checked="false"
+                android:textSize="25dp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="背位"
+                android:id="@+id/radioButton_record2a3"
+                android:layout_below="@+id/radioButton_record2b2"
+                android:layout_alignLeft="@+id/radioButton_record2a2"
+                android:layout_alignStart="@+id/radioButton_record2a2"
+                android:checked="false"
+                android:textSize="25dp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="後排"
+                android:id="@+id/radioButton_record2a4"
+                android:layout_below="@+id/radioButton_record2a3"
+                android:layout_alignLeft="@+id/radioButton_record2a3"
+                android:layout_alignStart="@+id/radioButton_record2a3"
+                android:checked="false"
+                android:textSize="25dp" />
+        </RadioGroup>
+
+    </RelativeLayout>

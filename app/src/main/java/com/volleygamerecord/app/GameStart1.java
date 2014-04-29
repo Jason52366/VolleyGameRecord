@@ -20,6 +20,7 @@ import java.util.Date;
 public class GameStart1  extends Activity {
     ArrayAdapter<String> cupArrayList;
     ArrayAdapter<String> ourTeamArrayList;
+
     Spinner spinner = null;
     Spinner spinner2 = null;
     Date dt=new Date();
@@ -68,7 +69,6 @@ public class GameStart1  extends Activity {
         });
 
 
-
         //spinner_gamestart1Cup
         String[] lunch = {"台大盃", "校長盃",};
         cupArrayList = new ArrayAdapter<String>(this,
@@ -76,7 +76,7 @@ public class GameStart1  extends Activity {
         spinner.setAdapter(cupArrayList);
 
         //spinner_gamestart1OurTeam
-        String[] lunch2 = {"台大心理", "台大球雀",};
+        String[] lunch2 = {"台大心理", "台大球雀","台大什麼","台大校長"};
         ourTeamArrayList = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, lunch2);
         spinner2.setAdapter(ourTeamArrayList);

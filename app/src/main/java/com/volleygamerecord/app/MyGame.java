@@ -35,7 +35,6 @@ public class MyGame extends Activity {
         listInput = (ListView) findViewById(R.id.listView);
         items = new ArrayList<String>();
         objectsId = new ArrayList<String>();
-
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
 
         //get all objects from Parse
@@ -115,6 +114,7 @@ public class MyGame extends Activity {
                         })
                         .show();
                 return true;
+
             }
         });
 

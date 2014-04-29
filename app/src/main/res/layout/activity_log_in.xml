@@ -51,4 +51,12 @@
         android:checked="false"
         android:textSize="18dp" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="測試按鈕"
+        android:id="@+id/button_TEST"
+        android:layout_above="@+id/editText_loginAccount"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

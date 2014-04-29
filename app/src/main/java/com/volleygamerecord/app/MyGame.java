@@ -66,9 +66,7 @@ public class MyGame extends Activity {
                 menu.add(0, 2, 0, "修改");
             }
         });*/
-        listInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
 
         //比賽資料
         listInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {

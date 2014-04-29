@@ -9,32 +9,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="球員名稱"
-        android:id="@+id/textview_team2ListName"
+        android:text=""
+        android:id="@+id/team2ListName"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="24dp" />
+        android:textSize="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="背號"
-        android:id="@+id/textView_team2ListNumber"
+        android:text=""
+        android:id="@+id/team2ListNumber"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="24dp" />
+        android:textSize="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="位置"
-        android:id="@+id/textView_team2ListPosition"
+        android:text=""
+        android:id="@+id/team2ListPosition"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textSize="24dp" />
+        android:textSize="20dp" />
 </RelativeLayout>
 

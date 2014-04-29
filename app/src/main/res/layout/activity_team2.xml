@@ -44,6 +44,35 @@
         android:layout_toRightOf="@+id/textView_playerName"
         android:textSize="30dp"
         android:layout_marginLeft="66dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_team2Player"
+        android:hint="球員"
+        android:textSize="28dp"
+        android:layout_below="@+id/listview_team2List"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_team2Position"
+        android:hint="位置"
+        android:textSize="28dp"
+        android:layout_below="@+id/listview_team2List"
+        android:layout_alignRight="@+id/listview_team2List"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_team2Number"
+        android:hint="背號"
+        android:textSize="28dp"
+        android:layout_below="@+id/listview_team2List"
+        android:layout_alignLeft="@+id/listview_team2List"
+        android:layout_alignStart="@+id/listview_team2List"/>
+
     <ListView
         android:id="@+id/listview_team2List"
         android:layout_width="300dp"

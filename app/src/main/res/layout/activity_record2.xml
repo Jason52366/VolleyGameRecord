@@ -204,8 +204,9 @@
             android:layout_height="wrap_content"
             android:visibility="visible"
             android:layout_alignWithParentIfMissing="false"
-            android:layout_below="@+id/textView_record2others"
-            android:layout_centerHorizontal="true">
+            android:layout_above="@+id/button_record2confirm"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -218,9 +219,9 @@
             android:textSize="24dp" />
 
         <RadioButton
-            android:layout_width="108dp"
+            android:layout_width="wrap_content"
             android:layout_height="103dp"
-            android:text="對手失誤與犯規"
+            android:text="對手失誤"
             android:id="@+id/radioButton_record2other1"
             android:checked="false"
             android:layout_alignTop="@+id/radioButton_record2other2"

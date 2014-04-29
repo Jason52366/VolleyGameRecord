@@ -99,7 +99,7 @@
         android:text="其他"
         android:id="@+id/textView_record2others"
         android:textSize="30dp"
-        android:layout_below="@+id/rdg3"
+        android:layout_below="@+id/record2rdg3"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="45dp"
         android:layout_alignParentEnd="false"
@@ -111,17 +111,17 @@
         android:text="確定"
         android:id="@+id/button_record2confirm"
         android:textSize="30dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
 
-    <RadioGroup android:id="@+id/rdg3"
+    <RadioGroup android:id="@+id/record2rdg3"
         android:orientation="vertical"
         android:layout_width="400dp"
         android:layout_height="wrap_content"
 
-        android:layout_alignTop="@+id/rdg2"
+        android:layout_alignTop="@+id/record2rdg2"
         android:layout_toRightOf="@+id/textView_record2ways">
 
     <RadioButton
@@ -167,7 +167,7 @@
 
     </RadioGroup>
 
-    <RadioGroup android:id="@+id/rdg2"
+    <RadioGroup android:id="@+id/record2rdg2"
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -198,16 +198,14 @@
         android:textSize="25dp" />
     </RadioGroup>
 
-        <RadioGroup android:id="@+id/rdg4"
+        <RadioGroup android:id="@+id/record2rdg4"
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="visible"
-            android:layout_above="@+id/button_record2confirm"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="20dp"
-            android:layout_alignParentTop="false"
-            android:layout_alignWithParentIfMissing="false">
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_alignBottom="@+id/button_record2confirm"
+            android:layout_centerHorizontal="true">
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -217,18 +215,17 @@
             android:checked="false"
             android:layout_below="@+id/textView_record2others"
             android:layout_centerHorizontal="true"
-            android:textSize="20dp" />
+            android:textSize="24dp" />
 
         <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="對手失誤"
+            android:layout_width="108dp"
+            android:layout_height="135dp"
+            android:text="對手失誤與犯規"
             android:id="@+id/radioButton_record2other1"
             android:checked="false"
             android:layout_alignTop="@+id/radioButton_record2other2"
             android:layout_toLeftOf="@+id/textView_record2others"
-            android:layout_marginRight="25dp"
-            android:textSize="20dp" />
+            android:textSize="24dp" />
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -238,18 +235,19 @@
             android:layout_alignTop="@+id/radioButton_record2other2"
             android:layout_toRightOf="@+id/radioButton_record2other2"
             android:checked="false"
-            android:textSize="20dp" />
+            android:textSize="24dp" />
 
        </RadioGroup>
 
-        <RadioGroup android:id="@+id/rdg1"
+        <RadioGroup android:id="@+id/record2rdg1"
             android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_below="@+id/textView_record2ways"
-            android:layout_toLeftOf="@+id/rdg2"
-            android:layout_alignLeft="@+id/rdg4"
-            android:layout_alignStart="@+id/rdg4">>
+            android:layout_toLeftOf="@+id/record2rdg2"
+            android:layout_alignLeft="@+id/record2rdg4"
+            android:layout_alignStart="@+id/record2rdg4"
+            android:layout_above="@+id/textView_record2others">>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

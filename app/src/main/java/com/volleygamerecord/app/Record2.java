@@ -36,6 +36,8 @@ public class Record2 extends Activity {
     RadioGroup radioGroup2 = null;
     RadioGroup radioGroup3 = null;
     RadioGroup radioGroup4 = null;
+    int checkclose ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,17 +47,10 @@ public class Record2 extends Activity {
         btn_record2Confirm.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick (View v){
-                if (wayD == null){
-                    getPointWay = wayA + wayB + wayC;
-                }else
-                {
-                    getPointWay = wayD;
-                }
-
+                GetPointWayCombiner();
                 ScoreCenter.getInstance().setScoreArray(true,getPointWay,"人");
                 setResult(2);
                 Record2.this.finish();
-
                 Log.d("point","得分方法："+ getPointWay);
             }
         });
@@ -98,19 +93,19 @@ public class Record2 extends Activity {
             switch (id) {
                 case R.id.radioButton_record2a1:
                     wayA = rdButtonA1.getText().toString();
-                    radioGroup4.check(-1);
+                    CloseRadioGroup(1);
                 break;
                 case R.id.radioButton_record2a2:
                     wayA = rdButtonA2.getText().toString();
-                    radioGroup4.check(-1);
+                    CloseRadioGroup(1);
                     break;
                 case R.id.radioButton_record2a3:
                     wayA = rdButtonA3.getText().toString();
-                    radioGroup4.check(-1);
+                    CloseRadioGroup(1);
                     break;
                 case R.id.radioButton_record2a4:
                     wayA = rdButtonA4.getText().toString();
-                    radioGroup4.check(-1);
+                    CloseRadioGroup(1);
                     break;
                 default:
                     wayA = "未記錄";
@@ -127,11 +122,11 @@ public class Record2 extends Activity {
             switch (id) {
                 case R.id.radioButton_record2b1:
                     wayB = rdButtonB1.getText().toString();
-                    radioGroup4.check(-1);
+                    CloseRadioGroup(2);
                     break;
                 case R.id.radioButton_record2b2:
                     wayB = rdButtonB2.getText().toString();
-                    radioGroup4.check(-1);
+                    CloseRadioGroup(2);
                     break;
                 default:
                     wayB = "未記錄";
@@ -139,6 +134,7 @@ public class Record2 extends Activity {
             }
         }
     };
+
 
     //radioGroup C區
     private RadioGroup.OnCheckedChangeListener listenC=new RadioGroup.OnCheckedChangeListener() {
@@ -149,19 +145,19 @@ public class Record2 extends Activity {
             switch (id) {
                 case R.id.radioButton_record2c1:
                     wayC = rdButtonC1.getText().toString();
-                    radioGroup4.check(-1);
+                    CloseRadioGroup(3);
                     break;
                 case R.id.radioButton_record2c2:
                     wayC = rdButtonC2.getText().toString();
-                    radioGroup4.check(-1);
+                    CloseRadioGroup(3);
                     break;
                 case R.id.radioButton_record2c3:
                     wayC = rdButtonC3.getText().toString();
-                    radioGroup4.check(-1);
+                    CloseRadioGroup(3);
                     break;
                 case R.id.radioButton_record2c4:
                     wayC = rdButtonC4.getText().toString();
-                    radioGroup4.check(-1);
+                    CloseRadioGroup(3);
                     break;
                 default:
                     wayC = "未記錄";
@@ -178,20 +174,16 @@ public class Record2 extends Activity {
             switch (id) {
                 case R.id.radioButton_record2other1:
                     wayD = rdButtonOther1.getText().toString();
-                    radioGroup1.check(-1);
-                    radioGroup2.check(-1);
-                    radioGroup3.check(-1);
+                    CloseRadioGroup(4);
                     break;
                 case R.id.radioButton_record2other2:
                     wayD = rdButtonOther2.getText().toString();
-                    radioGroup1.check(-1);
-                    radioGroup2.check(-1);
-                    radioGroup3.check(-1);
+                    CloseRadioGroup(4);
+                    break;
                 case R.id.radioButton_record2other3:
                     wayD = rdButtonOther3.getText().toString();
-                    radioGroup1.check(-1);
-                    radioGroup2.check(-1);
-                    radioGroup3.check(-1);
+                    CloseRadioGroup(4);
+                    break;
                 default:
                     wayD = null;
                     break;
@@ -199,5 +191,23 @@ public class Record2 extends Activity {
         }
     };
 
+    public void CloseRadioGroup(int checkclose) {
+        if (checkclose == 4) {
+            radioGroup1.check(-1);
+            radioGroup2.check(-1);
+            radioGroup3.check(-1);
+        }else{
+            radioGroup4.check(-1);
+        }
+    }
+
+    private void GetPointWayCombiner (){
+        if (checkclose != 4){
+            getPointWay = wayA + wayB + wayC;
+        }else
+        {
+            getPointWay = wayD;
+        }
+    }
 }
 

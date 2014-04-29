@@ -2,6 +2,7 @@ package com.volleygamerecord.app;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -27,6 +28,10 @@ public class Record3  extends Activity {
     RadioButton rdButtonOther1 = null;
     RadioButton rdButtonOther2 = null;
     RadioButton rdButtonOther3 = null;
+    RadioButton rdButtonOther4 = null;
+    RadioButton rdButtonOther5 = null;
+    RadioButton rdButtonOther6 = null;
+    RadioButton rdButtonOther7 = null;
     RadioGroup radioGroup1 = null;
     RadioGroup radioGroup2 = null;
     RadioGroup radioGroup3 = null;
@@ -67,7 +72,11 @@ public class Record3  extends Activity {
         radioGroup3=(RadioGroup)findViewById(R.id.record3rdg3);
             rdButtonOther1 =(RadioButton)findViewById(R.id.radioButton_record3c1);
             rdButtonOther2 =(RadioButton)findViewById(R.id.radioButton_record3c2);
-            rdButtonOther3 =(RadioButton)findViewById(R.id.radioButton_record3c3);
+//            rdButtonOther3 =(RadioButton)findViewById(R.id.radioButton_record3c3);
+//            rdButtonOther4 =(RadioButton)findViewById(R.id.radioButton_record3c4);
+//            rdButtonOther5 =(RadioButton)findViewById(R.id.radioButton_record3c5);
+//            rdButtonOther6 =(RadioButton)findViewById(R.id.radioButton_record3c6);
+//            rdButtonOther7 =(RadioButton)findViewById(R.id.radioButton_record3c7);
         //---
         radioGroup1.setOnCheckedChangeListener(listenA);
         radioGroup2.setOnCheckedChangeListener(listenB);
@@ -113,6 +122,7 @@ public class Record3  extends Activity {
                 case R.id.radioButton_record3b1:
                     wayB = rdButtonB1.getText().toString();
                     radioGroup3.check(-1);
+                    Log.d("wayB",wayB);
                     break;
                 case R.id.radioButton_record3b2:
                     wayB = rdButtonB2.getText().toString();
@@ -148,10 +158,32 @@ public class Record3  extends Activity {
                     wayC = rdButtonOther2.getText().toString();
                     radioGroup1.check(-1);
                     radioGroup2.check(-1);
+                    break;
                 case R.id.radioButton_record3c3:
                     wayC = rdButtonOther3.getText().toString();
                     radioGroup1.check(-1);
                     radioGroup2.check(-1);
+                    break;
+//                case R.id.radioButton_record3c4:
+//                    wayC = rdButtonOther4.getText().toString();
+//                    radioGroup1.check(-1);
+//                    radioGroup2.check(-1);
+//                    break;
+//                case R.id.radioButton_record3c5:
+//                    wayC = rdButtonOther5.getText().toString();
+//                    radioGroup1.check(-1);
+//                    radioGroup2.check(-1);
+//                    break;
+//                case R.id.radioButton_record3c6:
+//                    wayC = rdButtonOther6.getText().toString();
+//                    radioGroup1.check(-1);
+//                    radioGroup2.check(-1);
+//                    break;
+//                case R.id.radioButton_record3c7:
+//                    wayC = rdButtonOther7.getText().toString();
+//                    radioGroup1.check(-1);
+//                    radioGroup2.check(-1);
+//                    break;
                 default:
                     wayC = null;
                     break;

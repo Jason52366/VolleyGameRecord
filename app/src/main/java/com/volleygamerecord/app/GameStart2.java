@@ -6,10 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
+
 /**
  * Created by A on 2014/3/18.
  */
 public class GameStart2  extends Activity {
+    ArrayList choosenPlayer = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +24,7 @@ public class GameStart2  extends Activity {
         btn_gamestart2Sure.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-
+                SendChoosenPlayer();
                 Intent intent = new Intent();
                 intent.setClass(GameStart2.this, Record1.class);
                 startActivity(intent);
@@ -30,7 +34,15 @@ public class GameStart2  extends Activity {
         //召喚了datacenter YOOOOOOO
         //ArrayList abc = DataCenter.getInstance().getTeamArray();
         //Log.e("!!!!!", abc.toString() );
-
     }
 
+    public void SendChoosenPlayer(){
+        choosenPlayer.add("Num:1");
+        choosenPlayer.add("Num:2");
+        choosenPlayer.add("Num:3");
+        choosenPlayer.add("Num:4");
+        choosenPlayer.add("Num:5");
+        choosenPlayer.add("Num:6");
+        DataCenter.getInstance().setPlayerArray(choosenPlayer);
+    }
 }

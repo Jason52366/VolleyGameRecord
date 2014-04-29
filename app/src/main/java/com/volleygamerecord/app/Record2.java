@@ -8,17 +8,25 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import java.util.ArrayList;
+
 
 /**
  * Created by A on 2014/3/18.
  */
 public class Record2 extends Activity {
 
+    ArrayList playerList = null;
+
     String getPointWay = null;
     String wayA = "未記錄";
     String wayB = "未記錄";
     String wayC = "未記錄";
     String wayD = null;
+    String playerTmp = null;
+
+
+
     RadioButton rdButtonA1 = null;
     RadioButton rdButtonA2 = null;
     RadioButton rdButtonA3 = null;
@@ -36,11 +44,23 @@ public class Record2 extends Activity {
     RadioGroup radioGroup2 = null;
     RadioGroup radioGroup3 = null;
     RadioGroup radioGroup4 = null;
+
+    RadioButton rdBtnPlayer1 = null;
+    RadioButton rdBtnPlayer2 = null;
+    RadioButton rdBtnPlayer3 = null;
+    RadioButton rdBtnPlayer4 = null;
+    RadioButton rdBtnPlayer5 = null;
+    RadioButton rdBtnPlayer6 = null;
+
+    Boolean isChange;
+
     int checkclose ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //isChange = Boolean.FALSE;
+        //SwitchPlayerPosition(isChange);
 
         setContentView(R.layout.activity_record2);
         Button btn_record2Confirm= (Button)findViewById(R.id.button_record2confirm);
@@ -207,6 +227,54 @@ public class Record2 extends Activity {
         }else
         {
             getPointWay = wayD;
+        }
+    }
+    //
+    private  void LoadPlayerPosition(Boolean change){
+        RadioButton rdBtn1 = (RadioButton) findViewById(R.id.radiobotton_record2player1);
+        RadioButton rdBtn2 = (RadioButton) findViewById(R.id.radiobotton_record2player2);
+        RadioButton rdBtn3 = (RadioButton) findViewById(R.id.radiobotton_record2player3);
+        RadioButton rdBtn4 = (RadioButton) findViewById(R.id.radiobotton_record2player4);
+        RadioButton rdBtn5 = (RadioButton) findViewById(R.id.radiobotton_record2player5);
+        RadioButton rdBtn6 = (RadioButton) findViewById(R.id.radiobotton_record2player6);
+        playerList = DataCenter.getInstance().getPlayerArray();
+        rdBtn1.setText((String) playerList.get(0));
+        rdBtn2.setText((String) playerList.get(1));
+        rdBtn3.setText((String) playerList.get(2));
+        rdBtn4.setText((String) playerList.get(3));
+        rdBtn5.setText((String) playerList.get(4));
+        rdBtn6.setText((String) playerList.get(5));
+        if (change) {
+            playerTmp = rdBtn6.getText().toString();
+            rdBtn6.setText(rdBtn5.getText().toString());
+            rdBtn5.setText(rdBtn4.getText().toString());
+            rdBtn4.setText(rdBtn3.getText().toString());
+            rdBtn3.setText(rdBtn2.getText().toString());
+            rdBtn2.setText(rdBtn1.getText().toString());
+            rdBtn1.setText(playerTmp);
+        }else {
+
+        }
+    }
+    //移動位置方法函式
+    private void SwitchPlayerPosition(Boolean isChange) {
+        if (!isChange) {
+            ArrayList scorelist = ScoreCenter.getInstance().getScoreArray();
+            int listsize = scorelist.size();
+            if (listsize >= 2) {
+
+                boolean last;
+                boolean last2;
+                last = (Boolean) scorelist.get((listsize - 1));
+                last2 = (Boolean) scorelist.get((listsize - 2));
+                if (last && !last2) {
+                    DataCenter.getInstance().getPlayerArray();
+                    LoadPlayerPosition(Boolean.TRUE);
+
+                } else {
+
+                }
+            }
         }
     }
 }

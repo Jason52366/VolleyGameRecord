@@ -24,6 +24,7 @@ public class DataCenter {
 
     private Map<String, String> memPool = new HashMap<String, String>();
     private ArrayList dataArray = new ArrayList();
+    private ArrayList playerArray = new ArrayList();
     private ArrayList<ParseObject> tempParseObject = new ArrayList<ParseObject>();
 
     public static DataCenter getInstance() {
@@ -35,10 +36,15 @@ public class DataCenter {
         dataArray = tempArray;
 
     }
-    public void setTempParseObject(ArrayList<ParseObject> tempArray){
-        tempParseObject = tempArray;
+
+    public void setPlayerArray(ArrayList tempArray){
+        playerArray = tempArray;
 
     }
+    public void setTempParseObject(ArrayList<ParseObject> tempArray){
+        tempParseObject = tempArray;
+    }
+
     public void setValue(String key, String value) {
         memPool.remove(key);
         memPool.put(key, value);
@@ -52,7 +58,11 @@ public class DataCenter {
         ArrayList ret = dataArray;
         ArrayList aaa = new ArrayList();
         return ret != null ? ret : aaa;
-
+    }
+    public ArrayList getPlayerArray(){
+        ArrayList ret = playerArray;
+        ArrayList aaa = new ArrayList();
+        return ret != null ? ret : aaa;
     }
     public ArrayList<ParseObject> getTempParseObject(){
         ArrayList<ParseObject> ret = tempParseObject;

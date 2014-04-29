@@ -64,6 +64,7 @@ public class GameStart1  extends Activity {
                 intent.setClass(GameStart1.this, GameStart2.class);
                 startActivity(intent);
                 onPause();
+
             }
 
         });

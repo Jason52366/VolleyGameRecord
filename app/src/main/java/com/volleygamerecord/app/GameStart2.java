@@ -3,6 +3,7 @@ package com.volleygamerecord.app;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -12,7 +13,7 @@ import java.util.ArrayList;
  * Created by A on 2014/3/18.
  */
 public class GameStart2  extends Activity {
-    ArrayList choosenPlayer = null;
+    ArrayList choosenPlayer = new ArrayList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,8 @@ public class GameStart2  extends Activity {
             @Override
             public void onClick(View v) {
                 SendChoosenPlayer();
+
+
                 Intent intent = new Intent();
                 intent.setClass(GameStart2.this, Record1.class);
                 startActivity(intent);
@@ -36,7 +39,7 @@ public class GameStart2  extends Activity {
         //Log.e("!!!!!", abc.toString() );
     }
 
-    public void SendChoosenPlayer(){
+    public void SendChoosenPlayer (){
         choosenPlayer.add("Num:1");
         choosenPlayer.add("Num:2");
         choosenPlayer.add("Num:3");
@@ -44,5 +47,6 @@ public class GameStart2  extends Activity {
         choosenPlayer.add("Num:5");
         choosenPlayer.add("Num:6");
         DataCenter.getInstance().setPlayerArray(choosenPlayer);
+        Log.d("GameStart2", "" + choosenPlayer.toString());
     }
 }

@@ -16,53 +16,52 @@ import java.util.ArrayList;
  */
 public class Record2 extends Activity {
 
-    ArrayList playerList = null;
+    ArrayList playerList = new ArrayList();
 
     String getPointWay = null;
     String wayA = "未記錄";
     String wayB = "未記錄";
     String wayC = "未記錄";
     String wayD = null;
-    String playerTmp = null;
 
 
 
-    RadioButton rdButtonA1 = null;
-    RadioButton rdButtonA2 = null;
-    RadioButton rdButtonA3 = null;
-    RadioButton rdButtonA4 = null;
-    RadioButton rdButtonB1 = null;
-    RadioButton rdButtonB2 = null;
-    RadioButton rdButtonC1 = null;
-    RadioButton rdButtonC2 = null;
-    RadioButton rdButtonC3 = null;
-    RadioButton rdButtonC4 = null;
-    RadioButton rdButtonOther1 = null;
-    RadioButton rdButtonOther2 = null;
-    RadioButton rdButtonOther3 = null;
-    RadioGroup radioGroup1 = null;
-    RadioGroup radioGroup2 = null;
-    RadioGroup radioGroup3 = null;
-    RadioGroup radioGroup4 = null;
+    RadioButton rdButtonA1;
+    RadioButton rdButtonA2;
+    RadioButton rdButtonA3;
+    RadioButton rdButtonA4;
+    RadioButton rdButtonB1;
+    RadioButton rdButtonB2;
+    RadioButton rdButtonC1;
+    RadioButton rdButtonC2;
+    RadioButton rdButtonC3;
+    RadioButton rdButtonC4;
+    RadioButton rdButtonOther1;
+    RadioButton rdButtonOther2;
+    RadioButton rdButtonOther3;
+    RadioGroup radioGroup1;
+    RadioGroup radioGroup2;
+    RadioGroup radioGroup3;
+    RadioGroup radioGroup4;
 
-    RadioButton rdBtnPlayer1 = null;
-    RadioButton rdBtnPlayer2 = null;
-    RadioButton rdBtnPlayer3 = null;
-    RadioButton rdBtnPlayer4 = null;
-    RadioButton rdBtnPlayer5 = null;
-    RadioButton rdBtnPlayer6 = null;
+    RadioButton rdBtnPlayer1;
+    RadioButton rdBtnPlayer2;
+    RadioButton rdBtnPlayer3;
+    RadioButton rdBtnPlayer4;
+    RadioButton rdBtnPlayer5;
+    RadioButton rdBtnPlayer6;
 
-    Boolean isChange;
 
     int checkclose ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //isChange = Boolean.FALSE;
-        //SwitchPlayerPosition(isChange);
-
         setContentView(R.layout.activity_record2);
+
+        FindRadioButtonId();
+        LoadPlayerPosition();
+
         Button btn_record2Confirm= (Button)findViewById(R.id.button_record2confirm);
         btn_record2Confirm.setOnClickListener(new Button.OnClickListener(){
             @Override
@@ -75,33 +74,45 @@ public class Record2 extends Activity {
             }
         });
 
+
+
+        //radio_clear=(Button)findViewById(R.id.radio_clear);
+        //radio_clear.setOnClickListener(onClick);
+
+    }
+
+    private void FindRadioButtonId (){
         //radioGroup
-       radioGroup1=(RadioGroup)findViewById(R.id.record2rdg1);
-          rdButtonA1 =(RadioButton)findViewById(R.id.radioButton_record2a1);
-          rdButtonA2 =(RadioButton)findViewById(R.id.radioButton_record2a2);
-          rdButtonA3 =(RadioButton)findViewById(R.id.radioButton_record2a3);
-          rdButtonA4 =(RadioButton)findViewById(R.id.radioButton_record2a4);
-       radioGroup2=(RadioGroup)findViewById(R.id.record2rdg2);
-          rdButtonB1 =(RadioButton)findViewById(R.id.radioButton_record2b1);
-          rdButtonB2 =(RadioButton)findViewById(R.id.radioButton_record2b2);
-       radioGroup3=(RadioGroup)findViewById(R.id.record2rdg3);
-          rdButtonC1 =(RadioButton)findViewById(R.id.radioButton_record2c1);
-          rdButtonC2 =(RadioButton)findViewById(R.id.radioButton_record2c2);
-          rdButtonC3 =(RadioButton)findViewById(R.id.radioButton_record2c3);
-          rdButtonC4 =(RadioButton)findViewById(R.id.radioButton_record2c4);
-       radioGroup4=(RadioGroup)findViewById(R.id.record2rdg4);
-          rdButtonOther1 =(RadioButton)findViewById(R.id.radioButton_record2other1);
-          rdButtonOther2 =(RadioButton)findViewById(R.id.radioButton_record2other2);
-          rdButtonOther3 =(RadioButton)findViewById(R.id.radioButton_record2other3);
+        radioGroup1=(RadioGroup)findViewById(R.id.record2rdg1);
+        rdButtonA1 =(RadioButton)findViewById(R.id.radioButton_record2a1);
+        rdButtonA2 =(RadioButton)findViewById(R.id.radioButton_record2a2);
+        rdButtonA3 =(RadioButton)findViewById(R.id.radioButton_record2a3);
+        rdButtonA4 =(RadioButton)findViewById(R.id.radioButton_record2a4);
+        radioGroup2=(RadioGroup)findViewById(R.id.record2rdg2);
+        rdButtonB1 =(RadioButton)findViewById(R.id.radioButton_record2b1);
+        rdButtonB2 =(RadioButton)findViewById(R.id.radioButton_record2b2);
+        radioGroup3=(RadioGroup)findViewById(R.id.record2rdg3);
+        rdButtonC1 =(RadioButton)findViewById(R.id.radioButton_record2c1);
+        rdButtonC2 =(RadioButton)findViewById(R.id.radioButton_record2c2);
+        rdButtonC3 =(RadioButton)findViewById(R.id.radioButton_record2c3);
+        rdButtonC4 =(RadioButton)findViewById(R.id.radioButton_record2c4);
+        radioGroup4=(RadioGroup)findViewById(R.id.record2rdg4);
+        rdButtonOther1 =(RadioButton)findViewById(R.id.radioButton_record2other1);
+        rdButtonOther2 =(RadioButton)findViewById(R.id.radioButton_record2other2);
+        rdButtonOther3 =(RadioButton)findViewById(R.id.radioButton_record2other3);
         //---
         radioGroup1.setOnCheckedChangeListener(listenA);
         radioGroup2.setOnCheckedChangeListener(listenB);
         radioGroup3.setOnCheckedChangeListener(listenC);
         radioGroup4.setOnCheckedChangeListener(listenOther);
+        //---
+        rdBtnPlayer1 =(RadioButton)findViewById(R.id.radiobotton_record2player1);
+        rdBtnPlayer2 =(RadioButton)findViewById(R.id.radiobotton_record2player2);
+        rdBtnPlayer3 =(RadioButton)findViewById(R.id.radiobotton_record2player3);
+        rdBtnPlayer4 =(RadioButton)findViewById(R.id.radiobotton_record2player4);
+        rdBtnPlayer5 =(RadioButton)findViewById(R.id.radiobotton_record2player5);
+        rdBtnPlayer6 =(RadioButton)findViewById(R.id.radiobotton_record2player6);
 
-
-        //radio_clear=(Button)findViewById(R.id.radio_clear);
-        //radio_clear.setOnClickListener(onClick);
 
     }
 
@@ -154,7 +165,6 @@ public class Record2 extends Activity {
             }
         }
     };
-
 
     //radioGroup C區
     private RadioGroup.OnCheckedChangeListener listenC=new RadioGroup.OnCheckedChangeListener() {
@@ -211,7 +221,7 @@ public class Record2 extends Activity {
         }
     };
 
-    public void CloseRadioGroup(int checkclose) {
+    private void CloseRadioGroup(int checkclose) {
         if (checkclose == 4) {
             radioGroup1.check(-1);
             radioGroup2.check(-1);
@@ -230,52 +240,17 @@ public class Record2 extends Activity {
         }
     }
     //
-    private  void LoadPlayerPosition(Boolean change){
-        RadioButton rdBtn1 = (RadioButton) findViewById(R.id.radiobotton_record2player1);
-        RadioButton rdBtn2 = (RadioButton) findViewById(R.id.radiobotton_record2player2);
-        RadioButton rdBtn3 = (RadioButton) findViewById(R.id.radiobotton_record2player3);
-        RadioButton rdBtn4 = (RadioButton) findViewById(R.id.radiobotton_record2player4);
-        RadioButton rdBtn5 = (RadioButton) findViewById(R.id.radiobotton_record2player5);
-        RadioButton rdBtn6 = (RadioButton) findViewById(R.id.radiobotton_record2player6);
+    private  void LoadPlayerPosition(){
         playerList = DataCenter.getInstance().getPlayerArray();
-        rdBtn1.setText((String) playerList.get(0));
-        rdBtn2.setText((String) playerList.get(1));
-        rdBtn3.setText((String) playerList.get(2));
-        rdBtn4.setText((String) playerList.get(3));
-        rdBtn5.setText((String) playerList.get(4));
-        rdBtn6.setText((String) playerList.get(5));
-        if (change) {
-            playerTmp = rdBtn6.getText().toString();
-            rdBtn6.setText(rdBtn5.getText().toString());
-            rdBtn5.setText(rdBtn4.getText().toString());
-            rdBtn4.setText(rdBtn3.getText().toString());
-            rdBtn3.setText(rdBtn2.getText().toString());
-            rdBtn2.setText(rdBtn1.getText().toString());
-            rdBtn1.setText(playerTmp);
-        }else {
+        Log.d("Record2",""+playerList.toString());
+        rdBtnPlayer1.setText(playerList.get(0).toString());
+        rdBtnPlayer2.setText(playerList.get(1).toString());
+        rdBtnPlayer3.setText(playerList.get(2).toString());
+        rdBtnPlayer4.setText(playerList.get(3).toString());
+        rdBtnPlayer5.setText(playerList.get(4).toString());
+        rdBtnPlayer6.setText(playerList.get(5).toString());
 
-        }
     }
-    //移動位置方法函式
-    private void SwitchPlayerPosition(Boolean isChange) {
-        if (!isChange) {
-            ArrayList scorelist = ScoreCenter.getInstance().getScoreArray();
-            int listsize = scorelist.size();
-            if (listsize >= 2) {
 
-                boolean last;
-                boolean last2;
-                last = (Boolean) scorelist.get((listsize - 1));
-                last2 = (Boolean) scorelist.get((listsize - 2));
-                if (last && !last2) {
-                    DataCenter.getInstance().getPlayerArray();
-                    LoadPlayerPosition(Boolean.TRUE);
-
-                } else {
-
-                }
-            }
-        }
-    }
 }
 

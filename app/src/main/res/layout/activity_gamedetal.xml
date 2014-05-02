@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="v.s."
+        android:id="@+id/textView_gamedetalvs"
+        android:layout_marginTop="30dp"
+        android:textSize="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="台大心理"
+        android:id="@+id/textView_gamedetalourteam"
+        android:layout_alignTop="@+id/textView_gamedetalvs"
+        android:textSize="30dp"
+        android:layout_toLeftOf="@+id/textView_gamedetalvs"
+        android:layout_marginRight="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="台大球雀"
+        android:id="@+id/textView_gamedetalotherteam"
+        android:layout_alignTop="@+id/textView_gamedetalvs"
+        android:layout_toRightOf="@+id/textView_gamedetalvs"
+        android:layout_marginLeft="20dp"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="日期："
+        android:id="@+id/textView_gamedetalday"
+        android:layout_below="@+id/textView_gamedetalourteam"
+        android:layout_alignLeft="@+id/textView_gamedetalourteam"
+        android:layout_alignStart="@+id/textView_gamedetalourteam"
+        android:layout_marginTop="15dp"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20140502"
+        android:id="@+id/textView_gamedetaldate"
+        android:layout_alignBottom="@+id/textView_gamedetalday"
+        android:layout_toRightOf="@+id/textView_gamedetalday"
+        android:textSize="20dp" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView_gamedetaldetal"
+        android:layout_below="@+id/textView_gamedetalday"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:choiceMode="singleChoice" />
+
+</RelativeLayout>

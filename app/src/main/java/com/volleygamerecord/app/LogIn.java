@@ -71,13 +71,13 @@ public class LogIn extends Activity {
                 List<String> permissions = Arrays.asList("basic_info","user_about_me");
 
                 final ProgressDialog dialog = ProgressDialog.show(LogIn.this,"", "快滾啦", true);
-
                 ParseFacebookUtils.logIn(permissions, LogIn.this,new LogInCallback() {
+
                     @Override
                     public void done(ParseUser user, ParseException err) {
-
                         DataCenter.getInstance().setValue("parseUserName", user.getUsername());
-                        // Code to handle login.
+
+                        // Code to handle login.  沒有網路會死在這行
                         Session session = ParseFacebookUtils.getSession();
                         if(session != null && session.isOpened())
                         {

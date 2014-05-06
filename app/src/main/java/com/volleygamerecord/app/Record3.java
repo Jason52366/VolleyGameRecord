@@ -250,6 +250,7 @@ public class Record3  extends Activity {
                         btn.setChecked(false);
                     }
                 }
+                //
                 radioGroup1.check(-1);
                 radioGroup2.check(-1);
 
@@ -258,6 +259,7 @@ public class Record3  extends Activity {
 
         }
     };
+    //關閉GROUPC
     public void closeRadioGroupC() {
         for (int i = 0; i < radioGroup3List.size(); i++) {
             RadioButton btn = radioGroup3List.get(i);

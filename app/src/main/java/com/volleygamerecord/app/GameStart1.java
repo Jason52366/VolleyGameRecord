@@ -1,6 +1,7 @@
 package com.volleygamerecord.app;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,6 +38,8 @@ public class GameStart1  extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gamestart1);
+
+        final ProgressDialog dialog = ProgressDialog.show(GameStart1.this,"", "請等待...", true);
 
         spinner = (Spinner)findViewById(R.id.spinner_gamestart1Cup);
         spinner2 = (Spinner)findViewById(R.id.spinner_gamestart1OurTeam);
@@ -92,6 +95,7 @@ public class GameStart1  extends Activity {
                     }
                     ourTeamArrayList = new ArrayAdapter<String>(GameStart1.this,android.R.layout.simple_spinner_item, teamList);
                     spinner2.setAdapter(ourTeamArrayList);
+                    dialog.dismiss();
                 } else {
                     Log.e("parseReturn", e.toString());
                 }

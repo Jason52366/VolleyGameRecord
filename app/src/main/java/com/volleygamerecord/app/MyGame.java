@@ -2,6 +2,7 @@ package com.volleygamerecord.app;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,6 +38,8 @@ public class MyGame extends Activity {
         objectsId = new ArrayList<String>();
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
 
+        final ProgressDialog dialog = ProgressDialog.show(MyGame.this,"", "請等待...", true);
+
         //get all objects from Parse
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("GameScore");
         query.findInBackground(new FindCallback<ParseObject>() {
@@ -51,6 +54,7 @@ public class MyGame extends Activity {
                         }
                     }
                     listInput.setAdapter(adapter);
+                    dialog.dismiss();
                 } else {
                     Log.e("parseReturn", e.toString());
                 }

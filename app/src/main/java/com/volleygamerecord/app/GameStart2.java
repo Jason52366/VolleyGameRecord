@@ -40,12 +40,12 @@ public class GameStart2  extends Activity {
     }
 
     public void SendChoosenPlayer (){
-        choosenPlayer.add("陳奕凱");
-        choosenPlayer.add("ㄔ奕凱");
-        choosenPlayer.add("陳一凱");
-        choosenPlayer.add("陳奕ㄎ");
-        choosenPlayer.add("陳一ㄎ");
-        choosenPlayer.add("ㄔ一ㄎ");
+        choosenPlayer.add("32號");
+        choosenPlayer.add("03號");
+        choosenPlayer.add("08號");
+        choosenPlayer.add("18號");
+        choosenPlayer.add("10號");
+        choosenPlayer.add("22號");
         DataCenter.getInstance().setPlayerArray(choosenPlayer);
         Log.d("GameStart2", "" + choosenPlayer.toString());
     }

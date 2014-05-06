@@ -70,17 +70,22 @@ public class LogIn extends Activity {
             public void onClick(View v) {
                 List<String> permissions = Arrays.asList("basic_info","user_about_me");
 
-                ProgressDialog.show(LogIn.this,"", "請等待...", true);
+                final ProgressDialog dialog = ProgressDialog.show(LogIn.this,"", "快滾啦", true);
 
                 ParseFacebookUtils.logIn(permissions, LogIn.this,new LogInCallback() {
-
                     @Override
                     public void done(ParseUser user, ParseException err) {
 
                         DataCenter.getInstance().setValue("parseUserName", user.getUsername());
                         // Code to handle login.
                         Session session = ParseFacebookUtils.getSession();
-                        if(session != null && session.isOpened()) makeMeRequest();
+                        if(session != null && session.isOpened())
+                        {
+                        makeMeRequest();
+                        }else {
+                            dialog.dismiss();
+
+                        }
 
                     }
 

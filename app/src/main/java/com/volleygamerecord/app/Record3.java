@@ -16,10 +16,10 @@ import java.util.ArrayList;
  */
 public class Record3  extends Activity {
 
-    String wayA ="未記錄";
-    String wayB ="未記錄";
+    String wayA ="";
+    String wayB ="";
     String wayC = null;
-    String playerName = null;
+    String playerName = "未記錄球員";
     String losePointWay = null;
     RadioButton rdButtonA1 = null;
     RadioButton rdButtonA2 = null;

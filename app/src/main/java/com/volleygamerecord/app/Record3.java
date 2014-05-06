@@ -116,7 +116,6 @@ public class Record3  extends Activity {
         rdBtnPlayer5 = (RadioButton)findViewById(R.id.radioButton_record3player5);
         rdBtnPlayer6 = (RadioButton)findViewById(R.id.radioButton_record3player6);
         rdBtnPlayerList = new ArrayList<RadioButton>();
-
         rdBtnPlayerList.add(rdBtnPlayer1);
         rdBtnPlayerList.add(rdBtnPlayer2);
         rdBtnPlayerList.add(rdBtnPlayer3);
@@ -150,14 +149,17 @@ public class Record3  extends Activity {
     CompoundButton.OnCheckedChangeListener rdBtnPlayerlistener = new CompoundButton.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            for(RadioButton btn : rdBtnPlayerList)
-            {
-                if(btn != buttonView)
-                {
-                    btn.setChecked(false);
+            if (buttonView.isChecked()) {
+                //for(RadioButton btn : rdBtnPlayerList)
+                for (int i = 0; i < rdBtnPlayerList.size(); i++) {
+                    RadioButton btn = rdBtnPlayerList.get(i);
+                    if (btn != buttonView) {
+                        Log.d("how many times", btn.getText().toString());
+                        btn.setChecked(false);
+                    }
                 }
+                playerName = buttonView.getText().toString();
             }
-            playerName = buttonView.getText().toString();
         }
     };
 

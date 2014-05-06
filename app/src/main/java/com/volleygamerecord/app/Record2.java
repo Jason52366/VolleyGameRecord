@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -19,6 +20,7 @@ public class Record2 extends Activity {
     ArrayList playerList = new ArrayList();
 
     String getPointWay = null;
+    String playerName = "";
     String wayA = "未記錄";
     String wayB = "未記錄";
     String wayC = "未記錄";
@@ -44,6 +46,7 @@ public class Record2 extends Activity {
     RadioGroup radioGroup3;
     RadioGroup radioGroup4;
 
+    ArrayList<RadioButton> rdBtnPlayerList = null;
     RadioButton rdBtnPlayer1;
     RadioButton rdBtnPlayer2;
     RadioButton rdBtnPlayer3;
@@ -61,16 +64,16 @@ public class Record2 extends Activity {
 
         FindRadioButtonId();
         LoadPlayerPosition();
+        RadioGroupPlayers();
 
         Button btn_record2Confirm= (Button)findViewById(R.id.button_record2confirm);
         btn_record2Confirm.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick (View v){
                 GetPointWayCombiner();
-                ScoreCenter.getInstance().setScoreArray(true,getPointWay,"人");
+                ScoreCenter.getInstance().setScoreArray(true,getPointWay,playerName);
                 setResult(2);
                 Record2.this.finish();
-                Log.d("point","得分方法："+ getPointWay);
             }
         });
 
@@ -113,9 +116,38 @@ public class Record2 extends Activity {
         rdBtnPlayer5 =(RadioButton)findViewById(R.id.radiobotton_record2player5);
         rdBtnPlayer6 =(RadioButton)findViewById(R.id.radiobotton_record2player6);
 
-
+        rdBtnPlayerList = new ArrayList<RadioButton>();
+        rdBtnPlayerList.add(rdBtnPlayer1);
+        rdBtnPlayerList.add(rdBtnPlayer2);
+        rdBtnPlayerList.add(rdBtnPlayer3);
+        rdBtnPlayerList.add(rdBtnPlayer4);
+        rdBtnPlayerList.add(rdBtnPlayer5);
+        rdBtnPlayerList.add(rdBtnPlayer6);
     }
 
+    //RadioGroup for Players
+    private void RadioGroupPlayers(){
+
+        for(RadioButton btn : rdBtnPlayerList)
+        {
+            btn.setOnCheckedChangeListener(rdBtnPlayerlistener);
+        }
+
+    }
+    CompoundButton.OnCheckedChangeListener rdBtnPlayerlistener = new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            if (buttonView.isChecked()) {
+                for (RadioButton btn : rdBtnPlayerList) {
+                    if (btn != buttonView) {
+                        btn.setChecked(false);
+                    } else {
+                    }
+                }
+                playerName = buttonView.getText().toString();
+            }
+        }
+    };
     //radioGroup A區
     private RadioGroup.OnCheckedChangeListener listenA=new RadioGroup.OnCheckedChangeListener() {
         @Override

@@ -57,8 +57,7 @@ public class LogIn extends Activity {
                     }
                 }).start();
             }
-        }
-        );
+        });
 
         /*                               Application ID                  ,     Application ID     */
         Parse.initialize(this, "OOyy4I805eCgkyEGCiZtAH2RybkVl2tWi4qulbkw", "AOXZIHWss8wAiupkyTQuhEelITKfQ3LUeXAdHVTL");

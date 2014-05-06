@@ -11,8 +11,14 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.parse.FindCallback;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by A on 2014/3/18.
@@ -20,6 +26,7 @@ import java.util.Date;
 public class GameStart1  extends Activity {
     ArrayAdapter<String> cupArrayList;
     ArrayAdapter<String> ourTeamArrayList;
+    List<String> teamList = new ArrayList<String>();
 
     Spinner spinner = null;
     Spinner spinner2 = null;
@@ -49,12 +56,8 @@ public class GameStart1  extends Activity {
                 EditText rivaltxt = (EditText)findViewById(R.id.editText_gamestart1RivalTeam);
                 String place = arena.getText().toString();
                 String rival  = rivaltxt.getText().toString();
-                Log.d("TAG", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                Log.d("cup", spinner.getSelectedItem().toString());
-                Log.d("team",spinner2.getSelectedItem().toString());
-                Log.d("place", place);
-                Log.d("rival", rival);
-                Log.d("TAG", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+
                 //把比賽訊息傳到DATACENTER
                 DataCenter.getInstance().setValue("cup",spinner.getSelectedItem().toString());
                 DataCenter.getInstance().setValue("team",spinner2.getSelectedItem().toString());
@@ -77,12 +80,23 @@ public class GameStart1  extends Activity {
         spinner.setAdapter(cupArrayList);
 
         //spinner_gamestart1OurTeam
-        String[] lunch2 = {"台大心理", "台大球雀","台大什麼","台大校長"};
-        ourTeamArrayList = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, lunch2);
-        spinner2.setAdapter(ourTeamArrayList);
+        String userName =  DataCenter.getInstance().getStringValue("parseUserName");
 
-
+        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Team");
+        query.whereEqualTo("userName",userName);
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> parseObjects, com.parse.ParseException e) {
+                if (e == null) {
+                    for (int i = 0; i < parseObjects.size(); i++) {
+                        teamList.add(parseObjects.get(i).getString("teamName"));
+                    }
+                    ourTeamArrayList = new ArrayAdapter<String>(GameStart1.this,android.R.layout.simple_spinner_item, teamList);
+                    spinner2.setAdapter(ourTeamArrayList);
+                } else {
+                    Log.e("parseReturn", e.toString());
+                }
+            }
+        });
 
     }
 

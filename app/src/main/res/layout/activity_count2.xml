@@ -14,6 +14,16 @@
         android:layout_marginTop="46dp"
         android:textSize="48dp" />
 
+    <LinearLayout
+        android:id="@+id/chart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_below="@+id/textView_statistic"
+        android:layout_above="@+id/btn_back_menu"
+        android:orientation="horizontal" >
+    </LinearLayout>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

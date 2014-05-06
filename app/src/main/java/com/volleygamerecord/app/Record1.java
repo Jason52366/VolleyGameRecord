@@ -170,7 +170,6 @@ public class Record1 extends Activity {
                 if (i >= 2 && !(Boolean)scoreList.get((i - 2))) {
                     switchPosition = true;
                     DataCenter.getInstance().setDoSwitchPosition(true);
-                    Log.d("5566啦","SWITCHPOSITION覺得想要被轉");
                 }
 
             } else {

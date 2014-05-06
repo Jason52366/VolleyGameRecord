@@ -1,8 +1,7 @@
 package com.volleygamerecord.app;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,6 +28,8 @@ import java.util.List;
 
 
 public class LogIn extends Activity {
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,23 +39,25 @@ public class LogIn extends Activity {
         Button btn_test = (Button)findViewById(R.id.button_TEST);
         btn_test.setOnClickListener(new Button.OnClickListener(){
             @Override
-            public void onClick(View v){
+            public void onClick(View arg0){
+                final ProgressDialog dialog = ProgressDialog.show(LogIn.this,"", "請等待...", true);
+                new Thread(new Runnable(){
+                    @Override
+                    public void run() {
+                        try{
+                            Thread.sleep(3000);
 
-                View alertview = findViewById(R.layout.alertdialog_team2);
-                new AlertDialog.Builder(LogIn.this)
-                        .setView(alertview)
-                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int whichButton) {
-                            }
-                        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        // Do nothing.
+                        }
+                        catch(Exception e){
+                            e.printStackTrace();
+                        }
+                        finally{
+                            dialog.dismiss();
+                        }
                     }
-                }).show();
-
+                }).start();
             }
-        }
-        );
+        });
 
         /*                               Application ID                  ,     Application ID     */
         Parse.initialize(this, "OOyy4I805eCgkyEGCiZtAH2RybkVl2tWi4qulbkw", "AOXZIHWss8wAiupkyTQuhEelITKfQ3LUeXAdHVTL");
@@ -66,13 +69,23 @@ public class LogIn extends Activity {
             @Override
             public void onClick(View v) {
                 List<String> permissions = Arrays.asList("basic_info","user_about_me");
+
+                final ProgressDialog dialog = ProgressDialog.show(LogIn.this,"", "快滾啦", true);
+
                 ParseFacebookUtils.logIn(permissions, LogIn.this,new LogInCallback() {
                     @Override
                     public void done(ParseUser user, ParseException err) {
+
                         DataCenter.getInstance().setValue("parseUserName", user.getUsername());
                         // Code to handle login.
                         Session session = ParseFacebookUtils.getSession();
-                        if(session != null && session.isOpened()) makeMeRequest();
+                        if(session != null && session.isOpened())
+                        {
+                        makeMeRequest();
+                        }else {
+                            dialog.dismiss();
+
+                        }
 
                     }
 
@@ -114,6 +127,8 @@ public class LogIn extends Activity {
         ParseFacebookUtils.finishAuthentication(requestCode, resultCode, data);
     }
 
+
+
     //檢查連線是否成功
     private void makeMeRequest() {
         Request request = Request.newMeRequest(ParseFacebookUtils.getSession(),
@@ -134,6 +149,7 @@ public class LogIn extends Activity {
                                 String fbName = (String)userProfile.get("name");
                                 Log.e("fbName!!!", fbName);
                                 DataCenter.getInstance().setValue("fbName",fbName);
+
                                 //登入成功後才切換畫面
                                 Intent intent = new Intent();
                                 intent.setClass(LogIn.this, Loginsuccess.class);

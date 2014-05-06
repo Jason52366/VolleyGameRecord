@@ -20,10 +20,10 @@ public class Record2 extends Activity {
     ArrayList playerList = new ArrayList();
 
     String getPointWay = null;
-    String playerName = "";
-    String wayA = "未記錄";
-    String wayB = "未記錄";
-    String wayC = "未記錄";
+    String playerName = "未記錄球員";
+    String wayA = "";
+    String wayB = "";
+    String wayC = "";
     String wayD = null;
 
 

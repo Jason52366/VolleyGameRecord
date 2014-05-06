@@ -79,21 +79,6 @@ public class Start  extends Activity {
             }
         });
 
-
-        Button btn_easy_record = (Button)findViewById(R.id.btn_easy_record);
-        btn_easy_record.setOnClickListener(new Button.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent();
-                intent.setClass(Start.this, Easyrecord.class);
-                startActivity(intent);
-
-            }
-        });
-
-
-
         //button_startConfiguration
 //        Button btn_startConfiguration = (Button)findViewById(R.id.button_startConfiguration);
 //        btn_startConfiguration.setOnClickListener(new Button.OnClickListener(){

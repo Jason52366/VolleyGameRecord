@@ -30,7 +30,7 @@ public class Record3  extends Activity {
     RadioButton rdButtonB3 = null;
     RadioButton rdButtonB4 = null;
 
-    ArrayList radioBtnGroupC =null;
+    ArrayList<RadioButton> radioGroup3List =null;
     RadioButton rdButtonC1 = null;
     RadioButton rdButtonC2 = null;
     RadioButton rdButtonC3 = null;
@@ -51,6 +51,8 @@ public class Record3  extends Activity {
     RadioButton rdBtnPlayer5 = null;
     RadioButton rdBtnPlayer6 = null;
 
+    Boolean closeGroupC = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -59,7 +61,7 @@ public class Record3  extends Activity {
         LoadRadioItems();
         LoadPlayerPosition();
         RadioGroupPlayers();
-
+        Radiogroup3();
 
 
         Button btn_record3Confirm= (Button)findViewById(R.id.btn_record3Confirm);
@@ -102,7 +104,14 @@ public class Record3  extends Activity {
         rdButtonC5 =(RadioButton)findViewById(R.id.radioButton_record3c5);
         rdButtonC6 =(RadioButton)findViewById(R.id.radioButton_record3c6);
         rdButtonC7 =(RadioButton)findViewById(R.id.radioButton_record3c7);
-
+        radioGroup3List = new ArrayList<RadioButton>();
+        radioGroup3List.add(rdButtonC1);
+        radioGroup3List.add(rdButtonC2);
+        radioGroup3List.add(rdButtonC3);
+        radioGroup3List.add(rdButtonC4);
+        radioGroup3List.add(rdButtonC5);
+        radioGroup3List.add(rdButtonC6);
+        radioGroup3List.add(rdButtonC7);
         //---
         radioGroup1.setOnCheckedChangeListener(listenA);
         radioGroup2.setOnCheckedChangeListener(listenB);
@@ -149,12 +158,11 @@ public class Record3  extends Activity {
     CompoundButton.OnCheckedChangeListener rdBtnPlayerlistener = new CompoundButton.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
             if (buttonView.isChecked()) {
-                //for(RadioButton btn : rdBtnPlayerList)
                 for (int i = 0; i < rdBtnPlayerList.size(); i++) {
                     RadioButton btn = rdBtnPlayerList.get(i);
                     if (btn != buttonView) {
-                        Log.d("how many times", btn.getText().toString());
                         btn.setChecked(false);
                     }
                 }
@@ -169,21 +177,27 @@ public class Record3  extends Activity {
         public void onCheckedChanged(RadioGroup group, int checkedId) {
             int id= group.getCheckedRadioButtonId();
             switch (id) {
+
                 case R.id.radioButton_record3a1:
                     wayA = rdButtonA1.getText().toString();
+                    closeRadioGroupC();
                     break;
                 case R.id.radioButton_record3a2:
                     wayA = rdButtonA2.getText().toString();
+                    closeRadioGroupC();
                     break;
                 case R.id.radioButton_record3a3:
                     wayA = rdButtonA3.getText().toString();
+                    closeRadioGroupC();
                     break;
                 case R.id.radioButton_record3a4:
                     wayA = rdButtonA4.getText().toString();
+                    closeRadioGroupC();
                     break;
                 default:
-                    wayA = "未記錄";
+                    wayA = "";
                     break;
+
             }
         }
     };
@@ -195,25 +209,62 @@ public class Record3  extends Activity {
             switch (id) {
                 case R.id.radioButton_record3b1:
                     wayB = rdButtonB1.getText().toString();
+                    closeRadioGroupC();
                     Log.d("wayB",wayB);
                     break;
                 case R.id.radioButton_record3b2:
                     wayB = rdButtonB2.getText().toString();
+                    closeRadioGroupC();
                     break;
                 case R.id.radioButton_record3b3:
                     wayB = rdButtonB3.getText().toString();
+                    closeRadioGroupC();
                     break;
                 case R.id.radioButton_record3b4:
                     wayB = rdButtonB4.getText().toString();
+                    closeRadioGroupC();
                     break;
                 default:
-                    wayB = "未記錄";
+                    wayB = "";
                     break;
             }
         }
     };
 
-    //radioGroup Other區
+    //radioGroup C區
+    private void Radiogroup3(){
+
+        for(RadioButton btn : radioGroup3List)
+        {
+            btn.setOnCheckedChangeListener(radioGroup3Listener);
+        }
+
+    }
+    CompoundButton.OnCheckedChangeListener radioGroup3Listener = new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            if (buttonView.isChecked()) {
+                for (int i = 0; i < radioGroup3List.size(); i++) {
+                    RadioButton btn = radioGroup3List.get(i);
+                    if (btn != buttonView) {
+                        btn.setChecked(false);
+                    }
+                }
+                radioGroup1.check(-1);
+                radioGroup2.check(-1);
+
+                wayC = buttonView.getText().toString();
+            }
+
+        }
+    };
+    public void closeRadioGroupC() {
+        for (int i = 0; i < radioGroup3List.size(); i++) {
+            RadioButton btn = radioGroup3List.get(i);
+            btn.setChecked(false);
+        }
+        wayC = null;
+    }
 
 }
 

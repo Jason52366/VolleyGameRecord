@@ -1,7 +1,9 @@
 package com.volleygamerecord.app;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -40,22 +42,16 @@ public class LogIn extends Activity {
         btn_test.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View arg0){
-                final ProgressDialog dialog = ProgressDialog.show(LogIn.this,"", "請等待...", true);
-                new Thread(new Runnable(){
-                    @Override
-                    public void run() {
-                        try{
-                            Thread.sleep(3000);
+                new AlertDialog.Builder(LogIn.this)
+                        .setTitle("注意")
+                        .setMessage("位置、名稱、對號不可為空白")
+                        .setPositiveButton("是", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
 
-                        }
-                        catch(Exception e){
-                            e.printStackTrace();
-                        }
-                        finally{
-                            dialog.dismiss();
-                        }
-                    }
-                }).start();
+                            }
+                        })
+                        .show();
             }
         });
 

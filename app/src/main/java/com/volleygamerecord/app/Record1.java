@@ -61,27 +61,8 @@ public class Record1 extends Activity {
                 gamePointList.add(ourScoreInt);
                 gamePointList.add(rivalScoreInt);
 
-                ParseObject gameScore = new ParseObject("GameScore");
-                ParseUser user = ParseUser.getCurrentUser();
-                //把比賽訊息放入parseObject
-                gameScore.put("score", gamePointList);
-                gameScore.put("user", user);
-                gameScore.put("userName", user.getUsername());
-                gameScore.put("gamePlace", place);
-                gameScore.put("rivalTeam", rival);
-                gameScore.put("cup", cup);
-                gameScore.put("ourTeam",our);
-                gameScore.put("date", dts);
-                gameScore.saveInBackground(new SaveCallback() {
-                    @Override
-                    public void done(ParseException e) {
-                        if(e == null){
-                            Log.e("parseReturn","成功！");
-                        }else {
-                            Log.e("parseReturn",e.toString());
-                        }
-                    }
-                });
+                PutItemOnParse();
+
                 ScoreCenter.getInstance().cleanArrays();
                 Intent 結束比賽 = new Intent();
                 結束比賽.setClass(Record1.this, Count1.class);
@@ -125,6 +106,31 @@ public class Record1 extends Activity {
 
     }
 
+    private void PutItemOnParse(){
+
+        ParseObject gameScore = new ParseObject("GameScore");
+        ParseUser user = ParseUser.getCurrentUser();
+        //把比賽訊息放入parseObject
+        gameScore.put("score", gamePointList);
+        gameScore.put("user", user);
+        gameScore.put("userName", user.getUsername());
+        gameScore.put("gamePlace", place);
+        gameScore.put("rivalTeam", rival);
+        gameScore.put("cup", cup);
+        gameScore.put("ourTeam",our);
+        gameScore.put("date", dts);
+        gameScore.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if(e == null){
+                    Log.e("parseReturn","成功！");
+                }else {
+                    Log.e("parseReturn",e.toString());
+                }
+            }
+        });
+    }
+
     public void LoadPlayerButton(){
         btnPlayer1 = (Button)findViewById(R.id.button_record1player1);
         btnPlayer2 = (Button)findViewById(R.id.button_record1player2);
@@ -148,7 +154,6 @@ public class Record1 extends Activity {
             DataCenter.getInstance().setPlayerArray(playerList);
             switchPosition = false;
         }
-        Log.d("5566啦","PLAYERLIST拿文字");
         btnPlayer1.setText(playerList.get(0).toString());
         btnPlayer2.setText(playerList.get(1).toString());
         btnPlayer3.setText(playerList.get(2).toString());

@@ -2,6 +2,7 @@ package com.volleygamerecord.app;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -40,6 +41,8 @@ public class Team1 extends Activity {
         items = new ArrayList<String>();
         objectsId = new ArrayList<String>();
 
+        final ProgressDialog dialog = ProgressDialog.show(Team1.this,"", "請等待...", true);
+
         //從parse拿自己隊伍的資料
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Team");
         query.whereEqualTo("userName",userName);
@@ -55,8 +58,12 @@ public class Team1 extends Activity {
                     }
                     adapter = new ArrayAdapter<String>(Team1.this, android.R.layout.simple_list_item_1, items);
                     listInput.setAdapter(adapter);
+                    dialog.dismiss();
+
                 } else {
                     Log.e("parseReturn", e.toString());
+                    dialog.dismiss();
+
                 }
             }
         });

@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 
@@ -14,6 +16,11 @@ import java.util.ArrayList;
  */
 public class GameStart2  extends Activity {
     ArrayList choosenPlayer = new ArrayList();
+    ArrayList<String> items;
+    ArrayList<String> objectsId;
+    ArrayAdapter<String> adapter;
+    ListView listInput;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

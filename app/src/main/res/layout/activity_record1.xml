@@ -160,19 +160,18 @@
         android:text="自由1"
         android:id="@+id/button_record1liberal1"
         android:textSize="22.1dp"
-        android:layout_below="@+id/button_record1player1"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/button_record1player1" />
+        android:layout_above="@+id/button_record1player4"
+        android:layout_alignRight="@+id/button_record1player4"
+        android:layout_alignEnd="@+id/button_record1player4" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="自由2"
         android:id="@+id/button_record1liberal22"
-        android:layout_below="@+id/button_record1liberal1"
-        android:layout_alignLeft="@+id/button_record1liberal1"
-        android:layout_alignStart="@+id/button_record1liberal1"
-        android:textSize="22.1dp" />
+        android:textSize="22.1dp"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/button_record1player2"
+        android:layout_alignStart="@+id/button_record1player2" />
 
 </RelativeLayout>

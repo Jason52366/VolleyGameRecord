@@ -233,12 +233,10 @@ public class Record3  extends Activity {
 
     //radioGroup C區
     private void Radiogroup3(){
-
         for(RadioButton btn : radioGroup3List)
         {
             btn.setOnCheckedChangeListener(radioGroup3Listener);
         }
-
     }
     CompoundButton.OnCheckedChangeListener radioGroup3Listener = new CompoundButton.OnCheckedChangeListener() {
         @Override
@@ -250,15 +248,14 @@ public class Record3  extends Activity {
                         btn.setChecked(false);
                     }
                 }
-                //
+                //關閉GROUP12
                 radioGroup1.check(-1);
                 radioGroup2.check(-1);
-
                 wayC = buttonView.getText().toString();
             }
-
         }
     };
+
     //關閉GROUPC
     public void closeRadioGroupC() {
         for (int i = 0; i < radioGroup3List.size(); i++) {

@@ -16,7 +16,6 @@ import com.parse.FindCallback;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,9 +53,11 @@ public class MyGame extends Activity {
                         }
                     }
                     listInput.setAdapter(adapter);
+                    //如果完成抓取資料的動作，將請等待的對話框關閉
                     dialog.dismiss();
                 } else {
                     Log.e("parseReturn", e.toString());
+                    dialog.dismiss();
                 }
             }
         });

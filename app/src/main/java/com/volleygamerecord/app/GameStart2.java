@@ -35,7 +35,7 @@ public class GameStart2  extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gamestart2);
-        listInput = (ListView) findViewById(R.id.listview_team2List);
+        listInput = (ListView) findViewById(R.id.listView_gamestart2Player);
         infoItems = new ArrayList<PlayerInfo>();
         infoListAdapter = new PlayerInfoAdapter(this, infoItems);
         listInput.setAdapter(infoListAdapter);

@@ -27,18 +27,17 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="3號"
+        android:text="03號"
         android:id="@+id/radioButton_record3player3"
         android:checked="false"
         android:textSize="20dp"
         android:layout_below="@+id/text_record3players"
-        android:layout_alignLeft="@+id/radioButton_record3player6"
-        android:layout_alignStart="@+id/radioButton_record3player6" />
+        android:layout_toLeftOf="@+id/text_record3players" />
 
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="4號"
+        android:text="04號"
         android:id="@+id/radioButton_record3player4"
         android:checked="false"
         android:textSize="20dp"
@@ -48,7 +47,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="5號"
+        android:text="05號"
         android:id="@+id/radioButton_record3player5"
         android:checked="false"
         android:textSize="20dp"
@@ -59,18 +58,17 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2號"
+        android:text="02號"
         android:id="@+id/radioButton_record3player2"
         android:checked="false"
         android:textSize="20dp"
-        android:layout_above="@+id/radioButton_record3player6"
-        android:layout_alignRight="@+id/textView_record3opponentattack"
-        android:layout_alignEnd="@+id/textView_record3opponentattack" />
+        android:layout_above="@+id/radioButton_record3player1"
+        android:layout_toRightOf="@+id/radioButton_record3player3" />
 
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="6號"
+        android:text="06號"
         android:id="@+id/radioButton_record3player6"
         android:checked="false"
         android:textSize="20dp"
@@ -80,23 +78,22 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1號"
+        android:text="01號"
         android:id="@+id/radioButton_record3player1"
         android:checked="false"
         android:textSize="20dp"
         android:layout_below="@+id/radioButton_record3player3"
-        android:layout_alignRight="@+id/textView_record3opponentattack"
-        android:layout_alignEnd="@+id/textView_record3opponentattack" />
+        android:layout_toRightOf="@+id/radioButton_record3player3" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="對方攻擊"
         android:id="@+id/textView_record3opponentattack"
-        android:layout_marginTop="20dp"
         android:layout_below="@+id/radioButton_record3player6"
         android:layout_centerHorizontal="true"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:layout_marginTop="15dp" />
 
     <RadioGroup android:id="@+id/record3rdg1"
         android:orientation="vertical"
@@ -205,8 +202,8 @@
         android:id="@+id/textView_record3others"
         android:textSize="30dp"
         android:layout_below="@+id/record3rdg2"
-        android:layout_alignLeft="@+id/btn_record3Confirm"
-        android:layout_alignStart="@+id/btn_record3Confirm" />
+        android:layout_alignLeft="@+id/text_record3players"
+        android:layout_alignStart="@+id/text_record3players" />
 
     <RadioButton
     android:layout_width="50dp"
@@ -229,9 +226,8 @@
         android:id="@+id/radioButton_record3liberal1"
         android:checked="false"
         android:textSize="20dp"
-        android:layout_alignTop="@+id/radioButton_record3player2"
-        android:layout_alignLeft="@+id/radioButton_record3liberal2"
-        android:layout_alignStart="@+id/radioButton_record3liberal2" />
+        android:layout_above="@+id/radioButton_record3liberal2"
+        android:layout_toRightOf="@+id/radioButton_record3player2" />
 
     <RadioButton
         android:layout_width="wrap_content"
@@ -241,7 +237,8 @@
         android:checked="false"
         android:textSize="20dp"
         android:layout_below="@+id/radioButton_record3player2"
-        android:layout_toRightOf="@+id/textView_record3opponentattack" />
+        android:layout_alignLeft="@+id/radioButton_record3liberal1"
+        android:layout_alignStart="@+id/radioButton_record3liberal1" />
 
     <RadioButton
              android:layout_width="wrap_content"

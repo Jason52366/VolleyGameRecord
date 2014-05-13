@@ -66,7 +66,7 @@ public class LogIn extends Activity {
             public void onClick(View v) {
                 List<String> permissions = Arrays.asList("basic_info","user_about_me");
 
-                final ProgressDialog dialog = ProgressDialog.show(LogIn.this,"", "快滾啦", true);
+                final ProgressDialog dialog = ProgressDialog.show(LogIn.this,"", "鴿子封包傳遞中", true);
                 ParseFacebookUtils.logIn(permissions, LogIn.this,new LogInCallback() {
 
                     @Override

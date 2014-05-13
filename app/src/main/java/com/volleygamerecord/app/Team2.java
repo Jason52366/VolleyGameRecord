@@ -3,21 +3,16 @@ package com.volleygamerecord.app;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -33,7 +28,7 @@ import java.util.List;
 public class Team2 extends Activity {
     ListView listInput;
     ArrayList<PlayerInfo> infoItems;
-    Team2Adapter adapter;
+    PlayerInfoAdapter adapter;
 
     String userName =  DataCenter.getInstance().getStringValue("parseUserName");
 
@@ -58,7 +53,7 @@ public class Team2 extends Activity {
 
         listInput = (ListView) findViewById(R.id.listview_team2List);
         infoItems = new ArrayList<PlayerInfo>();
-        adapter = new Team2Adapter(this,infoItems);
+        adapter = new PlayerInfoAdapter(this, infoItems);
         listInput.setAdapter(adapter);
 
         addnewPlayer.setOnClickListener(new View.OnClickListener() {
@@ -206,75 +201,6 @@ public class Team2 extends Activity {
                 }
             }
         });
-    }
-
-    private class PlayerInfo{
-        private String number;
-        private String name;
-        private String position;
-
-        public PlayerInfo(String num,String n, String pos){
-            number = num;
-            name = n;
-            position = pos;
-        }
-        public String getNumber(){
-            return number;
-        }
-        public void setNumber(String num){
-            number = num;
-        }
-        public String getName(){
-            return name;
-        }
-        public void setName(String n){
-            name = n;
-        }
-        public String getPosition(){
-            return position;
-        }
-        public void setPosition(String pos){
-            position = pos;
-        }
-    }
-
-
-    public class Team2Adapter extends BaseAdapter{
-        private LayoutInflater team2Inflater;
-        private List<PlayerInfo> info;
-
-        public Team2Adapter(Context c,List<PlayerInfo> l){
-            team2Inflater = LayoutInflater.from(c);
-            info = l;
-        }
-        @Override
-        public int getCount() {
-            return info.size();
-        }
-        @Override
-        public Object getItem(int pos){
-            return info.get(pos);
-        }
-        @Override
-        public long getItemId(int position){
-            return info.indexOf(getItem(position));
-        }
-
-        @Override
-        public View getView(int pos, View convertView, ViewGroup parent){
-            convertView = team2Inflater.inflate(R.layout.listcontent_team2, null);
-            TextView name = (TextView) convertView.findViewById(R.id.team2ListName);
-            TextView number= (TextView) convertView.findViewById(R.id.team2ListNumber);
-            TextView position= (TextView) convertView.findViewById(R.id.team2ListPosition);
-
-            PlayerInfo playerinfo = (PlayerInfo) getItem(pos);
-            name.setText(playerinfo.getName());
-            number.setText(playerinfo.getNumber());
-            position.setText(playerinfo.getPosition());
-
-            return convertView;
-        }
-
     }
 
     private void DeleteTeam(){

@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -24,9 +23,10 @@ public class GameStart2  extends Activity {
     ArrayList numberList = new ArrayList();
     ArrayList positionList = new ArrayList();
     ArrayList playerNameList = new ArrayList();
-    ArrayAdapter<String> adapter;
 
     ListView listInput;
+    ArrayList<PlayerInfo> infoItems;
+    PlayerInfoAdapter infoListAdapter;
 
     String teamName =  DataCenter.getInstance().getStringValue("team");
 
@@ -35,8 +35,12 @@ public class GameStart2  extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gamestart2);
-
+        listInput = (ListView) findViewById(R.id.listview_team2List);
+        infoItems = new ArrayList<PlayerInfo>();
+        infoListAdapter = new PlayerInfoAdapter(this, infoItems);
+        listInput.setAdapter(infoListAdapter);
         getPlayerFromParse();
+
 
         //button_gamestart2Sure
         Button btn_gamestart2Sure = (Button)findViewById(R.id.button_gamestart2Sure);
@@ -69,23 +73,26 @@ public class GameStart2  extends Activity {
     }
 
     private void getPlayerFromParse(){
-
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Team");
         query.whereEqualTo("teamName",teamName);
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> parseObjects, com.parse.ParseException e) {
                 if (e == null) {
-                        numberList.add(parseObjects.get(0).get("playerNumber"));
-                        positionList.add(parseObjects.get(0).get("position"));
-                        playerNameList.add(parseObjects.get(0).get("playerName"));
-
+                        numberList = (ArrayList)parseObjects.get(0).get("playerNumber");
+                        positionList =  (ArrayList) parseObjects.get(0).get("position");
+                        playerNameList =  (ArrayList)parseObjects.get(0).get("playerName");
                     for(int i = 0;i < numberList.size() ; i++ ) {
-                        String num = (String)numberList.get(i);
-                        String pos = (String)positionList.get(i);
-                        String nam = (String)playerNameList.get(i);
+                        String num = numberList.get(i).toString();
+                        String pos = positionList.get(i).toString();
+                        String nam = playerNameList.get(i).toString();
+                        Log.d("numberLALA",""+num);
+                        Log.d("positionLALA",""+pos);
+                        Log.d("nameLALA",""+nam);
+                        infoItems.add(new PlayerInfo(num,nam,pos));
+
+                        listInput.setAdapter(infoListAdapter);
 
                     }
-
                 } else {
                     Log.e("parseReturn", e.toString());
                 }
@@ -93,4 +100,5 @@ public class GameStart2  extends Activity {
 
         });
     }
+
 }

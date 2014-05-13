@@ -28,9 +28,7 @@ import java.util.List;
 public class Team2 extends Activity {
     ListView listInput;
     ArrayList<PlayerInfo> infoItems;
-    PlayerInfoAdapter adapter;
-
-    String userName =  DataCenter.getInstance().getStringValue("parseUserName");
+    PlayerInfoAdapter infoListAdapter;
 
     EditText teamName;
     EditText editname;
@@ -53,8 +51,8 @@ public class Team2 extends Activity {
 
         listInput = (ListView) findViewById(R.id.listview_team2List);
         infoItems = new ArrayList<PlayerInfo>();
-        adapter = new PlayerInfoAdapter(this, infoItems);
-        listInput.setAdapter(adapter);
+        infoListAdapter = new PlayerInfoAdapter(this, infoItems);
+        listInput.setAdapter(infoListAdapter);
 
         addnewPlayer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -164,7 +162,7 @@ public class Team2 extends Activity {
         editpos.setText("");
         editnum.requestFocus();  //cursor回到填number那邊
 
-        listInput.setAdapter(adapter);
+        listInput.setAdapter(infoListAdapter);
 
     }
 
@@ -216,7 +214,7 @@ public class Team2 extends Activity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 infoItems.remove(pos);
-                                listInput.setAdapter(adapter);
+                                listInput.setAdapter(infoListAdapter);
                             }
                         })
                         .setNegativeButton("否", new DialogInterface.OnClickListener() {

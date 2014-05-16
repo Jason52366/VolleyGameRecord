@@ -138,6 +138,7 @@ public class Record1 extends Activity {
         btnPlayer4 = (Button)findViewById(R.id.button_record1player4);
         btnPlayer5 = (Button)findViewById(R.id.button_record1player5);
         btnPlayer6 = (Button)findViewById(R.id.button_record1player6);
+
     }
 
     public void LoadPlayerPosition(){

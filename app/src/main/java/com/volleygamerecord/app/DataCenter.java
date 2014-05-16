@@ -31,12 +31,10 @@ public class DataCenter {
     // MEMORY OPERATION ////////////////////////////////////////////////////////
     public void setDataArray(ArrayList tempArray){
         dataArray = tempArray;
-
     }
 
     public void setPlayerArray(ArrayList tempArray){
         playerArray = tempArray;
-
     }
 
     public void setDoSwitchPosition(Boolean boolen){
@@ -51,6 +49,7 @@ public class DataCenter {
         memPool.remove(key);
         memPool.put(key, String.valueOf(value));
     }
+
 
     public ArrayList getDataArray(){
         ArrayList ret = dataArray;
@@ -76,6 +75,7 @@ public class DataCenter {
         Boolean ret = doSwitchPosition;
         return ret != null ? ret: Boolean.FALSE;
     }
+
 
 }
 

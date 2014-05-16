@@ -2,9 +2,11 @@ package com.volleygamerecord.app;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -19,10 +21,11 @@ import java.util.List;
  * Created by A on 2014/3/18.
  */
 public class GameStart2  extends Activity {
-    ArrayList choosenPlayer = new ArrayList();
     ArrayList numberList = new ArrayList();
     ArrayList positionList = new ArrayList();
     ArrayList playerNameList = new ArrayList();
+
+    ArrayList choosenPlayer = new ArrayList();
 
     ListView listInput;
     ArrayList<PlayerInfo> infoItems;
@@ -41,6 +44,20 @@ public class GameStart2  extends Activity {
         listInput.setAdapter(infoListAdapter);
         getPlayerFromParse();
 
+        //選擇要上場的球員
+        listInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                    if(!infoItems.get(position).getOnCourt()&&choosenPlayer.size() < 7){
+                    view.setBackgroundColor(Color.GREEN);
+                    infoItems.get(position).setOnCourt(Boolean.TRUE);
+                    }else{
+                    view.setBackgroundColor(Color.TRANSPARENT);
+                    infoItems.get(position).setOnCourt(Boolean.FALSE);
+                }
+
+            }
+        });
 
         //button_gamestart2Sure
         Button btn_gamestart2Sure = (Button)findViewById(R.id.button_gamestart2Sure);
@@ -48,7 +65,6 @@ public class GameStart2  extends Activity {
             @Override
             public void onClick(View v) {
                 SendChoosenPlayer();
-
 
                 Intent intent = new Intent();
                 intent.setClass(GameStart2.this, Record1.class);
@@ -62,15 +78,14 @@ public class GameStart2  extends Activity {
     }
 
     public void SendChoosenPlayer (){
-        choosenPlayer.add("32號");
-        choosenPlayer.add("03號");
-        choosenPlayer.add("08號");
-        choosenPlayer.add("18號");
-        choosenPlayer.add("10號");
-        choosenPlayer.add("22號");
+        for(int i =0; i < infoItems.size(); i ++)
+        if(infoItems.get(i).getOnCourt()){
+
+            choosenPlayer.add(infoItems.get(i).getNumber());
+        }
         DataCenter.getInstance().setPlayerArray(choosenPlayer);
-        Log.d("GameStart2", "" + choosenPlayer.toString());
     }
+
 
     private void getPlayerFromParse(){
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Team");
@@ -86,9 +101,9 @@ public class GameStart2  extends Activity {
                         String pos = positionList.get(i).toString();
                         String nam = playerNameList.get(i).toString();
                         Log.d("numberLALA",""+num);
-                        Log.d("positionLALA",""+pos);
-                        Log.d("nameLALA",""+nam);
-                        infoItems.add(new PlayerInfo(num,nam,pos));
+                        Log.d("positionLALA", "" + pos);
+                        Log.d("nameLALA", "" + nam);
+                        infoItems.add(new PlayerInfo(num, nam, pos));
 
                         listInput.setAdapter(infoListAdapter);
 

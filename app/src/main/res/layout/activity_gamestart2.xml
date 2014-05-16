@@ -15,7 +15,10 @@
         android:textFilterEnabled="true"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:choiceMode="none" />
+        android:choiceMode="none"
+        android:clickable="false"
+        android:drawSelectorOnTop="false"
+        android:focusable="true" />
 
     <TextView
         android:layout_width="wrap_content"

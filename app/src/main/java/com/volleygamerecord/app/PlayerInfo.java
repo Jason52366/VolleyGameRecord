@@ -1,14 +1,5 @@
 package com.volleygamerecord.app;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-
-import java.util.List;
-
 /**
  * Created by Jay on 2014/5/13.
  */
@@ -17,8 +8,10 @@ public class PlayerInfo {
         private String number;
         private String name;
         private String position;
+        //確定球員是否在場上
+        private Boolean onCourt = false;
 
-        public PlayerInfo(String num,String n, String pos){
+    public PlayerInfo(String num,String n, String pos){
             number = num;
             name = n;
             position = pos;
@@ -42,7 +35,12 @@ public class PlayerInfo {
         public void setPosition(String pos){
             position = pos;
         }
-
+        public Boolean getOnCourt(){
+        return onCourt;
+        }
+        public void setOnCourt(Boolean on){
+        onCourt = on;
+        }
 
 
 }

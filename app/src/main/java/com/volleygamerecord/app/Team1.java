@@ -82,10 +82,11 @@ public class Team1 extends Activity {
         listInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String obID = objectsId.get(position);
-                DataCenter.getInstance().setValue("objectsId",obID);
+//                String obID = objectsId.get(position);
+//                DataCenter.getInstance().setValue("objectsId",obID);
+                DataCenter.getInstance().setValue("teamName",items.get(position));
                 Intent intent = new Intent();
-                intent.setClass(Team1.this, Team2.class);
+                intent.setClass(Team1.this, Team2_Editing.class);
                 startActivity(intent);
             }
         });

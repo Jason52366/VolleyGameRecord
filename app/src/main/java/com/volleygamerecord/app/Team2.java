@@ -48,7 +48,6 @@ public class Team2 extends Activity {
         FindEachViewId();
         InfoSetOnKeyListener();
 
-
         listInput = (ListView) findViewById(R.id.listview_team2List);
         infoItems = new ArrayList<PlayerInfo>();
         infoListAdapter = new PlayerInfoAdapter(this, infoItems);

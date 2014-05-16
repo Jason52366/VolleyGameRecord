@@ -79,18 +79,6 @@ public class Start  extends Activity {
             }
         });
 
-        //button_startConfiguration
-//        Button btn_startConfiguration = (Button)findViewById(R.id.button_startConfiguration);
-//        btn_startConfiguration.setOnClickListener(new Button.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//
-//                Intent intent = new Intent();
-//                intent.setClass(Start.this, 沒有設定.class);
-//                startActivity(intent);
-//
-//            }
-//        });
     }
 
     //

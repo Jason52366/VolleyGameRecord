@@ -96,7 +96,6 @@ public class Team2 extends Activity {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
                         (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                    AddNewPlayerToInfoItem();
                     return true;
                 }
                 return false;
@@ -106,7 +105,6 @@ public class Team2 extends Activity {
             public boolean onKey(View v, int keyCode, KeyEvent event){
                 if((event.getAction() == KeyEvent.ACTION_DOWN) &&
                         (keyCode == KeyEvent.KEYCODE_ENTER)){
-                    AddNewPlayerToInfoItem();
                     return true;
                 }
                 return false;
@@ -117,7 +115,6 @@ public class Team2 extends Activity {
             public boolean onKey(View v, int keyCode, KeyEvent event){
                 if((event.getAction() == KeyEvent.ACTION_DOWN) &&
                         (keyCode == KeyEvent.KEYCODE_ENTER)){
-                    AddNewPlayerToInfoItem();
                     return true;
                 }
                 return false;
@@ -127,7 +124,6 @@ public class Team2 extends Activity {
             public boolean onKey(View v, int keyCode, KeyEvent event){
                 if((event.getAction() == KeyEvent.ACTION_DOWN) &&
                         (keyCode == KeyEvent.KEYCODE_ENTER)){
-                    AddNewPlayerToInfoItem();
                     return true;
                 }
                 return false;

@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -30,7 +31,6 @@ public class Team2_Editing extends Activity {
     ArrayList<PlayerInfo> infoItems;
     PlayerInfoAdapter infoListAdapter;
 
-    ArrayList<PlayerInfo> newPlayer = new ArrayList<PlayerInfo>();
     ArrayList numberList = new ArrayList();
     ArrayList positionList = new ArrayList();
     ArrayList playerNameList = new ArrayList();
@@ -78,6 +78,57 @@ public class Team2_Editing extends Activity {
 
     }
 
+    private void InfoSetOnKeyListener(){
+
+        teamName.setOnKeyListener(new View.OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
+                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    return true;
+                }
+                return false;
+            }
+        });
+        editpos.setOnKeyListener(new View.OnKeyListener(){
+            public boolean onKey(View v, int keyCode, KeyEvent event){
+                if((event.getAction() == KeyEvent.ACTION_DOWN) &&
+                        (keyCode == KeyEvent.KEYCODE_ENTER)){
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        editname.setOnKeyListener(new View.OnKeyListener(){
+            public boolean onKey(View v, int keyCode, KeyEvent event){
+                if((event.getAction() == KeyEvent.ACTION_DOWN) &&
+                        (keyCode == KeyEvent.KEYCODE_ENTER)){
+                    return true;
+                }
+                return false;
+            }
+        });
+        editnum.setOnKeyListener(new View.OnKeyListener(){
+            public boolean onKey(View v, int keyCode, KeyEvent event){
+                if((event.getAction() == KeyEvent.ACTION_DOWN) &&
+                        (keyCode == KeyEvent.KEYCODE_ENTER)){
+                    return true;
+                }
+                return false;
+            }
+        });
+    }
+
+    private void checkInfo(){
+        String tmp1 = editname.getText().toString();
+        String tmp2 = editnum.getText().toString();
+        String tmp3 = editpos.getText().toString();
+
+        if(!tmp1.isEmpty() && !tmp2.isEmpty() && !tmp3.isEmpty()){
+            addOk = true;
+        }
+    }
+
     private void SettingListView(){
         listInput = (ListView) findViewById(R.id.listview_team2List);
         infoItems = new ArrayList<PlayerInfo>();
@@ -120,25 +171,40 @@ public class Team2_Editing extends Activity {
 
 
     private void AddNewPlayerToInfoItem(){
-        addnewPlayer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-        //----
-        String playerNum = editnum.getText().toString();
-        String playerName = editname.getText().toString();
-        String playerPosition = editpos.getText().toString();
+        checkInfo();
 
-        infoItems.add(new PlayerInfo(playerNum,playerName,playerPosition));
-        newPlayer.add(new PlayerInfo(playerNum,playerName,playerPosition));
+            addnewPlayer.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(addOk) {
+                    //----
+                    String playerNum = editnum.getText().toString();
+                    String playerName = editname.getText().toString();
+                    String playerPosition = editpos.getText().toString();
 
-        editnum.setText("");
-        editname.setText("");
-        editpos.setText("");
-        editnum.requestFocus();  //cursor回到填number那邊
+                    infoItems.add(new PlayerInfo(playerNum, playerName, playerPosition));
 
-        listInput.setAdapter(infoListAdapter);
-            }
-        });
+                    editnum.setText("");
+                    editname.setText("");
+                    editpos.setText("");
+                    editnum.requestFocus();  //cursor回到填number那邊
+
+                    listInput.setAdapter(infoListAdapter);
+
+                    }else {
+                        new AlertDialog.Builder(Team2_Editing.this)
+                                .setMessage("隊五資料不可空白唷")
+                                .setPositiveButton("了解", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                    }
+                                })
+                                .show();
+                    }
+                }
+            });
+
+
     }
 
     private void ConfirmEdit(){
@@ -147,17 +213,27 @@ public class Team2_Editing extends Activity {
             public void onClick(View v) {
                 //ParseObject.createWithoutData("Team",objectsId.get(pos)).deleteEventually();
                 //----
-                if(newPlayer.size() > 0){
-                    for(int i = 0; i < newPlayer.size(); i++) {
-                        theTeam.get(0).add("playerName",newPlayer.get(i).getName());
-                        theTeam.get(0).add("playerNumber",newPlayer.get(i).getNumber());
-                        theTeam.get(0).add("position",newPlayer.get(i).getPosition());
+                List<String> nameList = new ArrayList<String>();
+                List<String> numList = new ArrayList<String>();
+                List<String> posList = new ArrayList<String>();
+                if(infoItems.size() > 0){
+                    for(int i = 0; i < infoItems.size(); i++) {
+                        nameList.add(infoItems.get(i).getName());
+                        numList.add(infoItems.get(i).getNumber());
+                        posList.add(infoItems.get(i).getPosition());
                     }
-                    Log.d("!!!!",newPlayer.get(0).getName());
+
+                    theTeam.get(0).put("playerName",nameList);
+                    theTeam.get(0).put("playerNumber",numList);
+                    theTeam.get(0).put("position",posList);
+
                     theTeam.get(0).saveInBackground(new SaveCallback() {
                         @Override
                         public void done(ParseException e) {
-                            Log.d("!!!!","上傳成功");
+                            Log.d("!!!!", "上傳成功");
+                            for (int i = 0; i < infoItems.size(); i++) {
+                                Log.d("!!!!", infoItems.get(i).getPosition());
+                            }
                         }
                     });
                 }
@@ -182,9 +258,6 @@ public class Team2_Editing extends Activity {
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 infoItems.remove(pos);
                                 listInput.setAdapter(infoListAdapter);
-                                if (pos > numInfoItems) {
-                                    newPlayer.remove(pos - 6);
-                                }
                             }
                         })
                         .setNegativeButton("否", new DialogInterface.OnClickListener() {

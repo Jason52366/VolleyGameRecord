@@ -4,44 +4,48 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="開始比賽"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:text="      開始比賽"
         android:id="@+id/button_startGameStart"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="24dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="管理球隊"
-        android:id="@+id/button_startManageTeam"
-        android:layout_below="@+id/button_startGameStart"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:textSize="24dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="線上記錄"
-        android:id="@+id/button_startOnlineRecord"
-        android:layout_below="@+id/button_startManageTeam"
+        android:textSize="25dp"
+        android:background="@drawable/button"
+        android:typeface="normal"
+        android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/button_startManageTeam"
         android:layout_alignStart="@+id/button_startManageTeam"
-        android:layout_marginTop="10dp"
-        android:textSize="24dp" />
+        android:layout_marginTop="166dp" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" 設      定 "
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:text="      管理球隊"
+        android:id="@+id/button_startManageTeam"
+        android:background="@drawable/button"
+        android:layout_below="@+id/button_startGameStart"
+        android:layout_alignLeft="@+id/button_startOnlineRecord"
+        android:layout_alignStart="@+id/button_startOnlineRecord"
+        android:textSize="25dp" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:text="       線上記錄"
+        android:id="@+id/button_startOnlineRecord"
+        android:background="@drawable/button"
+        android:layout_below="@+id/button_startManageTeam"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:text="       設      定 "
         android:id="@+id/button_startConfiguration"
         android:layout_below="@+id/button_startOnlineRecord"
         android:layout_alignLeft="@+id/button_startOnlineRecord"
         android:layout_alignStart="@+id/button_startOnlineRecord"
-        android:layout_marginTop="10dp"
-        android:textSize="24dp" />
+        android:textSize="25dp"
+        android:background="@drawable/button" />
 
 </RelativeLayout>

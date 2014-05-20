@@ -21,8 +21,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="請開啟網路連線"
         android:id="@+id/OpenInternet"
+        android:textSize="50dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="50dp" />
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

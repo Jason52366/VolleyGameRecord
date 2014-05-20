@@ -16,7 +16,7 @@ import java.util.TimerTask;
  * Created by Jay on 2014/3/18.
  */
 public class Start  extends Activity {
-    @Override
+        @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
@@ -27,7 +27,7 @@ public class Start  extends Activity {
             public void onClick(View v) {
 
 //                Intent 企圖 = new Intent();
-//                企圖.setClass(Start.this, .class);
+//                企圖.setClass(Start.this, .Setting class);
 //                startActivity(企圖);
 
 
@@ -64,6 +64,8 @@ public class Start  extends Activity {
             }
 
         });
+
+
 
 
         //button_startManageTeam

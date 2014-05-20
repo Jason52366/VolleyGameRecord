@@ -176,7 +176,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="好球"
+        android:text="掩護"
         android:id="@+id/radioButton_record2b1"
         android:checked="false"
         android:textSize="25dp"
@@ -187,7 +187,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="修正"
+        android:text="強攻"
         android:id="@+id/radioButton_record2b2"
         android:layout_below="@+id/radioButton_record2b1"
         android:layout_centerHorizontal="true"

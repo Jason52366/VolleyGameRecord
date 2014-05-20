@@ -97,11 +97,8 @@
         android:text="其他"
         android:id="@+id/textView_record2others"
         android:textSize="30dp"
-        android:layout_below="@+id/record2rdg3"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentStart="false"
-        android:layout_marginTop="1dp" />
+        android:layout_alignTop="@+id/record2rdg4"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -249,7 +246,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="大砲"
+                android:text="4號位"
                 android:id="@+id/radioButton_record2a1"
                 android:layout_alignTop="@+id/radioButton_record2b1"
                 android:layout_toLeftOf="@+id/radioButton_record2b1"
@@ -259,7 +256,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="快攻"
+                android:text="3號位"
                 android:id="@+id/radioButton_record2a2"
                 android:layout_below="@+id/radioButton_record2a1"
                 android:layout_alignRight="@+id/radioButton_record2a1"
@@ -270,7 +267,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="背位"
+                android:text="2號位"
                 android:id="@+id/radioButton_record2a3"
                 android:layout_below="@+id/radioButton_record2b2"
                 android:layout_alignLeft="@+id/radioButton_record2a2"
@@ -281,11 +278,19 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="後排"
+                android:text="快攻"
                 android:id="@+id/radioButton_record2a4"
                 android:layout_below="@+id/radioButton_record2a3"
                 android:layout_alignLeft="@+id/radioButton_record2a3"
                 android:layout_alignStart="@+id/radioButton_record2a3"
+                android:checked="false"
+                android:textSize="25dp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="後排"
+                android:id="@+id/radioButton_record2a5"
                 android:checked="false"
                 android:textSize="25dp" />
         </RadioGroup>

@@ -82,8 +82,8 @@ public class Team1 extends Activity {
         listInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                String obID = objectsId.get(position);
-//                DataCenter.getInstance().setValue("objectsId",obID);
+                String obID = objectsId.get(position);
+                DataCenter.getInstance().setValue("objectsId",obID);
                 DataCenter.getInstance().setValue("teamName",items.get(position));
                 Intent intent = new Intent();
                 intent.setClass(Team1.this, Team2_Editing.class);
@@ -117,6 +117,7 @@ public class Team1 extends Activity {
                         .setNegativeButton("否", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
+                            //int i = -2 (不論選第幾格)
                             }
                         })
                         .show();

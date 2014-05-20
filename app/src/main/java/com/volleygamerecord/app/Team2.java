@@ -47,11 +47,7 @@ public class Team2 extends Activity {
 
         FindEachViewId();
         InfoSetOnKeyListener();
-
-        listInput = (ListView) findViewById(R.id.listview_team2List);
-        infoItems = new ArrayList<PlayerInfo>();
-        infoListAdapter = new PlayerInfoAdapter(this, infoItems);
-        listInput.setAdapter(infoListAdapter);
+        SettingListView();
 
         addnewPlayer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,6 +112,7 @@ public class Team2 extends Activity {
                 return false;
             }
         });
+
         editname.setOnKeyListener(new View.OnKeyListener(){
             public boolean onKey(View v, int keyCode, KeyEvent event){
                 if((event.getAction() == KeyEvent.ACTION_DOWN) &&
@@ -142,10 +139,16 @@ public class Team2 extends Activity {
         String tmp = teamName.getText().toString();
         if(infoItems.size()!=0 && !(tmp.equals(""))){
             addOk = true;
-            Log.d("OK","true");
         }
     }
 
+    private void SettingListView(){
+        listInput = (ListView) findViewById(R.id.listview_team2List);
+        infoItems = new ArrayList<PlayerInfo>();
+        infoListAdapter = new PlayerInfoAdapter(this, infoItems);
+        listInput.setAdapter(infoListAdapter);
+
+    }
 
 
     private void AddNewPlayerToInfoItem(){

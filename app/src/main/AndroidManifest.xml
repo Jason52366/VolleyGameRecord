@@ -92,6 +92,10 @@
             android:label="@string/app_name" >
         </activity>
 
+        <activity
+            android:name="com.volleygamerecord.app.MyGame"
+            android:label="@string/app_name" >
+        </activity>
         <meta-data android:name="com.facebook.sdk.ApplicationId"
                    android:value="@string/app_id" />
         <activity  android:name="com.facebook.LoginActivity"/>

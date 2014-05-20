@@ -1,15 +1,22 @@
 package com.volleygamerecord.app;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
 import com.parse.FindCallback;
+import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.SaveCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,36 +30,59 @@ public class Team2_Editing extends Activity {
     ArrayList<PlayerInfo> infoItems;
     PlayerInfoAdapter infoListAdapter;
 
+    ArrayList<PlayerInfo> newPlayer = new ArrayList<PlayerInfo>();
     ArrayList numberList = new ArrayList();
     ArrayList positionList = new ArrayList();
     ArrayList playerNameList = new ArrayList();
+    ArrayList<ParseObject> theTeam;
     String tName = DataCenter.getInstance().getStringValue("teamName");
+    String obID = DataCenter.getInstance().getStringValue("objectsId");
 
     EditText teamName;
     EditText editname;
     EditText editnum;
     EditText editpos;
 
-    Button addnewteam;
+    Button confirmTeamEdit;
     Button addnewPlayer;
 
     Boolean addOk =false;
 
+    ProgressDialog dialog;
 
+    int numInfoItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team2);
+        FindEachViewId();
+        dialog = ProgressDialog.show(Team2_Editing.this,"", "請等待...", true);
+        SettingListView();
+        getPlayerFromParse();
 
+        AddNewPlayerToInfoItem();//addnewPlayer.setOnClickListener
+        ConfirmEdit();//by addnew
+        DeleteTeam();//by OnLongClickListener
+    }
 
+    private void FindEachViewId(){
+        teamName = (EditText)findViewById(R.id.editText_team2TeamName);
+        editname = (EditText)findViewById(R.id.editText_team2Player);
+        editnum = (EditText)findViewById(R.id.editText_team2Number);
+        editpos = (EditText)findViewById(R.id.editText_team2Position);
+        confirmTeamEdit = (Button) findViewById(R.id.button_team2AddNewTeam);
+        addnewPlayer = (Button)findViewById(R.id.button_team2AddNewPlayer);
+        teamName.setText(tName);
+        confirmTeamEdit.setText("確認編輯");
 
+    }
+
+    private void SettingListView(){
         listInput = (ListView) findViewById(R.id.listview_team2List);
         infoItems = new ArrayList<PlayerInfo>();
         infoListAdapter = new PlayerInfoAdapter(this, infoItems);
         listInput.setAdapter(infoListAdapter);
-        getPlayerFromParse();
-
 
     }
 
@@ -69,19 +99,102 @@ public class Team2_Editing extends Activity {
                         String num = numberList.get(i).toString();
                         String pos = positionList.get(i).toString();
                         String nam = playerNameList.get(i).toString();
-                        Log.d("numberLALA", "" + num);
-                        Log.d("positionLALA", "" + pos);
-                        Log.d("nameLALA", "" + nam);
                         infoItems.add(new PlayerInfo(num, nam, pos));
-
                         listInput.setAdapter(infoListAdapter);
+                        numInfoItems = infoItems.size();
+
+                        theTeam = (ArrayList)parseObjects;
+
+                        dialog.dismiss();
 
                     }
                 } else {
                     Log.e("parseReturn", e.toString());
+                    dialog.dismiss();
+
                 }
             }
 
+        });
+    }
+
+
+    private void AddNewPlayerToInfoItem(){
+        addnewPlayer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+        //----
+        String playerNum = editnum.getText().toString();
+        String playerName = editname.getText().toString();
+        String playerPosition = editpos.getText().toString();
+
+        infoItems.add(new PlayerInfo(playerNum,playerName,playerPosition));
+        newPlayer.add(new PlayerInfo(playerNum,playerName,playerPosition));
+
+        editnum.setText("");
+        editname.setText("");
+        editpos.setText("");
+        editnum.requestFocus();  //cursor回到填number那邊
+
+        listInput.setAdapter(infoListAdapter);
+            }
+        });
+    }
+
+    private void ConfirmEdit(){
+        confirmTeamEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //ParseObject.createWithoutData("Team",objectsId.get(pos)).deleteEventually();
+                //----
+                if(newPlayer.size() > 0){
+                    for(int i = 0; i < newPlayer.size(); i++) {
+                        theTeam.get(0).add("playerName",newPlayer.get(i).getName());
+                        theTeam.get(0).add("playerNumber",newPlayer.get(i).getNumber());
+                        theTeam.get(0).add("position",newPlayer.get(i).getPosition());
+                    }
+                    Log.d("!!!!",newPlayer.get(0).getName());
+                    theTeam.get(0).saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            Log.d("!!!!","上傳成功");
+                        }
+                    });
+                }
+                Team2_Editing.this.finish();
+
+            }
+        });
+
+    }
+
+    private void DeleteTeam(){
+        //長按可刪除
+        listInput.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                final int pos = i;
+                new AlertDialog.Builder(Team2_Editing.this)
+                        .setTitle("刪除列")
+                        .setMessage("你確定要刪除?")
+                        .setPositiveButton("是", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                infoItems.remove(pos);
+                                listInput.setAdapter(infoListAdapter);
+                                if (pos > numInfoItems) {
+                                    newPlayer.remove(pos - 6);
+                                }
+                            }
+                        })
+                        .setNegativeButton("否", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                            }
+                        })
+                        .show();
+                return false;
+            }
         });
     }
 

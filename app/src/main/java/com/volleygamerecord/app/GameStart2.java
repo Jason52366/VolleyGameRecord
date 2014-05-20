@@ -48,28 +48,34 @@ public class GameStart2  extends Activity {
         listInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                    if(!infoItems.get(position).getOnCourt()&&choosenPlayer.size() < 7){
+                    if(!infoItems.get(position).getOnCourt() && choosenPlayer.size() < 6 ){
                     view.setBackgroundColor(Color.GREEN);
                     infoItems.get(position).setOnCourt(Boolean.TRUE);
+                    choosenPlayer.add(infoItems.get(position));
+                    Log.d("!!!!!OOOO!!!!!",""+choosenPlayer.size());
                     }else{
                     view.setBackgroundColor(Color.TRANSPARENT);
                     infoItems.get(position).setOnCourt(Boolean.FALSE);
+                    int i = choosenPlayer.indexOf(infoItems.get(position));
+                    choosenPlayer.remove(i);
                 }
 
             }
         });
 
-        //button_gamestart2Sure
+        //button_Sure
         Button btn_gamestart2Sure = (Button)findViewById(R.id.button_gamestart2Sure);
         btn_gamestart2Sure.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                SendChoosenPlayer();
 
-                Intent intent = new Intent();
-                intent.setClass(GameStart2.this, Record1.class);
-                startActivity(intent);
-                onPause();
+                if ((choosenPlayer.size() <7)){
+                    DataCenter.getInstance().setPlayerArray(choosenPlayer);
+                    Intent intent = new Intent();
+                    intent.setClass(GameStart2.this, Record1.class);
+                    startActivity(intent);
+                    onPause();
+                }
             }
         });
         //召喚了datacenter YOOOOOOO
@@ -77,14 +83,6 @@ public class GameStart2  extends Activity {
         //Log.e("!!!!!", abc.toString() );
     }
 
-    public void SendChoosenPlayer (){
-        for(int i =0; i < infoItems.size(); i ++)
-        if(infoItems.get(i).getOnCourt()){
-
-            choosenPlayer.add(infoItems.get(i).getNumber());
-        }
-        DataCenter.getInstance().setPlayerArray(choosenPlayer);
-    }
 
 
     private void getPlayerFromParse(){
@@ -100,11 +98,7 @@ public class GameStart2  extends Activity {
                         String num = numberList.get(i).toString();
                         String pos = positionList.get(i).toString();
                         String nam = playerNameList.get(i).toString();
-                        Log.d("numberLALA",""+num);
-                        Log.d("positionLALA", "" + pos);
-                        Log.d("nameLALA", "" + nam);
                         infoItems.add(new PlayerInfo(num, nam, pos));
-
                         listInput.setAdapter(infoListAdapter);
 
                     }

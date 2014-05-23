@@ -111,7 +111,8 @@
         android:id="@+id/spinner_gamestart1OurTeam"
         android:layout_alignTop="@+id/textView_gamestart1OurTeam"
         android:layout_alignBottom="@+id/textView_gamestart1OurTeam"
-        android:layout_alignLeft="@+id/spinner_gamestart1Cup" />
+        android:layout_alignLeft="@+id/spinner_gamestart1Cup"
+        android:spinnerMode="dropdown" />
 
     <EditText
         android:layout_width="wrap_content"

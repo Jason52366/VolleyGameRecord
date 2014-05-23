@@ -1,9 +1,7 @@
 package com.volleygamerecord.app;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +18,7 @@ import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
+import com.parse.ParseFile;
 import com.parse.ParseUser;
 
 import org.json.JSONException;
@@ -41,23 +40,16 @@ public class LogIn extends Activity {
         Button btn_test = (Button)findViewById(R.id.button_TEST);
         btn_test.setOnClickListener(new Button.OnClickListener(){
             @Override
-            public void onClick(View arg0){
-                new AlertDialog.Builder(LogIn.this)
-                        .setTitle("注意")
-                        .setMessage("位置、名稱、對號不可為空白")
-                        .setPositiveButton("是", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                            }
-                        })
-                        .show();
+            public void onClick(View v){
+                byte[] data = "Lalala".getBytes();
+                ParseFile file = new ParseFile("testLALA.txt",data);
             }
         });
 
-        /*                               Application ID                  ,     Application ID     */
+
+        /*                               Application ID                  ,     Client ID     */
         Parse.initialize(this, "OOyy4I805eCgkyEGCiZtAH2RybkVl2tWi4qulbkw", "AOXZIHWss8wAiupkyTQuhEelITKfQ3LUeXAdHVTL");
-        ParseFacebookUtils.initialize("1393614940913937");
+            ParseFacebookUtils.initialize("1393614940913937");
 
         //Login的確定按鈕
         Button btn_loginLogin = (Button)findViewById(R.id.button_loginLogin);

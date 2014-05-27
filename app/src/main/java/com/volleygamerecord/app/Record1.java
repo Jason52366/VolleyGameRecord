@@ -52,6 +52,7 @@ public class Record1 extends Activity {
 
         LoadPlayerButton();
         LoadPlayerPosition();
+
         //結束比賽的按鈕
         Button btn_startManageTeam = (Button)findViewById(R.id.button_record1UploadGame);
         btn_startManageTeam.setOnClickListener(new Button.OnClickListener(){
@@ -100,8 +101,6 @@ public class Record1 extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.d("requestcode",""+requestCode);
-        Log.d("resultcode",""+resultCode);
         calculateScore();
         LoadPlayerPosition();
 
@@ -125,7 +124,7 @@ public class Record1 extends Activity {
             @Override
             public void done(ParseException e) {
                 if(e == null){
-                    Log.e("parseReturn","成功！");
+                    Log.e("parseReturn","Upload成功！");
                 }else {
                     Log.e("parseReturn",e.toString());
                 }
@@ -146,7 +145,6 @@ public class Record1 extends Activity {
     public void LoadPlayerPosition(){
         playerList = DataCenter.getInstance().getPlayerArray();
         if(switchPosition){
-            Log.d("5566啦","準備修改PLAYERLIST");
             String tmp = playerList.get(5).toString();
             playerList.set(5,playerList.get(0).toString());
             playerList.set(0,playerList.get(1).toString());
@@ -163,6 +161,7 @@ public class Record1 extends Activity {
         btnPlayer4.setText(playerList.get(3).toString());
         btnPlayer5.setText(playerList.get(4).toString());
         btnPlayer6.setText(playerList.get(5).toString());
+        Log.d("!!!!????",playerList.get(0).toString());
     }
 
     private void calculateScore(){

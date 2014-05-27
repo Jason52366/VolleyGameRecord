@@ -53,6 +53,7 @@ public class GameStart2  extends Activity {
                     infoItems.get(position).setOnCourt(Boolean.TRUE);
                     choosenPlayer.add(infoItems.get(position));
                     Log.d("!!!!!OOOO!!!!!",""+choosenPlayer.size());
+                    }else if (choosenPlayer.size() == 6){
                     }else{
                     view.setBackgroundColor(Color.TRANSPARENT);
                     infoItems.get(position).setOnCourt(Boolean.FALSE);

@@ -36,6 +36,7 @@ public class Team2_Editing extends Activity {
     ArrayList playerNameList = new ArrayList();
     ArrayList<ParseObject> theTeam;
     String tName = DataCenter.getInstance().getStringValue("teamName");
+    String newtName;
     String obID = DataCenter.getInstance().getStringValue("objectsId");
 
     EditText teamName;
@@ -61,9 +62,12 @@ public class Team2_Editing extends Activity {
         SettingListView();
         getPlayerFromParse();
 
-        AddNewPlayerToInfoItem();//addnewPlayer.setOnClickListener
-        ConfirmEdit();//by addnew
-        DeleteTeam();//by OnLongClickListener
+        //Click Event
+
+        AddNewPlayerToInfoItem();  //addnewPlayer.setOnClickListener
+        ConfirmEdit();             //by addnew
+        DeleteTeam();              //by OnLongClickListener
+
     }
 
     private void FindEachViewId(){
@@ -169,6 +173,32 @@ public class Team2_Editing extends Activity {
         });
     }
 
+
+    private void EditTeamName(){
+        teamName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder editDialog = new AlertDialog.Builder(Team2_Editing.this);
+                editDialog.setTitle("-----編輯隊名-----");
+                final EditText editText = new EditText(Team2_Editing.this);
+                editDialog.setView(editText);
+                editDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    // do something when the button is clicked
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        newtName = (editText.getText().toString());
+                        teamName.setText(newtName);
+                    }
+                });
+                editDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    // do something when the button is clicked
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        //...
+                    }
+                });
+                editDialog.show();
+            }
+        });
+    }
 
     private void AddNewPlayerToInfoItem(){
             addnewPlayer.setOnClickListener(new View.OnClickListener() {

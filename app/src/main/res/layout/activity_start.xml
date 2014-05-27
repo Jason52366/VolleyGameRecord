@@ -23,11 +23,11 @@
         android:layout_height="80dp"
         android:text="      管理球隊"
         android:id="@+id/button_startManageTeam"
-        android:background="@drawable/button"
+        android:background="@drawable/startbotton"
         android:layout_below="@+id/button_startGameStart"
         android:layout_alignLeft="@+id/button_startOnlineRecord"
         android:layout_alignStart="@+id/button_startOnlineRecord"
-        android:textSize="25dp"
+        android:textSize="26dp"
         android:layout_marginTop="-10dp" />
 
     <Button
@@ -35,10 +35,10 @@
         android:layout_height="80dp"
         android:text="       線上記錄"
         android:id="@+id/button_startOnlineRecord"
-        android:background="@drawable/button"
+        android:background="@drawable/startbotton"
         android:layout_below="@+id/button_startManageTeam"
         android:layout_centerHorizontal="true"
-        android:textSize="25dp"
+        android:textSize="26dp"
         android:layout_marginTop="-10dp" />
 
     <Button
@@ -49,8 +49,8 @@
         android:layout_below="@+id/button_startOnlineRecord"
         android:layout_alignLeft="@+id/button_startOnlineRecord"
         android:layout_alignStart="@+id/button_startOnlineRecord"
-        android:textSize="25dp"
-        android:background="@drawable/button"
+        android:textSize="26dp"
+        android:background="@drawable/startbotton"
         android:layout_marginTop="-10dp" />
 
 </RelativeLayout>

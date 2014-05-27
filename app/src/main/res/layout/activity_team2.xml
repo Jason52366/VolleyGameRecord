@@ -93,7 +93,8 @@
         android:minHeight="60dp"
         android:textFilterEnabled="true"
         android:layout_below="@+id/editText_team2Player"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:choiceMode="none" />
 
     <Button
         android:layout_width="wrap_content"

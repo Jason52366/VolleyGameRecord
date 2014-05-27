@@ -29,7 +29,6 @@ public class GameStart1  extends Activity {
     ArrayAdapter<String> ourTeamArrayList;
     List<String> teamList = new ArrayList<String>();
 
-    EditText spinner = null;
     Spinner spinner2 = null;
     Date dt=new Date();
     String dts = null;

@@ -49,12 +49,15 @@ public class GameStart2  extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                     if(!infoItems.get(position).getOnCourt() && choosenPlayer.size() < 6 ){
+
                     view.setBackgroundColor(Color.GREEN);
                     infoItems.get(position).setOnCourt(Boolean.TRUE);
-                    choosenPlayer.add(infoItems.get(position));
-                    Log.d("!!!!!OOOO!!!!!",""+choosenPlayer.size());
-                    }else if (choosenPlayer.size() == 6){
+                    choosenPlayer.add(infoItems.get(position).getNumber());
+
+                    }else if (choosenPlayer.size() == 6 && !infoItems.get(position).getOnCourt()){
+                        //避免點第七個人crash
                     }else{
+
                     view.setBackgroundColor(Color.TRANSPARENT);
                     infoItems.get(position).setOnCourt(Boolean.FALSE);
                     int i = choosenPlayer.indexOf(infoItems.get(position));
@@ -70,7 +73,7 @@ public class GameStart2  extends Activity {
             @Override
             public void onClick(View v) {
 
-                if ((choosenPlayer.size() <7)){
+                if ((choosenPlayer.size() == 6)){
                     DataCenter.getInstance().setPlayerArray(choosenPlayer);
                     Intent intent = new Intent();
                     intent.setClass(GameStart2.this, Record1.class);

@@ -12,7 +12,11 @@
         android:textSize="40dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:visibility="visible"
+        android:editable="true"
+        android:clickable="true"
+        android:focusable="false" />
 
     <TextView
         android:layout_width="wrap_content"

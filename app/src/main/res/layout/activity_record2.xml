@@ -251,7 +251,8 @@
                 android:layout_alignTop="@+id/radioButton_record2b1"
                 android:layout_toLeftOf="@+id/radioButton_record2b1"
                 android:checked="false"
-                android:textSize="25dp" />
+                android:textSize="25dp"
+                android:layout_marginLeft="-5dp" />
 
             <RadioButton
                 android:layout_width="wrap_content"
@@ -262,7 +263,8 @@
                 android:layout_alignRight="@+id/radioButton_record2a1"
                 android:layout_alignEnd="@+id/radioButton_record2a1"
                 android:checked="false"
-                android:textSize="25dp" />
+                android:textSize="25dp"
+                android:layout_marginLeft="-5dp" />
 
             <RadioButton
                 android:layout_width="wrap_content"
@@ -273,7 +275,8 @@
                 android:layout_alignLeft="@+id/radioButton_record2a2"
                 android:layout_alignStart="@+id/radioButton_record2a2"
                 android:checked="false"
-                android:textSize="25dp" />
+                android:textSize="25dp"
+                android:layout_marginLeft="-5dp" />
 
             <RadioButton
                 android:layout_width="wrap_content"
@@ -284,7 +287,8 @@
                 android:layout_alignLeft="@+id/radioButton_record2a3"
                 android:layout_alignStart="@+id/radioButton_record2a3"
                 android:checked="false"
-                android:textSize="25dp" />
+                android:textSize="25dp"
+                android:layout_marginLeft="-5dp" />
 
             <RadioButton
                 android:layout_width="wrap_content"
@@ -293,7 +297,8 @@
                 android:id="@+id/radioButton_record2a5"
                 android:checked="false"
                 android:textSize="25dp"
-                android:longClickable="true" />
+                android:longClickable="true"
+                android:layout_marginLeft="-5dp" />
         </RadioGroup>
 
     <RadioButton

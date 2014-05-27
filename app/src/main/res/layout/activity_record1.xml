@@ -168,7 +168,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="自由2"
-        android:id="@+id/button_record1liberal22"
+        android:id="@+id/button_record1liberal2"
         android:textSize="22.1dp"
         android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/button_record1player2"

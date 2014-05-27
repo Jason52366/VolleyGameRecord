@@ -44,6 +44,7 @@ public class Record1 extends Activity {
     String cup = DataCenter.getInstance().getStringValue("cup");
     String our = DataCenter.getInstance().getStringValue("team");
     String dts = DataCenter.getInstance().getStringValue("date");
+    ArrayList ways = ScoreCenter.getInstance().getWayArray();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,6 +120,7 @@ public class Record1 extends Activity {
         gameScore.put("cup", cup);
         gameScore.put("ourTeam",our);
         gameScore.put("date", dts);
+        gameScore.put("scoreDetail",ways);
         gameScore.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {

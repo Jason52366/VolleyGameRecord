@@ -51,6 +51,7 @@ public class ScoreCenter {
         return ret != null ? ret : aaa;
     }
 
+
     public void cleanArrays(){
         Log.d("ScoreCenter","清理完成！");
         ScoreArray = null;

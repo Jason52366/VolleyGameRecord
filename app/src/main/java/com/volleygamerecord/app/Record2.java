@@ -265,7 +265,7 @@ public class Record2 extends Activity {
 
     private void GetPointWayCombiner (){
         if (checkclose != 4){
-            getPointWay = wayA + wayB + wayC;
+            getPointWay = wayA + "/" + wayB + "/" + wayC;
         }else
         {
             getPointWay = wayD;

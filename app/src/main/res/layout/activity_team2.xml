@@ -15,7 +15,7 @@
         android:singleLine="true"
         android:visibility="visible"
         android:editable="true"
-        android:clickable="true"
+        android:clickable="false"
         android:focusable="false" />
 
     <TextView

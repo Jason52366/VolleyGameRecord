@@ -124,7 +124,7 @@ public class Team2_Editing extends Activity {
         String tmp2 = editnum.getText().toString();
         String tmp3 = editpos.getText().toString();
 
-        if(!tmp1.isEmpty() && !tmp2.isEmpty() && !tmp3.isEmpty()){
+        if(!tmp1.equals("") && !tmp2.equals("") && !tmp3.equals("")){
             addOk = true;
         }
     }
@@ -171,11 +171,10 @@ public class Team2_Editing extends Activity {
 
 
     private void AddNewPlayerToInfoItem(){
-        checkInfo();
-
             addnewPlayer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    checkInfo();
                     if(addOk) {
                     //----
                     String playerNum = editnum.getText().toString();
@@ -190,7 +189,7 @@ public class Team2_Editing extends Activity {
                     editnum.requestFocus();  //cursor回到填number那邊
 
                     listInput.setAdapter(infoListAdapter);
-
+                    addOk = false;
                     }else {
                         new AlertDialog.Builder(Team2_Editing.this)
                                 .setMessage("隊五資料不可空白唷")

@@ -67,7 +67,7 @@ public class LogIn extends Activity {
             }
         });
 
-        Parse.enableLocalDatastore(this);
+        //Parse.enableLocalDatastore(this);
         /*                               Application ID                  ,     Client ID     */
         Parse.initialize(this, "OOyy4I805eCgkyEGCiZtAH2RybkVl2tWi4qulbkw", "AOXZIHWss8wAiupkyTQuhEelITKfQ3LUeXAdHVTL");
             ParseFacebookUtils.initialize("1393614940913937");

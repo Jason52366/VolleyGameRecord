@@ -49,19 +49,19 @@ public class GameStart2  extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                     if(!infoItems.get(position).getOnCourt() && choosenPlayer.size() < 6 ){
-
                     view.setBackgroundColor(Color.GREEN);
                     infoItems.get(position).setOnCourt(Boolean.TRUE);
                     choosenPlayer.add(infoItems.get(position).getNumber());
 
-                    }else if (choosenPlayer.size() == 6 && !infoItems.get(position).getOnCourt()){
-                        //避免點第七個人crash
-                    }else{
+                    }else if (infoItems.get(position).getOnCourt()){
+                        view.setBackgroundColor(Color.TRANSPARENT);
+                        infoItems.get(position).setOnCourt(Boolean.FALSE);
+                        int i = choosenPlayer.indexOf(infoItems.get(position).getNumber());
+                        choosenPlayer.remove(i);
 
-                    view.setBackgroundColor(Color.TRANSPARENT);
-                    infoItems.get(position).setOnCourt(Boolean.FALSE);
-                    int i = choosenPlayer.indexOf(infoItems.get(position));
-                    choosenPlayer.remove(i);
+                    }else {
+
+
                 }
 
             }

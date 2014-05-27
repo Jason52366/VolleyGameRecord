@@ -83,27 +83,16 @@
         android:textSize="24dp"
         android:clickable="false" />
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner_gamestart1Cup"
-        android:spinnerMode="dropdown"
-        android:layout_alignTop="@+id/textView_gamestart1Cup"
-        android:layout_alignLeft="@+id/button_gamestart1Sure"
-        android:layout_alignStart="@+id/button_gamestart1Sure"
-        android:layout_alignBottom="@+id/textView_gamestart1Cup" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_gamestart1Arena"
         android:hint="輸入學校或場地"
         android:layout_alignTop="@+id/textView_gamestart1Arena"
-        android:layout_alignLeft="@+id/spinner_gamestart1Cup"
-        android:layout_alignStart="@+id/spinner_gamestart1Cup"
         android:textSize="20dp"
         android:textAlignment="center"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:layout_alignLeft="@+id/button_gamestart1Sure" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -111,7 +100,7 @@
         android:id="@+id/spinner_gamestart1OurTeam"
         android:layout_alignTop="@+id/textView_gamestart1OurTeam"
         android:layout_alignBottom="@+id/textView_gamestart1OurTeam"
-        android:layout_alignLeft="@+id/spinner_gamestart1Cup" />
+        android:layout_alignLeft="@+id/button_gamestart1Sure" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -131,8 +120,18 @@
         android:text="00000000"
         android:id="@+id/textView_gamestart1Date"
         android:layout_alignBottom="@+id/textView_gamestart1Time"
-        android:layout_alignLeft="@+id/spinner_gamestart1Cup"
-        android:layout_alignStart="@+id/spinner_gamestart1Cup"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:layout_alignLeft="@+id/button_gamestart1Sure" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_gamestart1Cup"
+        android:layout_alignTop="@+id/textView_gamestart1Cup"
+        android:layout_alignLeft="@+id/editText_gamestart1Arena"
+        android:layout_alignStart="@+id/editText_gamestart1Arena"
+        android:layout_alignRight="@+id/editText_gamestart1Arena"
+        android:layout_alignEnd="@+id/editText_gamestart1Arena"
+        android:hint="盃賽,EX:台大盃" />
 
 </RelativeLayout>

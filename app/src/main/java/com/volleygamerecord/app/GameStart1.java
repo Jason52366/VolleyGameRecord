@@ -29,7 +29,7 @@ public class GameStart1  extends Activity {
     ArrayAdapter<String> ourTeamArrayList;
     List<String> teamList = new ArrayList<String>();
 
-    Spinner spinner = null;
+    EditText spinner = null;
     Spinner spinner2 = null;
     Date dt=new Date();
     String dts = null;
@@ -41,7 +41,6 @@ public class GameStart1  extends Activity {
 
         final ProgressDialog dialog = ProgressDialog.show(GameStart1.this,"", "請等待...", true);
 
-        spinner = (Spinner)findViewById(R.id.spinner_gamestart1Cup);
         spinner2 = (Spinner)findViewById(R.id.spinner_gamestart1OurTeam);
 
         /*Date*/
@@ -55,14 +54,14 @@ public class GameStart1  extends Activity {
         btn_gamestart1Sure.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                EditText arena =  (EditText)findViewById(R.id.editText_gamestart1Arena);
+                EditText placetxt =  (EditText)findViewById(R.id.editText_gamestart1Arena);
                 EditText rivaltxt = (EditText)findViewById(R.id.editText_gamestart1RivalTeam);
-                String place = arena.getText().toString();
+                EditText cuptxt = (EditText)findViewById(R.id.editText_gamestart1Cup);
+                String place = placetxt.getText().toString();
                 String rival  = rivaltxt.getText().toString();
-
-
+                String cup = cuptxt.getText().toString();
                 //把比賽訊息傳到DATACENTER
-                DataCenter.getInstance().setValue("cup",spinner.getSelectedItem().toString());
+                DataCenter.getInstance().setValue("cup",cup);
                 DataCenter.getInstance().setValue("team",spinner2.getSelectedItem().toString());
                 DataCenter.getInstance().setValue("place",place);
                 DataCenter.getInstance().setValue("rival",rival);
@@ -75,12 +74,6 @@ public class GameStart1  extends Activity {
 
         });
 
-
-        //spinner_gamestart1Cup
-        String[] lunch = {"台大盃", "校長盃",};
-        cupArrayList = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, lunch);
-        spinner.setAdapter(cupArrayList);
 
         //spinner_gamestart1OurTeam
         String userName =  DataCenter.getInstance().getStringValue("parseUserName");

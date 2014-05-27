@@ -1,7 +1,9 @@
 package com.volleygamerecord.app;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.facebook.Request;
 import com.facebook.Response;
@@ -18,8 +21,8 @@ import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
-import com.parse.ParseFile;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,22 +34,40 @@ import java.util.List;
 public class LogIn extends Activity {
 
 
+    String bbb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
-
         Button btn_test = (Button)findViewById(R.id.button_TEST);
         btn_test.setOnClickListener(new Button.OnClickListener(){
             @Override
-            public void onClick(View v){
-                byte[] data = "Lalala".getBytes();
-                ParseFile file = new ParseFile("testLALA.txt",data);
+            public void onClick(View v) {
+                AlertDialog.Builder editDialog = new AlertDialog.Builder(LogIn.this);
+                editDialog.setTitle("--- Edit ---");
+                final EditText editText = new EditText(LogIn.this);
+                editDialog.setView(editText);
+                editDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    // do something when the button is clicked
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        bbb= (editText.getText().toString());
+                        Log.d("!!!???",bbb);
+                    }
+                });
+                editDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    // do something when the button is clicked
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        //...
+                    }
+                });
+                editDialog.show();
+
             }
         });
 
-
+        Parse.enableLocalDatastore(this);
         /*                               Application ID                  ,     Client ID     */
         Parse.initialize(this, "OOyy4I805eCgkyEGCiZtAH2RybkVl2tWi4qulbkw", "AOXZIHWss8wAiupkyTQuhEelITKfQ3LUeXAdHVTL");
             ParseFacebookUtils.initialize("1393614940913937");
@@ -140,7 +161,7 @@ public class LogIn extends Activity {
 
                                 //登入成功後才切換畫面
                                 Intent intent = new Intent();
-                                intent.setClass(LogIn.this, Loginsuccess.class);
+                                intent.setClass(LogIn.this, Start.class);
                                 startActivity(intent);
                                 LogIn.this.finish();
 
@@ -159,4 +180,11 @@ public class LogIn extends Activity {
 
     }
 
+
+    SaveCallback aaa = new SaveCallback() {
+        @Override
+        public void done(ParseException e) {
+            Log.d("done","Congratulation")  ;
+        }
+    };
 }

@@ -12,52 +12,27 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter"
+        android:text="臉書登入"
         android:id="@+id/button_loginLogin"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="112dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/editText_loginPassword"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:textAlignment="viewStart"
-        android:hint="@string/password_placeholder"
-        android:password="false" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/editText_loginAccount"
-        android:layout_marginBottom="5dp"
-        android:layout_above="@+id/editText_loginPassword"
-        android:hint="@string/password_placeholder"
-        android:layout_alignLeft="@+id/editText_loginPassword" />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="記住我"
-        android:id="@+id/checkBox_loginRemember"
-        android:layout_below="@+id/editText_loginPassword"
-        android:layout_alignLeft="@+id/editText_loginPassword"
-        android:layout_alignStart="@+id/editText_loginPassword"
-        android:checked="false"
-        android:textSize="18dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="測試按鈕"
         android:id="@+id/button_TEST"
-        android:layout_above="@+id/editText_loginAccount"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_TEST"
+        android:layout_above="@+id/button_TEST"
+        android:layout_centerHorizontal="true"
+        android:hint="~~~"
+        android:visibility="invisible" />
 
 </RelativeLayout>

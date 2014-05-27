@@ -38,6 +38,7 @@ public class Record3  extends Activity {
     RadioButton rdButtonC5 = null;
     RadioButton rdButtonC6 = null;
     RadioButton rdButtonC7 = null;
+    RadioButton rdButtonC8 = null;
 
     RadioGroup radioGroup1 = null;
     RadioGroup radioGroup2 = null;
@@ -104,6 +105,7 @@ public class Record3  extends Activity {
         rdButtonC5 =(RadioButton)findViewById(R.id.radioButton_record3c5);
         rdButtonC6 =(RadioButton)findViewById(R.id.radioButton_record3c6);
         rdButtonC7 =(RadioButton)findViewById(R.id.radioButton_record3c7);
+        rdButtonC8 =(RadioButton)findViewById(R.id.radioButton_record3c8);
         radioGroup3List = new ArrayList<RadioButton>();
         radioGroup3List.add(rdButtonC1);
         radioGroup3List.add(rdButtonC2);

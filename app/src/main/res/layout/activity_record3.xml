@@ -207,7 +207,7 @@
 
     <RadioButton
     android:layout_width="50dp"
-    android:layout_height="50dp"
+    android:layout_height="wrap_content"
     android:text="防守失誤"
     android:id="@+id/radioButton_record3c7"
         android:checked="false"
@@ -247,20 +247,19 @@
              android:id="@+id/radioButton_record3c2"
              android:checked="false"
              android:textSize="22dp"
-        android:layout_alignTop="@+id/radioButton_record3c1"
-        android:layout_alignLeft="@+id/radioButton_record3c7"
-        android:layout_alignStart="@+id/radioButton_record3c7" />
+        android:layout_below="@+id/radioButton_record3c5"
+        android:layout_centerHorizontal="true" />
 
     <RadioButton
              android:layout_width="wrap_content"
-             android:layout_height="58dp"
+             android:layout_height="wrap_content"
              android:text="接發失誤"
              android:id="@+id/radioButton_record3c3"
              android:checked="false"
              android:textSize="22dp"
-        android:layout_below="@+id/radioButton_record3c5"
-        android:layout_toRightOf="@+id/radioButton_record3c2"
-        android:layout_above="@+id/radioButton_record3c7" />
+        android:layout_below="@+id/radioButton_record3c1"
+        android:layout_alignLeft="@+id/radioButton_record3c1"
+        android:layout_alignStart="@+id/radioButton_record3c1" />
 
 <RadioButton
          android:layout_width="wrap_content"
@@ -269,9 +268,8 @@
          android:id="@+id/radioButton_record3c1"
          android:checked="false"
          android:textSize="22dp"
-        android:layout_below="@+id/radioButton_record3c5"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+    android:layout_below="@+id/radioButton_record3c5"
+    android:layout_toLeftOf="@+id/radioButton_record3c7" />
 
     <RadioButton
         android:layout_width="wrap_content"
@@ -303,8 +301,17 @@
     android:id="@+id/radioButton_record3c4"
         android:checked="false"
     android:textSize="22dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView_record3others" />
+        android:layout_alignTop="@+id/radioButton_record3c5"
+        android:layout_toLeftOf="@+id/radioButton_record3c2" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="發球失誤"
+        android:id="@+id/radioButton_record3c8"
+        android:checked="false"
+        android:textSize="22dp"
+        android:layout_below="@+id/radioButton_record3c5"
+        android:layout_toRightOf="@+id/radioButton_record3c7" />
 
 </RelativeLayout>

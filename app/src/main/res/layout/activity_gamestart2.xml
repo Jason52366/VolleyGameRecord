@@ -6,7 +6,7 @@
 
     <ListView
         android:layout_width="300dp"
-        android:layout_height="380dp"
+        android:layout_height="350dp"
         android:id="@+id/listView_gamestart2Player"
         android:divider="#D3D3D3"
         android:dividerHeight="2dp"
@@ -25,9 +25,10 @@
         android:layout_height="wrap_content"
         android:text="上場球員"
         android:id="@+id/textView_gamestart2Player"
-        android:layout_above="@+id/listView_gamestart2Player"
-        android:layout_centerHorizontal="true"
-        android:textSize="48dp" />
+        android:textSize="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/textView3"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -38,4 +39,36 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:textSize="24dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="背號"
+        android:id="@+id/textView"
+        android:layout_above="@+id/listView_gamestart2Player"
+        android:layout_alignLeft="@+id/listView_gamestart2Player"
+        android:layout_alignStart="@+id/listView_gamestart2Player"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="球員"
+        android:id="@+id/textView2"
+        android:layout_above="@+id/listView_gamestart2Player"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="位置"
+        android:id="@+id/textView3"
+        android:layout_above="@+id/listView_gamestart2Player"
+        android:layout_alignRight="@+id/listView_gamestart2Player"
+        android:layout_alignEnd="@+id/listView_gamestart2Player"
+        android:textSize="30dp" />
 </RelativeLayout>

@@ -48,17 +48,15 @@ public class GameStart2  extends Activity {
         listInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                    if(!infoItems.get(position).getOnCourt() && choosenPlayer.size() < 6 ){
-                    view.setBackgroundColor(Color.GREEN);
-                    infoItems.get(position).setOnCourt(Boolean.TRUE);
-                    choosenPlayer.add(infoItems.get(position).getNumber());
-
+                    if(!infoItems.get(position).getOnCourt() && choosenPlayer.size() < 8 ){
+                        view.setBackgroundColor(Color.GREEN);
+                        infoItems.get(position).setOnCourt(Boolean.TRUE);
+                        choosenPlayer.add(infoItems.get(position).getNumber());
                     }else if (infoItems.get(position).getOnCourt()){
                         view.setBackgroundColor(Color.TRANSPARENT);
                         infoItems.get(position).setOnCourt(Boolean.FALSE);
                         int i = choosenPlayer.indexOf(infoItems.get(position).getNumber());
                         choosenPlayer.remove(i);
-
                     }else {
 
 
@@ -73,7 +71,7 @@ public class GameStart2  extends Activity {
             @Override
             public void onClick(View v) {
 
-                if ((choosenPlayer.size() == 6)){
+                if ((choosenPlayer.size() == 8)){
                     DataCenter.getInstance().setPlayerArray(choosenPlayer);
                     Intent intent = new Intent();
                     intent.setClass(GameStart2.this, Record1.class);

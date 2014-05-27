@@ -68,8 +68,8 @@
         android:textSize="28dp"
         android:singleLine="true"
         android:layout_below="@+id/textView_playerPosition"
-        android:layout_alignRight="@+id/editText_team2TeamName"
-        android:layout_alignEnd="@+id/editText_team2TeamName" />
+        android:layout_alignRight="@+id/textView_playerPosition"
+        android:layout_alignEnd="@+id/textView_playerPosition" />
 
     <EditText
         android:layout_width="wrap_content"

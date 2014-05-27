@@ -161,7 +161,7 @@ public class Record1 extends Activity {
         btnPlayer4.setText(playerList.get(3).toString());
         btnPlayer5.setText(playerList.get(4).toString());
         btnPlayer6.setText(playerList.get(5).toString());
-        Log.d("!!!!????",playerList.get(0).toString());
+
     }
 
     private void calculateScore(){

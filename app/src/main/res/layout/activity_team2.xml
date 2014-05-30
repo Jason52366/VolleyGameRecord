@@ -59,7 +59,7 @@
         android:layout_below="@+id/textView_playerName"
         android:layout_centerHorizontal="true"
         android:singleLine="true"
-        android:editable="true" />
+ />
 
     <EditText
         android:layout_width="wrap_content"
@@ -71,7 +71,7 @@
         android:layout_below="@+id/textView_playerPosition"
         android:layout_alignRight="@+id/textView_playerPosition"
         android:layout_alignEnd="@+id/textView_playerPosition"
-        android:editable="true" />
+ />
 
     <EditText
         android:layout_width="wrap_content"
@@ -84,7 +84,25 @@
         android:layout_below="@+id/textView_playerNumber"
         android:layout_alignLeft="@+id/textView_playerNumber"
         android:layout_alignStart="@+id/textView_playerNumber"
-        android:editable="true" />
+ />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="新增球員"
+        android:id="@+id/button_team2AddNewPlayer"
+        android:layout_alignTop="@+id/button_team2AddNewTeam"
+        android:layout_alignRight="@+id/listview_team2List"
+        android:layout_alignEnd="@+id/listview_team2List" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="新增球隊"
+        android:id="@+id/button_team2AddNewTeam"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/listview_team2List"
+        android:layout_alignStart="@+id/listview_team2List" />
 
     <ListView
         android:id="@+id/listview_team2List"
@@ -99,21 +117,4 @@
         android:layout_centerHorizontal="true"
         android:choiceMode="none" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="新增球隊"
-        android:id="@+id/button_team2AddNewTeam"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/listview_team2List"
-        android:layout_alignStart="@+id/listview_team2List" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="新增球員"
-        android:id="@+id/button_team2AddNewPlayer"
-        android:layout_alignTop="@+id/button_team2AddNewTeam"
-        android:layout_alignRight="@+id/listview_team2List"
-        android:layout_alignEnd="@+id/listview_team2List" />
 </RelativeLayout>

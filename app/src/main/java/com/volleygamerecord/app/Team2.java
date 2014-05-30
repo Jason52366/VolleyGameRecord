@@ -151,7 +151,7 @@ public class Team2 extends Activity {
                     Team2.this.finish();
                 }else{
                     new AlertDialog.Builder(Team2.this)
-                            .setMessage("隊五資料不可空白唷")
+                            .setMessage("隊伍資料不可空白唷")
                             .setPositiveButton("了解", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {

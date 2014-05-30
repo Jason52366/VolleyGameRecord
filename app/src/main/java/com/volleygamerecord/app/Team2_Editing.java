@@ -60,7 +60,7 @@ public class Team2_Editing extends Activity {
         setContentView(R.layout.activity_team2);
         FindEachViewId();
         dialog = ProgressDialog.show(Team2_Editing.this,"", "請等待...", true);
-        InfoSetOnKeyListener();
+        //InfoSetOnKeyListener();
         SettingListView();
         getPlayerFromParse();
 
@@ -243,22 +243,23 @@ public class Team2_Editing extends Activity {
         confirmTeamEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //ParseObject.createWithoutData("Team",objectsId.get(pos)).deleteEventually();
-                //----
-                List<String> nameList = new ArrayList<String>();
+                if (!teamName.equals("")){
+                    //ParseObject.createWithoutData("Team",objectsId.get(pos)).deleteEventually();
+                    //----
+                    List<String> nameList = new ArrayList<String>();
                 List<String> numList = new ArrayList<String>();
                 List<String> posList = new ArrayList<String>();
-                if(infoItems.size() > 0){
-                    for(int i = 0; i < infoItems.size(); i++) {
+                if (infoItems.size() > 0) {
+                    for (int i = 0; i < infoItems.size(); i++) {
                         nameList.add(infoItems.get(i).getName());
                         numList.add(infoItems.get(i).getNumber());
                         posList.add(infoItems.get(i).getPosition());
                     }
 
-                    theTeam.get(0).put("playerName",nameList);
-                    theTeam.get(0).put("playerNumber",numList);
-                    theTeam.get(0).put("position",posList);
-                    theTeam.get(0).put("teamName",teamName.getText().toString());
+                    theTeam.get(0).put("playerName", nameList);
+                    theTeam.get(0).put("playerNumber", numList);
+                    theTeam.get(0).put("position", posList);
+                    theTeam.get(0).put("teamName", teamName.getText().toString());
 
                     theTeam.get(0).saveInBackground(new SaveCallback() {
                         @Override
@@ -275,6 +276,16 @@ public class Team2_Editing extends Activity {
                 intent.setClass(Team2_Editing.this, Team1.class);
                 startActivity(intent);
                 Team2_Editing.this.finish();
+            }else{
+                    new AlertDialog.Builder(Team2_Editing.this)
+                            .setMessage("隊伍名稱不可空白唷")
+                            .setPositiveButton("了解", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                }
+                            })
+                            .show();
+            }
             }
         });
 

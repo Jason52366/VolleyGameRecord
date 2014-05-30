@@ -48,37 +48,9 @@ public class Team2 extends Activity {
         FindEachViewId();
         InfoSetOnKeyListener();
         SettingListView();
-
-        addnewPlayer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AddNewPlayerToInfoItem();
-            }
-        });
-
-        addnewteam.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ProgressDialog.show(Team2.this,"", "請稍等", true );
-                checkInfo();
-                if (addOk) {
-                    AddNewTeamOnParse();
-                    Team2.this.finish();
-                }else{
-                    new AlertDialog.Builder(Team2.this)
-                            .setMessage("隊五資料不可空白唷")
-                            .setPositiveButton("了解", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                }
-                            })
-                            .show();
-                }
-            }
-        });
-
-        //長按刪除
-        DeleteTeam();
+        AddNewPlayerToInfoItem();       //btn_listener
+        AddNewTeam();                   //btn_listener
+        DeleteTeam();                   //longClick_listener
     }
 
     private void FindEachViewId(){
@@ -91,7 +63,6 @@ public class Team2 extends Activity {
     }
 
     private void InfoSetOnKeyListener(){
-
         teamName.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
@@ -148,19 +119,48 @@ public class Team2 extends Activity {
 
 
     private void AddNewPlayerToInfoItem(){
-        //----
-        String playerNum = editnum.getText().toString();
-        String playerName = editname.getText().toString();
-        String playerPosition = editpos.getText().toString();
+        addnewPlayer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //----
+                String playerNum = editnum.getText().toString();
+                String playerName = editname.getText().toString();
+                String playerPosition = editpos.getText().toString();
 
-        infoItems.add(new PlayerInfo(playerNum,playerName,playerPosition));
+                infoItems.add(new PlayerInfo(playerNum,playerName,playerPosition));
 
-        editnum.setText("");
-        editname.setText("");
-        editpos.setText("");
-        editnum.requestFocus();  //cursor回到填number那邊
+                editnum.setText("");
+                editname.setText("");
+                editpos.setText("");
+                editnum.requestFocus();  //cursor回到填number那邊
 
-        listInput.setAdapter(infoListAdapter);
+                listInput.setAdapter(infoListAdapter);
+
+            }
+        });
+    }
+
+    private void AddNewTeam(){
+        addnewteam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ProgressDialog.show(Team2.this,"", "請稍等", true );
+                checkInfo();
+                if (addOk) {
+                    AddNewTeamOnParse();
+                    Team2.this.finish();
+                }else{
+                    new AlertDialog.Builder(Team2.this)
+                            .setMessage("隊五資料不可空白唷")
+                            .setPositiveButton("了解", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                }
+                            })
+                            .show();
+                }
+            }
+        });
 
     }
 

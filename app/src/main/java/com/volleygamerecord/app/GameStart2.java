@@ -52,6 +52,7 @@ public class GameStart2  extends Activity {
                         view.setBackgroundColor(Color.GREEN);
                         infoItems.get(position).setOnCourt(Boolean.TRUE);
                         choosenPlayer.add(infoItems.get(position).getNumber());
+                        infoListAdapter.setOccupy(0);
                     }else if (infoItems.get(position).getOnCourt()){
                         view.setBackgroundColor(Color.TRANSPARENT);
                         infoItems.get(position).setOnCourt(Boolean.FALSE);
@@ -71,7 +72,7 @@ public class GameStart2  extends Activity {
             @Override
             public void onClick(View v) {
 
-                if ((choosenPlayer.size() == 8)){
+                if ((choosenPlayer.size() >= 6)){
                     DataCenter.getInstance().setPlayerArray(choosenPlayer);
                     Intent intent = new Intent();
                     intent.setClass(GameStart2.this, Record1.class);

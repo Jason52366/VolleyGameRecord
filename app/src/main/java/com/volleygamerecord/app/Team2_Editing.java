@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -36,7 +37,7 @@ public class Team2_Editing extends Activity {
     ArrayList playerNameList = new ArrayList();
     ArrayList<ParseObject> theTeam;
     String tName = DataCenter.getInstance().getStringValue("teamName");
-    String newtName;
+    String newtName = tName;
     String obID = DataCenter.getInstance().getStringValue("objectsId");
 
     EditText teamName;
@@ -59,11 +60,12 @@ public class Team2_Editing extends Activity {
         setContentView(R.layout.activity_team2);
         FindEachViewId();
         dialog = ProgressDialog.show(Team2_Editing.this,"", "請等待...", true);
+        InfoSetOnKeyListener();
         SettingListView();
         getPlayerFromParse();
 
         //Click Event
-
+        EditTeamName();
         AddNewPlayerToInfoItem();  //addnewPlayer.setOnClickListener
         ConfirmEdit();             //by addnew
         DeleteTeam();              //by OnLongClickListener
@@ -128,7 +130,7 @@ public class Team2_Editing extends Activity {
         String tmp2 = editnum.getText().toString();
         String tmp3 = editpos.getText().toString();
 
-        if(!tmp1.equals("") && !tmp2.equals("") && !tmp3.equals("")){
+        if(!tmp1.equals("") && !tmp2.equals("") && !tmp3.equals("") && !teamName.equals("")){
             addOk = true;
         }
     }
@@ -182,6 +184,7 @@ public class Team2_Editing extends Activity {
                 editDialog.setTitle("-----編輯隊名-----");
                 final EditText editText = new EditText(Team2_Editing.this);
                 editDialog.setView(editText);
+                editText.setText(teamName.getText().toString());
                 editDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     // do something when the button is clicked
                     public void onClick(DialogInterface arg0, int arg1) {
@@ -222,7 +225,7 @@ public class Team2_Editing extends Activity {
                     addOk = false;
                     }else {
                         new AlertDialog.Builder(Team2_Editing.this)
-                                .setMessage("隊五資料不可空白唷")
+                                .setMessage("隊伍資料不可空白唷")
                                 .setPositiveButton("了解", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -255,6 +258,7 @@ public class Team2_Editing extends Activity {
                     theTeam.get(0).put("playerName",nameList);
                     theTeam.get(0).put("playerNumber",numList);
                     theTeam.get(0).put("position",posList);
+                    theTeam.get(0).put("teamName",teamName.getText().toString());
 
                     theTeam.get(0).saveInBackground(new SaveCallback() {
                         @Override
@@ -266,8 +270,11 @@ public class Team2_Editing extends Activity {
                         }
                     });
                 }
-                Team2_Editing.this.finish();
 
+                Intent intent = new Intent();
+                intent.setClass(Team2_Editing.this, Team1.class);
+                startActivity(intent);
+                Team2_Editing.this.finish();
             }
         });
 

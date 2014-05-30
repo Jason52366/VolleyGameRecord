@@ -46,14 +46,12 @@ public class LogIn extends Activity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder editDialog = new AlertDialog.Builder(LogIn.this);
-                editDialog.setTitle("--- Edit ---");
+                editDialog.setTitle("--- Edit框標題 ---");
                 final EditText editText = new EditText(LogIn.this);
                 editDialog.setView(editText);
                 editDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    // do something when the button is clicked
                     public void onClick(DialogInterface arg0, int arg1) {
                         bbb= (editText.getText().toString());
-                        Log.d("!!!???",bbb);
                     }
                 });
                 editDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

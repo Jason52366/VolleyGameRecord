@@ -16,7 +16,6 @@ import java.util.List;
 public class PlayerInfoAdapter extends BaseAdapter {
     private LayoutInflater team2Inflater;
     private List<PlayerInfo> info;
-    TextView occupy;
 
 
     public PlayerInfoAdapter(Context c,List<PlayerInfo> l){
@@ -42,13 +41,17 @@ public class PlayerInfoAdapter extends BaseAdapter {
         TextView name = (TextView) convertView.findViewById(R.id.team2ListName);
         TextView number= (TextView) convertView.findViewById(R.id.team2ListNumber);
         TextView position= (TextView) convertView.findViewById(R.id.team2ListPosition);
-        occupy = (TextView) convertView.findViewById(R.id.team2ListPosition);
+        TextView occupy = (TextView) convertView.findViewById(R.id.team2ListOccupy);
         PlayerInfo playerinfo = (PlayerInfo) getItem(pos);
         name.setText(playerinfo.getName());
         number.setText(playerinfo.getNumber());
         position.setText(playerinfo.getPosition());
 
         return convertView;
+
+    }
+
+    public  void setOccupy(int i ){
 
     }
 

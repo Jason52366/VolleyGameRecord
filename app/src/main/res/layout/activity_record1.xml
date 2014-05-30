@@ -160,9 +160,9 @@
         android:text="自由1"
         android:id="@+id/button_record1liberal1"
         android:textSize="22.1dp"
-        android:layout_below="@+id/button_record1player6"
-        android:layout_toLeftOf="@+id/button_record1player1"
-        android:layout_marginTop="10dp" />
+        android:layout_alignTop="@+id/button_record1liberal2"
+        android:layout_alignLeft="@+id/button_record1player5"
+        android:layout_alignStart="@+id/button_record1player5" />
 
     <Button
         android:layout_width="wrap_content"

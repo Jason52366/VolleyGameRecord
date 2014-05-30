@@ -53,7 +53,8 @@ public class Record2 extends Activity {
     RadioButton rdBtnPlayer4;
     RadioButton rdBtnPlayer5;
     RadioButton rdBtnPlayer6;
-
+    RadioButton rdBtnPlayerL1 = null;
+    RadioButton rdBtnPlayerL2 = null;
 
     int checkclose ;
 
@@ -109,12 +110,14 @@ public class Record2 extends Activity {
         radioGroup3.setOnCheckedChangeListener(listenC);
         radioGroup4.setOnCheckedChangeListener(listenOther);
         //---
-        rdBtnPlayer1 =(RadioButton)findViewById(R.id.radiobotton_record2player1);
-        rdBtnPlayer2 =(RadioButton)findViewById(R.id.radiobotton_record2player2);
-        rdBtnPlayer3 =(RadioButton)findViewById(R.id.radiobotton_record2player3);
-        rdBtnPlayer4 =(RadioButton)findViewById(R.id.radiobotton_record2player4);
-        rdBtnPlayer5 =(RadioButton)findViewById(R.id.radiobotton_record2player5);
-        rdBtnPlayer6 =(RadioButton)findViewById(R.id.radiobotton_record2player6);
+        rdBtnPlayer1 =(RadioButton)findViewById(R.id.radioButton_record2player1);
+        rdBtnPlayer2 =(RadioButton)findViewById(R.id.radioButton_record2player2);
+        rdBtnPlayer3 =(RadioButton)findViewById(R.id.radioButton_record2player3);
+        rdBtnPlayer4 =(RadioButton)findViewById(R.id.radioButton_record2player4);
+        rdBtnPlayer5 =(RadioButton)findViewById(R.id.radioButton_record2player5);
+        rdBtnPlayer6 =(RadioButton)findViewById(R.id.radioButton_record2player6);
+        rdBtnPlayerL1 =(RadioButton)findViewById(R.id.radioButton_record2liberal1);
+        rdBtnPlayerL2 =(RadioButton)findViewById(R.id.radioButton_record2liberal2);
 
         rdBtnPlayerList = new ArrayList<RadioButton>();
         rdBtnPlayerList.add(rdBtnPlayer1);
@@ -123,6 +126,8 @@ public class Record2 extends Activity {
         rdBtnPlayerList.add(rdBtnPlayer4);
         rdBtnPlayerList.add(rdBtnPlayer5);
         rdBtnPlayerList.add(rdBtnPlayer6);
+        rdBtnPlayerList.add(rdBtnPlayerL1);
+        rdBtnPlayerList.add(rdBtnPlayerL2);
     }
 
     //RadioGroup for Players

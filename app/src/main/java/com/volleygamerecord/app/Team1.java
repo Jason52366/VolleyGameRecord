@@ -75,6 +75,7 @@ public class Team1 extends Activity {
                 Intent intent = new Intent();
                 intent.setClass(Team1.this, Team2.class);
                 startActivity(intent);
+                Team1.this.finish();
             }
         });
 
@@ -88,6 +89,8 @@ public class Team1 extends Activity {
                 Intent intent = new Intent();
                 intent.setClass(Team1.this, Team2_Editing.class);
                 startActivity(intent);
+                Team1.this.finish();
+
             }
         });
 

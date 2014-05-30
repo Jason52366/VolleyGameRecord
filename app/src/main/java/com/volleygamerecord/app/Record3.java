@@ -51,6 +51,9 @@ public class Record3  extends Activity {
     RadioButton rdBtnPlayer4 = null;
     RadioButton rdBtnPlayer5 = null;
     RadioButton rdBtnPlayer6 = null;
+    RadioButton rdBtnPlayerL1 = null;
+    RadioButton rdBtnPlayerL2 = null;
+
 
     Boolean closeGroupC = false;
 
@@ -114,6 +117,7 @@ public class Record3  extends Activity {
         radioGroup3List.add(rdButtonC5);
         radioGroup3List.add(rdButtonC6);
         radioGroup3List.add(rdButtonC7);
+        radioGroup3List.add(rdButtonC8);
         //---
         radioGroup1.setOnCheckedChangeListener(listenA);
         radioGroup2.setOnCheckedChangeListener(listenB);
@@ -126,6 +130,9 @@ public class Record3  extends Activity {
         rdBtnPlayer4 = (RadioButton)findViewById(R.id.radioButton_record3player4);
         rdBtnPlayer5 = (RadioButton)findViewById(R.id.radioButton_record3player5);
         rdBtnPlayer6 = (RadioButton)findViewById(R.id.radioButton_record3player6);
+        rdBtnPlayerL1 = (RadioButton)findViewById(R.id.radioButton_record3liberal1);
+        rdBtnPlayerL2 = (RadioButton)findViewById(R.id.radioButton_record3liberal2);
+
         rdBtnPlayerList = new ArrayList<RadioButton>();
         rdBtnPlayerList.add(rdBtnPlayer1);
         rdBtnPlayerList.add(rdBtnPlayer2);
@@ -133,7 +140,8 @@ public class Record3  extends Activity {
         rdBtnPlayerList.add(rdBtnPlayer4);
         rdBtnPlayerList.add(rdBtnPlayer5);
         rdBtnPlayerList.add(rdBtnPlayer6);
-
+        rdBtnPlayerList.add(rdBtnPlayerL1);
+        rdBtnPlayerList.add(rdBtnPlayerL2);
 
     }
 

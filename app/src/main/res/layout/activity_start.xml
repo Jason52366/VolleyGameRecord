@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@drawable/startbackground"
-    android:textAlignment="gravity">
+    android:layout_width="fill_parent" android:layout_height="fill_parent"
+    android:focusableInTouchMode="false"
+    android:orientation="vertical"
+    android:focusable="false"
+    android:clickable="false">
 
     <Button
         android:layout_width="200dp"
@@ -16,26 +18,26 @@
         android:layout_alignLeft="@+id/button_startManageTeam"
         android:layout_alignStart="@+id/button_startManageTeam"
         android:layout_marginTop="186dp"
-        android:background="@drawable/startbotton" />
+        android:background="@drawable/startGameStart" />
 
     <Button
         android:layout_width="200dp"
         android:layout_height="80dp"
         android:text="      管理球隊"
         android:id="@+id/button_startManageTeam"
-        android:background="@drawable/startbotton"
         android:layout_below="@+id/button_startGameStart"
         android:layout_alignLeft="@+id/button_startOnlineRecord"
         android:layout_alignStart="@+id/button_startOnlineRecord"
         android:textSize="26dp"
-        android:layout_marginTop="-10dp" />
+        android:layout_marginTop="-10dp"
+        android:background="@drawable/startConfiguration" />
 
     <Button
         android:layout_width="200dp"
         android:layout_height="80dp"
-        android:text="       線上記錄"
+        android:text="      線上記錄"
         android:id="@+id/button_startOnlineRecord"
-        android:background="@drawable/startbotton"
+        android:background="@drawable/startOnlineRecord"
         android:layout_below="@+id/button_startManageTeam"
         android:layout_centerHorizontal="true"
         android:textSize="26dp"
@@ -47,10 +49,11 @@
         android:text="       設      定 "
         android:id="@+id/button_startConfiguration"
         android:layout_below="@+id/button_startOnlineRecord"
+        android:textSize="26dp"
+        android:background="@drawable/startManageTeam"
+        android:layout_marginTop="-10dp"
         android:layout_alignLeft="@+id/button_startOnlineRecord"
         android:layout_alignStart="@+id/button_startOnlineRecord"
-        android:textSize="26dp"
-        android:background="@drawable/startbotton"
-        android:layout_marginTop="-10dp" />
+        android:layout_alignParentEnd="false" />
 
 </RelativeLayout>

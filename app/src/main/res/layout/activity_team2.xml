@@ -115,6 +115,7 @@
         android:textFilterEnabled="true"
         android:layout_below="@+id/editText_team2Player"
         android:layout_centerHorizontal="true"
-        android:choiceMode="none" />
+        android:choiceMode="none"
+        android:background="#00000000" />
 
 </RelativeLayout>

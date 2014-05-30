@@ -41,7 +41,6 @@ public class PlayerInfoAdapter extends BaseAdapter {
         TextView name = (TextView) convertView.findViewById(R.id.team2ListName);
         TextView number= (TextView) convertView.findViewById(R.id.team2ListNumber);
         TextView position= (TextView) convertView.findViewById(R.id.team2ListPosition);
-        TextView occupy = (TextView) convertView.findViewById(R.id.team2ListOccupy);
         PlayerInfo playerinfo = (PlayerInfo) getItem(pos);
         name.setText(playerinfo.getName());
         number.setText(playerinfo.getNumber());

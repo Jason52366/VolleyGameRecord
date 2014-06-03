@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
@@ -34,11 +35,13 @@ public class GameStart2  extends Activity {
     PlayerInfoAdapter infoListAdapter;
 
     String teamName =  DataCenter.getInstance().getStringValue("team");
+    TextView 球員上場名單;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gamestart2);
+        球員上場名單 = (TextView) findViewById(R.id.textView_gamestart2PlayerGo);
         SettingListView();
         getPlayerFromParse();
         ChoosePlayer();         //ItemClickListner
@@ -103,7 +106,7 @@ public class GameStart2  extends Activity {
                 }else {
 
                 }
-                Log.d("XDD!!",choosenPlayer.toString());
+                球員上場名單.setText(choosenPlayer.toString());
             }
         });
     }
@@ -113,8 +116,17 @@ public class GameStart2  extends Activity {
         btn_gamestart2Sure.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
+                Boolean go = false;
+                //確保先發有六個
+                for (int i = 0; i<6 ; i ++){
+                    if (choosenPlayer.get(i).equals("NO")){
+                        go = false;
+                    }else{
+                        go = true;
+                    }
+                }
 
-                if ((choosenPlayer.size() >= 6 && choosenPlayer.lastIndexOf("NO")>5)){
+                if (choosenPlayer.size() >= 6 && go){
                     DataCenter.getInstance().setPlayerArray(choosenPlayer);
                     Intent intent = new Intent();
                     intent.setClass(GameStart2.this, Record1.class);

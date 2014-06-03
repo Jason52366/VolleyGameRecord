@@ -6,25 +6,25 @@
 
     <ListView
         android:layout_width="300dp"
-        android:layout_height="350dp"
+        android:layout_height="330dp"
         android:id="@+id/listView_gamestart2Player"
         android:divider="#D3D3D3"
         android:dividerHeight="2dp"
         android:cacheColorHint="#00000000"
         android:minHeight="50dp"
         android:textFilterEnabled="true"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
         android:choiceMode="none"
         android:clickable="false"
         android:drawSelectorOnTop="false"
-        android:focusable="true" />
+        android:focusable="true"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="上場球員"
-        android:id="@+id/textView_gamestart2Player"
+        android:id="@+id/textView_gamestart2"
         android:textSize="48dp"
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/textView3"
@@ -33,12 +33,13 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="確  定"
+        android:text="確定"
         android:id="@+id/button_gamestart2Sure"
-        android:layout_below="@+id/listView_gamestart2Player"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:textSize="24dp" />
+        android:textSize="25dp"
+        android:singleLine="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -71,5 +72,28 @@
         android:layout_alignRight="@+id/listView_gamestart2Player"
         android:layout_alignEnd="@+id/listView_gamestart2Player"
         android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="上場順序"
+        android:id="@+id/textView_gamestart2PlayerGo"
+        android:singleLine="true"
+        android:textSize="18dp"
+        android:typeface="normal"
+        android:layout_above="@+id/button_gamestart2Sure"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="[01, 02, 03, 04, 05, 06, L1, L2]"
+        android:id="@+id/textView4"
+        android:textSize="18dp"
+        android:typeface="normal"
+        android:layout_above="@+id/textView_gamestart2PlayerGo"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

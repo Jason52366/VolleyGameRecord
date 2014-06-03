@@ -115,18 +115,8 @@ public class GameStart2  extends Activity {
         btn_gamestart2Sure.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Boolean go = false;
-                //確保先發有六個
-                for (int i = 0; i<6 ; i ++){
-                    if (choosenPlayer.get(i).equals("NO")){
-                        go = false;
-                        break;
-                    }else{
-                        go = true;
-                    }
-                }
 
-                if (choosenPlayer.size() >= 6 && go){
+                if (choosenPlayer.size() >= 6 && !(choosenPlayer.indexOf("NO") < 6)){
                     DataCenter.getInstance().setPlayerArray(choosenPlayer);
                     Intent intent = new Intent();
                     intent.setClass(GameStart2.this, Record1.class);

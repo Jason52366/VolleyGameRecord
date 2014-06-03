@@ -121,6 +121,7 @@ public class GameStart2  extends Activity {
                 for (int i = 0; i<6 ; i ++){
                     if (choosenPlayer.get(i).equals("NO")){
                         go = false;
+                        break;
                     }else{
                         go = true;
                     }

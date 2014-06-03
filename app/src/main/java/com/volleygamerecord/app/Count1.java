@@ -20,24 +20,18 @@ public class Count1 extends Activity {
         btn_next_game.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick (View v){
-
                 Intent intent = new Intent();
                 intent.setClass(Count1.this, Record1.class);
                 startActivity(intent);
                 Count1.this.finish();
-
-
-
             }
 
         });
-
 
         Button btn_end_game = (Button)findViewById(R.id.btn_end_game);
         btn_end_game.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick (View v){
-
                 Intent intent = new Intent();
                 intent.setClass(Count1.this, Count2.class);
                 startActivity(intent);

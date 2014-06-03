@@ -46,9 +46,7 @@ public class Count1_MyGame extends Activity {
                     TextView dataContent = (TextView)findViewById(R.id.textView_count1);
                     dataContent.setText("比賽| "+date+"\n"+"對手| "+rivalName+"\n"+"比分| "
                     +scoreList.get(0)+":"+scoreList.get(1));
-
                 }
-
                 else {
                     // something went wrong
                 }

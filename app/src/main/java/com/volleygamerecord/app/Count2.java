@@ -66,15 +66,14 @@ public class Count2 extends Activity {
                     public void done(List<ParseObject> parseObjects, com.parse.ParseException e) {
                         if (e == null) {
                             ParseObject.saveAllInBackground(parseObjects);
+                            Intent intent = new Intent();
+                            intent.setClass(Count2.this, Start.class);
+                            startActivity(intent);
                         } else {
                             Log.e("parseReturn", e.toString());
                         }
                     }
                 });
-
-                Intent intent = new Intent();
-                intent.setClass(Count2.this, Start.class);
-                startActivity(intent);
             }
         });
 

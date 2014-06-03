@@ -43,7 +43,7 @@ public class Team1 extends Activity {
 
         final ProgressDialog dialog = ProgressDialog.show(Team1.this,"", "請等待...", true);
 
-        //從parse拿自己隊伍的資料
+        //從local data store拿資料
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Team");
         query.fromLocalDatastore();
         query.whereEqualTo("userName",userName);

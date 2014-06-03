@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -15,10 +16,13 @@ import com.facebook.Request;
 import com.facebook.Response;
 import com.facebook.Session;
 import com.facebook.model.GraphUser;
+import com.parse.FindCallback;
 import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
@@ -47,7 +51,7 @@ public class LogIn extends Activity {
             }
         });
 
-        //Parse.enableLocalDatastore(this);
+        Parse.enableLocalDatastore(this);
         /*                               Application ID                  ,     Client ID     */
         Parse.initialize(this, "OOyy4I805eCgkyEGCiZtAH2RybkVl2tWi4qulbkw", "AOXZIHWss8wAiupkyTQuhEelITKfQ3LUeXAdHVTL");
             ParseFacebookUtils.initialize("1393614940913937");
@@ -79,13 +83,8 @@ public class LogIn extends Activity {
                     }
 
               });
-
             }
-
         });
-
-
-
     }
 
     @Override
@@ -125,32 +124,42 @@ public class LogIn extends Activity {
                     @Override
                     public void onCompleted(GraphUser user, Response response) {
                         if (user != null) {
-                            // Create a JSON object to hold the profile info
-                            JSONObject userProfile = new JSONObject();
-                            try {
-                                // Populate the JSON object
-                                userProfile.put("facebookId", user.getId());
-                                userProfile.put("name", user.getName());
+                          DataCenter.getInstance().setValue("fbName",user.getName());
 
-                                // Now add the data to the UI elements
-                                // ...
+                          //登入成功後才切換畫面
+                          Intent intent = new Intent();
+                          intent.setClass(LogIn.this, Start.class);
+                          startActivity(intent);
+                          LogIn.this.finish();
 
-                                String fbName = (String)userProfile.get("name");
-                                Log.e("fbName!!!", fbName);
-                                DataCenter.getInstance().setValue("fbName",fbName);
+                          String userName =  DataCenter.getInstance().getStringValue("parseUserName");
 
-                                //登入成功後才切換畫面
-                                Intent intent = new Intent();
-                                intent.setClass(LogIn.this, Start.class);
-                                startActivity(intent);
-                                LogIn.this.finish();
+                         //從parse拿自己隊伍的資料
+                          ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Team");
+                          query.whereEqualTo("userName",userName);
+                          query.findInBackground(new FindCallback<ParseObject>() {
+                              public void done(List<ParseObject> parseObjects, com.parse.ParseException e) {
+                                  if (e == null) {
+                                          ParseObject.pinAllInBackground(parseObjects);
+                                   } else {
+                                      Log.e("parseReturn", e.toString());
+                                  }
+                              }
+                          });
 
-
-                            } catch (JSONException e) {
-                                Log.d("Myapp",
-                                        "Error parsing returned user data.");
-                            }
-
+                          //從parse拿比賽資料
+                          ParseQuery<ParseObject> query2 = new ParseQuery<ParseObject>("GameScore");
+                          query2.whereEqualTo("userName",userName);
+                          query2.findInBackground(new FindCallback<ParseObject>() {
+                              @Override
+                              public void done(List<ParseObject> parseObjects, com.parse.ParseException e) {
+                                  if (e == null) {
+                                          ParseObject.pinAllInBackground(parseObjects);
+                                   } else {
+                                      Log.e("parseReturn", e.toString());
+                                  }
+                              }
+                          });
                         } else if (response.getError() != null) {
                             // handle error
                         }

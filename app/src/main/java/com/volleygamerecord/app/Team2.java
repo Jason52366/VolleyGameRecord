@@ -183,8 +183,8 @@ public class Team2 extends Activity {
         teamInfo.put("playerNumber", numList);
         teamInfo.put("playerName", nameList);
         teamInfo.put("position", posList);
-        //----  Parse傳送成功確認
-        teamInfo.saveInBackground(new SaveCallback() {
+        //----  Parse
+        teamInfo.pinInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
                 if (e == null) {

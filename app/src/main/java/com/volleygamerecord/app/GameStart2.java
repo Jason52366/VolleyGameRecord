@@ -46,8 +46,6 @@ public class GameStart2  extends Activity {
         getPlayerFromParse();
         ChoosePlayer();         //ItemClickListner
         SureBtn();              //Sure_btnListener
-
-
     }
 
     private void SettingListView(){
@@ -60,6 +58,7 @@ public class GameStart2  extends Activity {
     private void getPlayerFromParse(){
         final ProgressDialog dialog = ProgressDialog.show(GameStart2.this,"", "請等待...", true);
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Team");
+        query.fromLocalDatastore();
         query.whereEqualTo("teamName",teamName);
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> parseObjects, com.parse.ParseException e) {

@@ -26,55 +26,38 @@ public class Start  extends Activity {
         btn_startConfiguration.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-
 //                Intent 企圖 = new Intent();
 //                企圖.setClass(Start.this, .Setting class);
 //                startActivity(企圖);
-
-
-
             }
         });
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         //button_startManageTeam
         Button btn_startManageTeam = (Button)findViewById(R.id.button_startManageTeam);
         btn_startManageTeam.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-
                 Intent 企圖 = new Intent();
                 企圖.setClass(Start.this, Team1.class);
                 startActivity(企圖);
-
             }
-
         });
-
-
 
         Button btn_startGameStart = (Button)findViewById(R.id.button_startGameStart);
         btn_startGameStart.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent();
                 intent.setClass(Start.this, GameStart1.class);
                 startActivity(intent);
                 onPause();
             }
-
         });
-
-
-
-
         //button_startManageTeam
         Button btn_startOnlineRecord = (Button)findViewById(R.id.button_startOnlineRecord);
         btn_startOnlineRecord.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent();
                 intent.setClass(Start.this, MyGame.class);
                 startActivity(intent);

@@ -48,6 +48,7 @@ public class Team2 extends Activity {
         FindEachViewId();
         InfoSetOnKeyListener();
         SettingListView();
+        EditTeamName();
         AddNewPlayerToInfoItem();       //btn_listener
         AddNewTeam();                   //btn_listener
         DeleteTeam();                   //longClick_listener
@@ -117,6 +118,31 @@ public class Team2 extends Activity {
 
     }
 
+    private void EditTeamName(){
+        teamName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder editDialog = new AlertDialog.Builder(Team2.this);
+                editDialog.setTitle("-----編輯隊名-----");
+                final EditText editText = new EditText(Team2.this);
+                editDialog.setView(editText);
+                editText.setText(teamName.getText().toString());
+                editDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    // do something when the button is clicked
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        teamName.setText(editText.getText().toString());
+                    }
+                });
+                editDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    // do something when the button is clicked
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        //...
+                    }
+                });
+                editDialog.show();
+            }
+        });
+    }
 
     private void AddNewPlayerToInfoItem(){
         addnewPlayer.setOnClickListener(new View.OnClickListener() {

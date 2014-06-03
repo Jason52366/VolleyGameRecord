@@ -86,7 +86,7 @@ public class GameStart2  extends Activity {
         listInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                if(!infoItems.get(position).getOnCourt() && choosenPlayer.size() < 8 ){
+                if(!infoItems.get(position).getOnCourt() && choosenPlayer.size() < 9 ){
                     view.setBackgroundColor(Color.GREEN);
                     infoItems.get(position).setOnCourt(Boolean.TRUE);
                     if(choosenPlayer.contains("NO")){
@@ -120,6 +120,7 @@ public class GameStart2  extends Activity {
                 for (int i = 0; i<6 ; i ++){
                     if (choosenPlayer.get(i).equals("NO")){
                         go = false;
+                        break;
                     }else{
                         go = true;
                     }

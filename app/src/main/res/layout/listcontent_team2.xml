@@ -33,17 +33,16 @@
         android:id="@+id/team2ListPosition"
         android:textSize="20dp"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/team2ListOccupy" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="0"
         android:id="@+id/team2ListOccupy"
+        android:textSize="20dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textSize="20dp" />
+        android:layout_toLeftOf="@+id/team2ListPosition" />
 </RelativeLayout>
 

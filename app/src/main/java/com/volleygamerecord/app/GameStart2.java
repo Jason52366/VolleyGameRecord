@@ -1,6 +1,7 @@
 package com.volleygamerecord.app;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseObject;
@@ -33,7 +35,6 @@ public class GameStart2  extends Activity {
 
     String teamName =  DataCenter.getInstance().getStringValue("team");
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,22 +55,23 @@ public class GameStart2  extends Activity {
     }
 
     private void getPlayerFromParse(){
+        final ProgressDialog dialog = ProgressDialog.show(GameStart2.this,"", "請等待...", true);
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Team");
         query.whereEqualTo("teamName",teamName);
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> parseObjects, com.parse.ParseException e) {
                 if (e == null) {
-                        numberList = (ArrayList)parseObjects.get(0).get("playerNumber");
-                        positionList =  (ArrayList) parseObjects.get(0).get("position");
-                        playerNameList =  (ArrayList)parseObjects.get(0).get("playerName");
+                    numberList = (ArrayList)parseObjects.get(0).get("playerNumber");
+                    positionList =  (ArrayList) parseObjects.get(0).get("position");
+                    playerNameList =  (ArrayList)parseObjects.get(0).get("playerName");
                     for(int i = 0;i < numberList.size() ; i++ ) {
                         String num = numberList.get(i).toString();
                         String pos = positionList.get(i).toString();
                         String nam = playerNameList.get(i).toString();
                         infoItems.add(new PlayerInfo(num, nam, pos));
                         listInput.setAdapter(infoListAdapter);
-
                     }
+                    dialog.dismiss();
                 } else {
                     Log.e("parseReturn", e.toString());
                 }
@@ -85,18 +87,23 @@ public class GameStart2  extends Activity {
                 if(!infoItems.get(position).getOnCourt() && choosenPlayer.size() < 8 ){
                     view.setBackgroundColor(Color.GREEN);
                     infoItems.get(position).setOnCourt(Boolean.TRUE);
-                    choosenPlayer.add(infoItems.get(position).getNumber());
-                    infoListAdapter.setOccupy(0);
+                    if(choosenPlayer.contains("NO")){
+                        int a = choosenPlayer.indexOf("NO");
+                        String b = infoItems.get(position).getNumber();
+                        choosenPlayer.set(a,b);
+                    }else {
+                        choosenPlayer.add(infoItems.get(position).getNumber());
+                    }
+
                 }else if (infoItems.get(position).getOnCourt()){
                     view.setBackgroundColor(Color.TRANSPARENT);
                     infoItems.get(position).setOnCourt(Boolean.FALSE);
                     int i = choosenPlayer.indexOf(infoItems.get(position).getNumber());
-                    choosenPlayer.remove(i);
+                    choosenPlayer.set(i, "NO");
                 }else {
 
-
                 }
-
+                Log.d("XDD!!",choosenPlayer.toString());
             }
         });
     }
@@ -107,12 +114,14 @@ public class GameStart2  extends Activity {
             @Override
             public void onClick(View v) {
 
-                if ((choosenPlayer.size() >= 6)){
+                if ((choosenPlayer.size() >= 6 && choosenPlayer.lastIndexOf("NO")>5)){
                     DataCenter.getInstance().setPlayerArray(choosenPlayer);
                     Intent intent = new Intent();
                     intent.setClass(GameStart2.this, Record1.class);
                     startActivity(intent);
                     onPause();
+                }else{
+                    Toast.makeText(v.getContext(), "先發六名球員不得有缺", Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -71,4 +71,5 @@
         android:layout_alignRight="@+id/listView_gamestart2Player"
         android:layout_alignEnd="@+id/listView_gamestart2Player"
         android:textSize="30dp" />
+
 </RelativeLayout>

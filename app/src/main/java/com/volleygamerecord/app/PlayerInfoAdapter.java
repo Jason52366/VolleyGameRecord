@@ -17,7 +17,6 @@ public class PlayerInfoAdapter extends BaseAdapter {
     private LayoutInflater team2Inflater;
     private List<PlayerInfo> info;
 
-
     public PlayerInfoAdapter(Context c,List<PlayerInfo> l){
         team2Inflater = LayoutInflater.from(c);
         info = l;
@@ -45,13 +44,10 @@ public class PlayerInfoAdapter extends BaseAdapter {
         name.setText(playerinfo.getName());
         number.setText(playerinfo.getNumber());
         position.setText(playerinfo.getPosition());
-
         return convertView;
 
     }
 
-    public  void setOccupy(int i ){
 
-    }
 
 }

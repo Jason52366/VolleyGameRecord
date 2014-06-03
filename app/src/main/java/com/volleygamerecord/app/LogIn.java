@@ -1,9 +1,7 @@
 package com.volleygamerecord.app;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,7 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.Toast;
 
 import com.facebook.Request;
 import com.facebook.Response;
@@ -45,23 +43,7 @@ public class LogIn extends Activity {
         btn_test.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder editDialog = new AlertDialog.Builder(LogIn.this);
-                editDialog.setTitle("--- Edit框標題 ---");
-                final EditText editText = new EditText(LogIn.this);
-                editDialog.setView(editText);
-                editDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        bbb= (editText.getText().toString());
-                    }
-                });
-                editDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    // do something when the button is clicked
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        //...
-                    }
-                });
-                editDialog.show();
-
+                Toast.makeText(v.getContext(), "這是一個Toast......", Toast.LENGTH_SHORT).show();
             }
         });
 

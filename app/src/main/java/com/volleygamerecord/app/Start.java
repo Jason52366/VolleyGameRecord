@@ -89,7 +89,6 @@ public class Start  extends Activity {
     private static Boolean hasTask = false;
     Timer tExit = new Timer();
     TimerTask task = new TimerTask() {
-
         @Override
         public void run() {
             isExit = false;
@@ -104,7 +103,6 @@ public class Start  extends Activity {
             if(isExit == false ) {
                 isExit = true;
                 Toast.makeText(this, "再按一次返回鍵退出程式",
-
                         Toast.LENGTH_SHORT).show();
                 if(!hasTask) {
                     tExit.schedule(task, 0);

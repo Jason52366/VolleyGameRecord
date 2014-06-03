@@ -184,7 +184,7 @@ public class Team2 extends Activity {
         teamInfo.put("playerName", nameList);
         teamInfo.put("position", posList);
         //----  Parse
-        teamInfo.pinInBackground(new SaveCallback() {
+        teamInfo.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
                 if (e == null) {

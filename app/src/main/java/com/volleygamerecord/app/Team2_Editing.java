@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -145,7 +146,8 @@ public class Team2_Editing extends Activity {
 
     private void getPlayerFromParse(){
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Team");
-        query.whereEqualTo("teamName",tName);
+        query.whereEqualTo("objectId",obID);
+        //query.fromLocalDatastore();
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> parseObjects, com.parse.ParseException e) {
                 if (e == null) {

@@ -113,20 +113,26 @@ public class GameStart2  extends Activity {
         listInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                if(!infoItems.get(position).getOnCourt() && choosenPlayer.size() < 9 ){
+                if(!infoItems.get(position).getOnCourt() && choosenPlayer.size() < 8 ) {
                     view.setBackgroundColor(Color.GREEN);
                     infoItems.get(position).setOnCourt(Boolean.TRUE);
-                    if(choosenPlayer.contains("  ")){
+                    if (choosenPlayer.contains("  ")) {
                         int a = choosenPlayer.indexOf("  ");
                         String b = infoItems.get(position).getNumber();
-                        choosenPlayer.set(a,b);
+                        choosenPlayer.set(a, b);
                         posList.get(a).setText(b);
-                    }else {
+                    } else {
                         choosenPlayer.add(infoItems.get(position).getNumber());
-                        int a = choosenPlayer.size()-1;
+                        int a = choosenPlayer.size() - 1;
                         posList.get(a).setText(infoItems.get(position).getNumber());
                     }
-
+                }else if (choosenPlayer.size() == 8 && choosenPlayer.contains("  ")){
+                    int a = choosenPlayer.indexOf("  ");
+                    String b = infoItems.get(position).getNumber();
+                    choosenPlayer.set(a, b);
+                    posList.get(a).setText(b);
+                    view.setBackgroundColor(Color.GREEN);
+                    infoItems.get(position).setOnCourt(Boolean.TRUE);
                 }else if (infoItems.get(position).getOnCourt()){
                     view.setBackgroundColor(Color.TRANSPARENT);
                     infoItems.get(position).setOnCourt(Boolean.FALSE);

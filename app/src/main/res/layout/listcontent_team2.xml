@@ -19,12 +19,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text=""
         android:id="@+id/team2ListNumber"
+        android:textSize="20dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="20dp" />
+        android:layout_toRightOf="@+id/textView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,9 +30,9 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/team2ListPosition"
         android:textSize="20dp"
+        android:singleLine="false"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_toLeftOf="@+id/team2ListOccupy" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -42,7 +40,20 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/team2ListOccupy"
         android:textSize="20dp"
+        android:text="   "
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/team2ListPosition" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:phoneNumber="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="   "
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
 

@@ -1,7 +1,9 @@
 package com.volleygamerecord.app;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +12,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.facebook.Request;
@@ -29,25 +33,67 @@ import com.parse.SaveCallback;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 
 public class LogIn extends Activity {
 
-
-    String bbb;
+    AlertDialog levelDialog;
+    ArrayList<String> items = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
-
+        items.add("XD");
+        items.add("XDD");
+        items.add("XDDD");
+        items.add("XDDDD");
+        items.add("XDDDDD");
         Button btn_test = (Button)findViewById(R.id.button_TEST);
         btn_test.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "這是一個Toast......", Toast.LENGTH_SHORT).show();
+                // Creating and Building the Dialog
+                AlertDialog.Builder builder = new AlertDialog.Builder(LogIn.this);
+                builder.setTitle("Select The Difficulty Level");
+                CharSequence[] cs = items.toArray(new CharSequence[items.size()]);
+                builder.setSingleChoiceItems(cs, -1, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int item) {
+                        switch(item)
+                        {
+                            case 0:
+                               Log.d("XD",""+item);
+                                // Your code when first option seletced
+                                break;
+                            case 1:
+                                Log.d("XDD",""+item);
+                                // Your code when 2nd  option seletced
+                                break;
+                            case 2:
+                                Log.d("XDDD",""+item);
+                                // Your code when 3rd option seletced
+                                break;
+                            case 3:
+                                Log.d("XDDD",""+item);
+                                // Your code when 4th  option seletced
+                                break;
+                            case 4:
+                                Log.d("XDDDD",""+item);
+                                // Your code when 4th  option seletced
+                                break;
+                            case 5:
+                                Log.d("XDDDDD",""+item);
+                                // Your code when 4th  option seletced
+                                break;
+                        }
+                        levelDialog.dismiss();
+                    }
+                });
+                levelDialog = builder.create();
+                levelDialog.show();
             }
         });
 

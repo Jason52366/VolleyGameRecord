@@ -105,7 +105,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="大砲"
+        android:text="4號位"
         android:id="@+id/radioButton_record3a1"
         android:layout_below="@+id/textView_record3opponentattack"
         android:layout_centerHorizontal="true"

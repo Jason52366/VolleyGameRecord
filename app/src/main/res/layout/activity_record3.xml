@@ -10,9 +10,10 @@
         android:layout_height="wrap_content"
         android:text="確定"
         android:id="@+id/btn_record3Confirm"
+        android:textSize="24dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="24dp" />
+        android:layout_alignRight="@+id/text_record3players"
+        android:layout_alignEnd="@+id/text_record3players" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -203,8 +204,9 @@
         android:id="@+id/textView_record3others"
         android:textSize="30dp"
         android:layout_below="@+id/record3rdg2"
-        android:layout_alignLeft="@+id/text_record3players"
-        android:layout_alignStart="@+id/text_record3players" />
+        android:layout_toRightOf="@+id/radioButton_record3player6"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="-7dp" />
 
     <RadioButton
     android:layout_width="50dp"

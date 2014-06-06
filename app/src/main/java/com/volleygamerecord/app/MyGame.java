@@ -39,8 +39,9 @@ public class MyGame extends Activity {
 
         final ProgressDialog dialog = ProgressDialog.show(MyGame.this,"", "請等待...", true);
 
-        //get all objects from Parse
+        //get all objects from local data store
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("GameScore");
+        query.fromLocalDatastore();
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> parseObjects, com.parse.ParseException e) {

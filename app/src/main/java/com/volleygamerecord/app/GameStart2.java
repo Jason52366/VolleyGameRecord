@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
@@ -26,12 +27,21 @@ public class GameStart2  extends Activity {
     ArrayList numberList = new ArrayList();
     ArrayList positionList = new ArrayList();
     ArrayList playerNameList = new ArrayList();
-
     ArrayList choosenPlayer = new ArrayList();
+    ArrayList<TextView> posList = new ArrayList<TextView>();
 
     ListView listInput;
     ArrayList<PlayerInfo> infoItems;
     PlayerInfoAdapter infoListAdapter;
+
+    TextView Pos1;
+    TextView Pos2;
+    TextView Pos3;
+    TextView Pos4;
+    TextView Pos5;
+    TextView Pos6;
+    TextView PosL1;
+    TextView PosL2;
 
     String teamName =  DataCenter.getInstance().getStringValue("team");
 
@@ -39,12 +49,30 @@ public class GameStart2  extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gamestart2);
+        FindEachViewById();
         SettingListView();
         getPlayerFromParse();
         ChoosePlayer();         //ItemClickListner
         SureBtn();              //Sure_btnListener
+    }
 
-
+    private void FindEachViewById(){
+        Pos1 = (TextView)findViewById(R.id.textView_gamestart2Pos1);
+        Pos2 = (TextView)findViewById(R.id.textView_gamestart2Pos2);
+        Pos3 = (TextView)findViewById(R.id.textView_gamestart2Pos3);
+        Pos4 = (TextView)findViewById(R.id.textView_gamestart2Pos4);
+        Pos5 = (TextView)findViewById(R.id.textView_gamestart2Pos5);
+        Pos6 = (TextView)findViewById(R.id.textView_gamestart2Pos6);
+        PosL1 = (TextView)findViewById(R.id.textView_gamestart2PosL1);
+        PosL2 = (TextView)findViewById(R.id.textView_gamestart2PosL2);
+        posList.add(Pos1);
+        posList.add(Pos2);
+        posList.add(Pos3);
+        posList.add(Pos4);
+        posList.add(Pos5);
+        posList.add(Pos6);
+        posList.add(PosL1);
+        posList.add(PosL2);
     }
 
     private void SettingListView(){
@@ -57,6 +85,7 @@ public class GameStart2  extends Activity {
     private void getPlayerFromParse(){
         final ProgressDialog dialog = ProgressDialog.show(GameStart2.this,"", "請等待...", true);
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Team");
+        query.fromLocalDatastore();
         query.whereEqualTo("teamName",teamName);
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> parseObjects, com.parse.ParseException e) {
@@ -84,26 +113,35 @@ public class GameStart2  extends Activity {
         listInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                if(!infoItems.get(position).getOnCourt() && choosenPlayer.size() < 8 ){
+                if(!infoItems.get(position).getOnCourt() && choosenPlayer.size() < 8 ) {
                     view.setBackgroundColor(Color.GREEN);
                     infoItems.get(position).setOnCourt(Boolean.TRUE);
-                    if(choosenPlayer.contains("NO")){
-                        int a = choosenPlayer.indexOf("NO");
+                    if (choosenPlayer.contains("  ")) {
+                        int a = choosenPlayer.indexOf("  ");
                         String b = infoItems.get(position).getNumber();
-                        choosenPlayer.set(a,b);
-                    }else {
+                        choosenPlayer.set(a, b);
+                        posList.get(a).setText(b);
+                    } else {
                         choosenPlayer.add(infoItems.get(position).getNumber());
+                        int a = choosenPlayer.size() - 1;
+                        posList.get(a).setText(infoItems.get(position).getNumber());
                     }
-
+                }else if (choosenPlayer.size() == 8 && choosenPlayer.contains("  ")){
+                    int a = choosenPlayer.indexOf("  ");
+                    String b = infoItems.get(position).getNumber();
+                    choosenPlayer.set(a, b);
+                    posList.get(a).setText(b);
+                    view.setBackgroundColor(Color.GREEN);
+                    infoItems.get(position).setOnCourt(Boolean.TRUE);
                 }else if (infoItems.get(position).getOnCourt()){
                     view.setBackgroundColor(Color.TRANSPARENT);
                     infoItems.get(position).setOnCourt(Boolean.FALSE);
                     int i = choosenPlayer.indexOf(infoItems.get(position).getNumber());
-                    choosenPlayer.set(i, "NO");
+                    choosenPlayer.set(i, "  ");
+                    posList.get(i).setText("  ");
                 }else {
 
                 }
-                Log.d("XDD!!",choosenPlayer.toString());
             }
         });
     }
@@ -114,7 +152,13 @@ public class GameStart2  extends Activity {
             @Override
             public void onClick(View v) {
 
-                if ((choosenPlayer.size() >= 6 && choosenPlayer.lastIndexOf("NO")>5)){
+                if (choosenPlayer.size() >= 6 && choosenPlayer.indexOf("  ") > 5) {
+                    DataCenter.getInstance().setPlayerArray(choosenPlayer);
+                    Intent intent = new Intent();
+                    intent.setClass(GameStart2.this, Record1.class);
+                    startActivity(intent);
+                    onPause();
+                }else if(choosenPlayer.size() >= 6 && !choosenPlayer.contains("  ")){
                     DataCenter.getInstance().setPlayerArray(choosenPlayer);
                     Intent intent = new Intent();
                     intent.setClass(GameStart2.this, Record1.class);

@@ -91,7 +91,7 @@
         android:layout_height="wrap_content"
         android:text="新增球員"
         android:id="@+id/button_team2AddNewPlayer"
-        android:layout_alignTop="@+id/button_team2AddNewTeam"
+        android:layout_below="@+id/listview_team2List"
         android:layout_alignRight="@+id/listview_team2List"
         android:layout_alignEnd="@+id/listview_team2List" />
 
@@ -100,7 +100,7 @@
         android:layout_height="wrap_content"
         android:text="新增球隊"
         android:id="@+id/button_team2AddNewTeam"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/listview_team2List"
         android:layout_alignLeft="@+id/listview_team2List"
         android:layout_alignStart="@+id/listview_team2List" />
 

@@ -72,12 +72,11 @@ public class GameStart1  extends Activity {
             }
 
         });
-
-
         //spinner_gamestart1OurTeam
         String userName =  DataCenter.getInstance().getStringValue("parseUserName");
 
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Team");
+        query.fromLocalDatastore();
         query.whereEqualTo("userName",userName);
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> parseObjects, com.parse.ParseException e) {
@@ -95,6 +94,4 @@ public class GameStart1  extends Activity {
         });
 
     }
-
-
 }

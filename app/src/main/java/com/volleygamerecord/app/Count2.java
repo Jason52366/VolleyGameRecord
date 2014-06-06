@@ -4,11 +4,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.Toast;
+
+import com.parse.FindCallback;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
 import org.achartengine.ChartFactory;
 import org.achartengine.GraphicalView;
@@ -16,6 +21,8 @@ import org.achartengine.model.CategorySeries;
 import org.achartengine.model.SeriesSelection;
 import org.achartengine.renderer.DefaultRenderer;
 import org.achartengine.renderer.SimpleSeriesRenderer;
+
+import java.util.List;
 
 /**
  * Created by A on 2014/4/1.
@@ -35,12 +42,39 @@ public class Count2 extends Activity {
         btn_back_menu.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String userName =  DataCenter.getInstance().getStringValue("fbName");
 
-                Intent intent = new Intent();
-                intent.setClass(Count2.this, Start.class);
-                startActivity(intent);
+                //從local data store拿自己隊伍的資料，並上傳至parse
+                ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Team");
+                query.whereEqualTo("userName",userName);
+                query.fromLocalDatastore();
+                query.findInBackground(new FindCallback<ParseObject>() {
+                    public void done(List<ParseObject> parseObjects, com.parse.ParseException e) {
+                        if (e == null) {
+                            ParseObject.saveAllInBackground(parseObjects);
+                        } else {
+                            Log.e("parseReturn", e.toString());
+                        }
+                    }
+                });
+                //從local data store拿自己隊伍的資料，並上傳至parse
+                ParseQuery<ParseObject> query2 = new ParseQuery<ParseObject>("GameScore");
+                query2.whereEqualTo("userName",userName);
+                query2.fromLocalDatastore();
+                query2.findInBackground(new FindCallback<ParseObject>() {
+                    @Override
+                    public void done(List<ParseObject> parseObjects, com.parse.ParseException e) {
+                        if (e == null) {
+                            ParseObject.saveAllInBackground(parseObjects);
+                            Intent intent = new Intent();
+                            intent.setClass(Count2.this, Start.class);
+                            startActivity(intent);
+                        } else {
+                            Log.e("parseReturn", e.toString());
+                        }
+                    }
+                });
             }
-
         });
 
         mRenderer.setApplyBackgroundColor(true);

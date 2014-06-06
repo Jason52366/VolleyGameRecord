@@ -35,6 +35,9 @@ public class Record1 extends Activity {
     Button btnPlayer5;
     Button btnPlayer6;
 
+    Button btn_upLoadGame;
+    Button btn_getPoint;
+    Button btn_losePoint;
     Boolean switchPosition = false;
 
     //從datacenter拿資料
@@ -48,53 +51,16 @@ public class Record1 extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record1);
+        btn_upLoadGame = (Button)findViewById(R.id.button_record1UploadGame);
+        btn_getPoint = (Button)findViewById(R.id.button_record1GetPoint);
+        btn_losePoint = (Button)findViewById(R.id.button_record1LosePoint);
 
         LoadPlayerButton();
         LoadPlayerPosition();
+        UploadGame_Btn();        //結束比賽
+        GetPoint_Btn();          //得分了
+        LosePoint_Btn();         //失分了
 
-        //結束比賽的按鈕
-        Button btn_startManageTeam = (Button)findViewById(R.id.button_record1UploadGame);
-        btn_startManageTeam.setOnClickListener(new Button.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Log.e("UPPPPP", gamePointList.toString());
-
-                gamePointList.add(ourScoreInt);
-                gamePointList.add(rivalScoreInt);
-
-                PutItemOnParse();
-
-                ScoreCenter.getInstance().cleanArrays();
-                Intent 結束比賽 = new Intent();
-                結束比賽.setClass(Record1.this, Count1.class);
-                startActivity(結束比賽);
-                Record1.this.finish();
-            }
-        });
-
-        //得分了
-        Button btn_getPoint = (Button)findViewById(R.id.button_record1GetPoint);
-        btn_getPoint.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent 得分切換 = new Intent();
-                得分切換.setClass(Record1.this, Record2.class);
-                //有這行回來才會跑calculateScore
-                startActivityForResult(得分切換, 0);
-            }
-        });
-
-        //失分了
-        Button btn_losePoint = (Button)findViewById(R.id.button_record1LosePoint);
-        btn_losePoint.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent 失分切換 = new Intent();
-                失分切換.setClass(Record1.this, Record3.class);
-                //有這行回來才會跑calculateScore
-                startActivityForResult(失分切換, 1);
-            }
-        });
     }
 
     @Override
@@ -161,6 +127,52 @@ public class Record1 extends Activity {
         btnPlayer5.setText(playerList.get(4).toString());
         btnPlayer6.setText(playerList.get(5).toString());
 
+    }
+
+    private void UploadGame_Btn(){
+
+        btn_upLoadGame.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Log.e("UPPPPP", gamePointList.toString());
+
+                gamePointList.add(ourScoreInt);
+                gamePointList.add(rivalScoreInt);
+
+                PutItemOnParse();
+
+                ScoreCenter.getInstance().cleanArrays();
+                Intent 結束比賽 = new Intent();
+                結束比賽.setClass(Record1.this, Count1.class);
+                startActivity(結束比賽);
+                Record1.this.finish();
+            }
+        });
+    }
+
+    private void GetPoint_Btn(){
+        btn_getPoint.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent 得分切換 = new Intent();
+                得分切換.setClass(Record1.this, Record2.class);
+                //有這行回來才會跑calculateScore
+                startActivityForResult(得分切換, 0);
+            }
+        });
+
+    }
+
+    private void LosePoint_Btn(){
+        btn_losePoint.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent 失分切換 = new Intent();
+                失分切換.setClass(Record1.this, Record3.class);
+                //有這行回來才會跑calculateScore
+                startActivityForResult(失分切換, 1);
+            }
+        });
     }
 
     private void calculateScore(){

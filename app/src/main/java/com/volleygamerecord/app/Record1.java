@@ -24,7 +24,6 @@ public class Record1 extends Activity {
     ArrayList scoreList = new ArrayList();
     ArrayList playerList = new ArrayList();
 
-
     Integer ourScoreInt = 0 ;
     Integer rivalScoreInt = 0;
 
@@ -131,7 +130,7 @@ public class Record1 extends Activity {
             }
         });
     }
-
+    
     public void LoadPlayerButton(){
         btnPlayer1 = (Button)findViewById(R.id.button_record1player1);
         btnPlayer2 = (Button)findViewById(R.id.button_record1player2);

@@ -1,6 +1,7 @@
 package com.volleygamerecord.app;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
@@ -95,10 +98,8 @@ public class Count2 extends Activity {
         if (mChartView != null) {
             mChartView.repaint();
         }
-    }
 
-    @Override
-    protected void onResume() {
+
         super.onResume();
         if (mChartView == null) {
             LinearLayout layout = (LinearLayout) findViewById(R.id.chart);

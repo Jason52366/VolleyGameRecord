@@ -2,16 +2,18 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background_popular">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="確定"
         android:id="@+id/btn_record3Confirm"
+        android:textSize="24dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="24dp" />
+        android:layout_alignRight="@+id/text_record3players"
+        android:layout_alignEnd="@+id/text_record3players" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -105,7 +107,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="大砲"
+        android:text="4號位"
         android:id="@+id/radioButton_record3a1"
         android:layout_below="@+id/textView_record3opponentattack"
         android:layout_centerHorizontal="true"
@@ -202,8 +204,9 @@
         android:id="@+id/textView_record3others"
         android:textSize="30dp"
         android:layout_below="@+id/record3rdg2"
-        android:layout_alignLeft="@+id/text_record3players"
-        android:layout_alignStart="@+id/text_record3players" />
+        android:layout_toRightOf="@+id/radioButton_record3player6"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="-7dp" />
 
     <RadioButton
     android:layout_width="50dp"

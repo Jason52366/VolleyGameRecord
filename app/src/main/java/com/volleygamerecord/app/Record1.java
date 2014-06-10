@@ -163,7 +163,7 @@ public class Record1 extends Activity {
             builder.setSingleChoiceItems(abc, -1, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int item) {
                     Button ClickedPlayerBTN = (Button)v;
-                    String offNumber = btnPlayer1.getText().toString();
+                    String offNumber = ClickedPlayerBTN.getText().toString();
                     int a = playerList.indexOf(offNumber);
                     String b = tmpList.get(item);
                     ClickedPlayerBTN.setText(b);

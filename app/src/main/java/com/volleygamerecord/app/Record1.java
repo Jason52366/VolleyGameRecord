@@ -1,6 +1,8 @@
 package com.volleygamerecord.app;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +16,8 @@ import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by A on 2014/3/18.
@@ -23,7 +27,10 @@ public class Record1 extends Activity {
     ArrayList gamePointList = new ArrayList();
     ArrayList scoreList = new ArrayList();
     ArrayList playerList = new ArrayList();
+    ArrayList offCourtPlayerList = new ArrayList();
+    List<Button> playerButtonsList = new ArrayList<Button>();
 
+    AlertDialog levelDialog;
 
     Integer ourScoreInt = 0 ;
     Integer rivalScoreInt = 0;
@@ -48,16 +55,17 @@ public class Record1 extends Activity {
     String our = DataCenter.getInstance().getStringValue("team");
     String dts = DataCenter.getInstance().getStringValue("date");
     ArrayList ways = ScoreCenter.getInstance().getWayArray();
+    ArrayList<PlayerInfo> infoItem = DataCenter.getInstance().getPlayerInfo();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record1);
-        btn_upLoadGame = (Button)findViewById(R.id.button_record1UploadGame);
-        btn_getPoint = (Button)findViewById(R.id.button_record1GetPoint);
-        btn_losePoint = (Button)findViewById(R.id.button_record1LosePoint);
 
-        LoadPlayerButton();
+        LoadOffCourtPlayer();
+        LoadButton();
         LoadPlayerPosition();
+        ClickChangePlayer();
         UploadGame_Btn();        //結束比賽
         GetPoint_Btn();          //得分了
         LosePoint_Btn();         //失分了
@@ -98,7 +106,7 @@ public class Record1 extends Activity {
         });
     }
 
-    public void LoadPlayerButton(){
+    public void LoadButton(){
         btnPlayer1 = (Button)findViewById(R.id.button_record1player1);
         btnPlayer2 = (Button)findViewById(R.id.button_record1player2);
         btnPlayer3 = (Button)findViewById(R.id.button_record1player3);
@@ -106,6 +114,11 @@ public class Record1 extends Activity {
         btnPlayer5 = (Button)findViewById(R.id.button_record1player5);
         btnPlayer6 = (Button)findViewById(R.id.button_record1player6);
 
+        playerButtonsList = Arrays.asList(btnPlayer1, btnPlayer2, btnPlayer3, btnPlayer4, btnPlayer5, btnPlayer6);
+
+        btn_upLoadGame = (Button)findViewById(R.id.button_record1UploadGame);
+        btn_getPoint = (Button)findViewById(R.id.button_record1GetPoint);
+        btn_losePoint = (Button)findViewById(R.id.button_record1LosePoint);
     }
 
     public void LoadPlayerPosition(){
@@ -130,12 +143,56 @@ public class Record1 extends Activity {
 
     }
 
+    private void ClickChangePlayer() {
+
+        for(Button btn : playerButtonsList)
+        {
+            btn.setOnClickListener(ChangePlayerBtn);
+        }
+
+    }
+
+    Button.OnClickListener ChangePlayerBtn = new Button.OnClickListener() {
+        @Override
+        public void onClick(final View v) {
+            final List<String> tmplist = offCourtPlayerList;
+            final CharSequence[] abc = tmplist.toArray(new CharSequence[tmplist.size()]);
+            AlertDialog.Builder builder = new AlertDialog.Builder(Record1.this);
+            builder.setTitle("Select The Difficulty Level");
+            builder.setSingleChoiceItems(abc, -1, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int item) {
+                    Button PlayerBTN = (Button)v;
+                    String offNumber = PlayerBTN.getText().toString();
+                    int a = playerList.indexOf(offNumber);
+                    String b = tmplist.get(item);
+                    PlayerBTN.setText(b);
+                    offCourtPlayerList.remove(b);
+                    offCourtPlayerList.add(offNumber);
+                    playerList.set(a,b);
+
+                    levelDialog.dismiss();
+                }
+            });
+            levelDialog = builder.create();
+            levelDialog.show();
+
+        }
+    };
+
+    private void LoadOffCourtPlayer(){
+        for(int x = 0; x < infoItem.size() ; x++ ){
+            if(!infoItem.get(x).getOnCourt()){
+                offCourtPlayerList.add(infoItem.get(x).getNumber());
+            }
+
+        }
+    }
+
     private void UploadGame_Btn(){
 
         btn_upLoadGame.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Log.e("UPPPPP", gamePointList.toString());
 
                 gamePointList.add(ourScoreInt);
                 gamePointList.add(rivalScoreInt);
@@ -188,7 +245,7 @@ public class Record1 extends Activity {
                 //判斷是否該移位, i>=2是避免分數不到兩筆時，跑後面的（i-2）為負GET不到值
                 if (i >= 2 && !(Boolean)scoreList.get((i - 2))) {
                     switchPosition = true;
-                    DataCenter.getInstance().setDoSwitchPosition(true);
+                    DataCenter.getInstance().setDoSwitchPosition(switchPosition);
                 }
 
             } else {

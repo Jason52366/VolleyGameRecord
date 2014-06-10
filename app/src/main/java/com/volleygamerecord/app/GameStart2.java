@@ -99,6 +99,7 @@ public class GameStart2  extends Activity {
                         String nam = playerNameList.get(i).toString();
                         infoItems.add(new PlayerInfo(num, nam, pos));
                         listInput.setAdapter(infoListAdapter);
+
                     }
                     dialog.dismiss();
                 } else {
@@ -121,10 +122,13 @@ public class GameStart2  extends Activity {
                         String b = infoItems.get(position).getNumber();
                         choosenPlayer.set(a,b);
                         posList.get(a).setText(b);
+
                     }else {
                         choosenPlayer.add(infoItems.get(position).getNumber());
                         int a = choosenPlayer.size()-1;
                         posList.get(a).setText(infoItems.get(position).getNumber());
+                        int i = infoItems.indexOf(infoItems.get(position).getNumber());
+                        Log.d("Why","num:"+i);
                     }
 
                 }else if (infoItems.get(position).getOnCourt()){
@@ -145,7 +149,7 @@ public class GameStart2  extends Activity {
         btn_gamestart2Sure.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-
+                DataCenter.getInstance().setPlayerInfo(infoItems);
                 if (choosenPlayer.size() >= 6 && choosenPlayer.indexOf("  ") > 5) {
                     DataCenter.getInstance().setPlayerArray(choosenPlayer);
                     Intent intent = new Intent();

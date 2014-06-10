@@ -17,12 +17,12 @@ public class DataCenter {
     private Context context = null;
     public static final String RECENT_LOGINS = "recent_logins";
 
-    private String userPathPart = null;
-
     private Boolean doSwitchPosition = new Boolean(null);
     private Map<String, String> memPool = new HashMap<String, String>();
     private ArrayList dataArray = new ArrayList();
     private ArrayList playerArray = new ArrayList();
+    private ArrayList<PlayerInfo> playerInfo = new ArrayList<PlayerInfo>();
+
 
     public static DataCenter getInstance() {
         return sharedInstance;
@@ -45,9 +45,12 @@ public class DataCenter {
         memPool.remove(key);
         memPool.put(key, value);
     }
-    public void setValue(String key, int value) {
+    public void setIntValue(String key, int value) {
         memPool.remove(key);
         memPool.put(key, String.valueOf(value));
+    }
+    public void setPlayerInfo(ArrayList<PlayerInfo> ary){
+        playerInfo = ary;
     }
 
 
@@ -71,11 +74,15 @@ public class DataCenter {
         return ret != null ? Integer.valueOf(ret) : (int) (0);
     }
 
-    public Boolean getdoSwitchPosition() {
+    public Boolean getDoSwitchPosition() {
         Boolean ret = doSwitchPosition;
         return ret != null ? ret: Boolean.FALSE;
     }
 
+    public ArrayList<PlayerInfo> getPlayerInfo(){
+        ArrayList<PlayerInfo> ret = playerInfo;
+        return ret != null ? ret : new ArrayList<PlayerInfo>();
+    }
 
 }
 

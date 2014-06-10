@@ -1,16 +1,16 @@
 package com.volleygamerecord.app;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.facebook.Request;
 import com.facebook.Response;
@@ -26,15 +26,13 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.Arrays;
 import java.util.List;
 
 
 public class LogIn extends Activity {
 
+    AlertDialog levelDialog;
 
     String bbb;
 
@@ -47,7 +45,25 @@ public class LogIn extends Activity {
         btn_test.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "這是一個Toast......", Toast.LENGTH_SHORT).show();
+                final List<String> list = Arrays.asList("XD", "XDD", "XDDD", "XDDDD");
+                final CharSequence[] abc = list.toArray(new CharSequence[list.size()]);
+                // Creating and Building the Dialog
+                AlertDialog.Builder builder = new AlertDialog.Builder(LogIn.this);
+                builder.setTitle("Select The Difficulty Level");
+                builder.setSingleChoiceItems(abc, -1, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int item) {
+                        switch(0)
+                        {
+                            case 0:
+                                Log.d("!!!!","I say:"+list.get(item));
+                            break;
+
+                        }
+                        levelDialog.dismiss();
+                    }
+                });
+                levelDialog = builder.create();
+                levelDialog.show();
             }
         });
 

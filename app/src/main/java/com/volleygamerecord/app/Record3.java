@@ -54,9 +54,6 @@ public class Record3  extends Activity {
     RadioButton rdBtnPlayerL1 = null;
     RadioButton rdBtnPlayerL2 = null;
 
-
-    Boolean closeGroupC = false;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -154,6 +151,12 @@ public class Record3  extends Activity {
         rdBtnPlayer5.setText(playerList.get(4).toString());
         rdBtnPlayer6.setText(playerList.get(5).toString());
 
+        if (playerList.size() == 6){
+            rdBtnPlayerL1.setVisibility(View.INVISIBLE);
+            rdBtnPlayerL2.setVisibility(View.INVISIBLE);
+        }else if(playerList.size() == 7){
+            rdBtnPlayerL2.setVisibility(View.INVISIBLE);
+        }
     }
 
     //RadioGroup for Players

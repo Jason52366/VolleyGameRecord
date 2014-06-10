@@ -35,13 +35,16 @@ public class Record1 extends Activity {
     Integer ourScoreInt = 0 ;
     Integer rivalScoreInt = 0;
 
-
     Button btnPlayer1;
     Button btnPlayer2;
     Button btnPlayer3;
     Button btnPlayer4;
     Button btnPlayer5;
     Button btnPlayer6;
+    Button btnPlayerL1;
+    Button btnPlayerL2;
+
+
 
     Button btn_upLoadGame;
     Button btn_getPoint;
@@ -61,10 +64,9 @@ public class Record1 extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record1);
-
+        LoadPlayerPosition();
         LoadOffCourtPlayer();
         LoadButton();
-        LoadPlayerPosition();
         ClickChangePlayer();
         UploadGame_Btn();        //結束比賽
         GetPoint_Btn();          //得分了
@@ -113,12 +115,23 @@ public class Record1 extends Activity {
         btnPlayer4 = (Button)findViewById(R.id.button_record1player4);
         btnPlayer5 = (Button)findViewById(R.id.button_record1player5);
         btnPlayer6 = (Button)findViewById(R.id.button_record1player6);
+        btnPlayerL1 = (Button)findViewById(R.id.button_record1liberal1);
+        btnPlayerL2 = (Button)findViewById(R.id.button_record1liberal2);
+
 
         playerButtonsList = Arrays.asList(btnPlayer1, btnPlayer2, btnPlayer3, btnPlayer4, btnPlayer5, btnPlayer6);
 
         btn_upLoadGame = (Button)findViewById(R.id.button_record1UploadGame);
         btn_getPoint = (Button)findViewById(R.id.button_record1GetPoint);
         btn_losePoint = (Button)findViewById(R.id.button_record1LosePoint);
+
+        if (playerList.size() == 6){
+            btnPlayerL1.setVisibility(View.INVISIBLE);
+            btnPlayerL2.setVisibility(View.INVISIBLE);
+        }else if(playerList.size() == 7){
+            btnPlayerL2.setVisibility(View.INVISIBLE);
+        }
+
     }
 
     public void LoadPlayerPosition(){

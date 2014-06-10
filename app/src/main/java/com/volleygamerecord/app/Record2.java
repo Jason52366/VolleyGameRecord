@@ -53,8 +53,8 @@ public class Record2 extends Activity {
     RadioButton rdBtnPlayer4;
     RadioButton rdBtnPlayer5;
     RadioButton rdBtnPlayer6;
-    RadioButton rdBtnPlayerL1 = null;
-    RadioButton rdBtnPlayerL2 = null;
+    RadioButton rdBtnPlayerL1;
+    RadioButton rdBtnPlayerL2;
 
     int checkclose ;
 
@@ -128,6 +128,8 @@ public class Record2 extends Activity {
         rdBtnPlayerList.add(rdBtnPlayer6);
         rdBtnPlayerList.add(rdBtnPlayerL1);
         rdBtnPlayerList.add(rdBtnPlayerL2);
+
+
     }
 
     //RadioGroup for Players
@@ -286,6 +288,13 @@ public class Record2 extends Activity {
         rdBtnPlayer4.setText(playerList.get(3).toString());
         rdBtnPlayer5.setText(playerList.get(4).toString());
         rdBtnPlayer6.setText(playerList.get(5).toString());
+
+        if (playerList.size() == 6){
+            rdBtnPlayerL1.setVisibility(View.INVISIBLE);
+            rdBtnPlayerL2.setVisibility(View.INVISIBLE);
+        }else if(playerList.size() == 7){
+            rdBtnPlayerL2.setVisibility(View.INVISIBLE);
+        }
 
     }
 

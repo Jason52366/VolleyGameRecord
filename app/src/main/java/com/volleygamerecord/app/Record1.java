@@ -126,8 +126,8 @@ public class Record1 extends Activity {
         btn_losePoint = (Button)findViewById(R.id.button_record1LosePoint);
 
         if (playerList.size() == 6){
-            btnPlayerL1.setVisibility(4);
-            btnPlayerL2.setVisibility(4);
+            btnPlayerL1.setVisibility(View.INVISIBLE);
+            btnPlayerL2.setVisibility(View.INVISIBLE);
         }else if(playerList.size() == 7){
             btnPlayerL2.setVisibility(View.INVISIBLE);
         }

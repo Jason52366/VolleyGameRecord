@@ -50,6 +50,8 @@ public class Count1 extends Activity {
 
         });
 
+        super.setContentView(R.layout.datadisplay);
+
 
 
     }

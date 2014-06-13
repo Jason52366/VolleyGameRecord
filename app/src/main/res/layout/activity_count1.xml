@@ -49,42 +49,122 @@
         android:orientation="vertical" >
 
 
+        <TableRow android:layout_marginTop="-20dp">
+            <TextView
+                android:layout_column="0"
+                android:gravity="center_horizontal"
+                android:text="      "
+                android:padding="30dp" />
+            <TextView
+                android:layout_column="1"
+                android:gravity="center_horizontal"
+                android:text="得分"
+                android:padding="30dp" />
+            <TextView
+                android:layout_column="2"
+                android:gravity="center_horizontal"
+                android:text="      "
+                android:padding="30dp" />
 
-    <View
+            <TextView
+                android:layout_column="3"
+                android:gravity="center_horizontal"
+                android:text="失分"
+                android:padding="30dp" />
+
+        </TableRow>
+
+        <View
             android:id="@+id/hr"
             android:layout_height="1dp"
-            android:background="#000000" />
+            android:background="#000000"
+            android:layout_marginTop="-20dp" />
 
-        <TableRow>
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="-20dp">
             <TextView
                 android:layout_column="0"
                 android:gravity="center_horizontal"
                 android:text="攻擊"
-                android:padding="25dp" />
+                android:padding="25dp"
+                android:layout_marginLeft="-5dp" />
             <TextView
                 android:layout_column="1"
                 android:gravity="center_horizontal"
-                android:text="發球"
-                android:padding="25dp" />
+                android:text="10"
+                android:padding="30dp" />
             <TextView
                 android:layout_column="2"
                 android:gravity="center_horizontal"
-                android:text="攔網"
-                android:padding="25dp" />
+                android:text="對方攻擊"
+                android:padding="25dp"
+                android:layout_marginLeft="-5dp" />
 
             <TextView
-                android:layout_column="4"
+                android:layout_column="3"
                 android:gravity="center_horizontal"
-                android:text="總計"
-                android:padding="25dp" />
+                android:text="10"
+                android:padding="30dp" />
 
         </TableRow>
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+        <TableRow android:layout_marginTop="-40dp">
+            <TextView
+                android:layout_column="0"
+                android:gravity="center_horizontal"
+                android:text="發球"
+                android:padding="25dp"
+                android:layout_marginLeft="-5dp" />
+            <TextView
+                android:layout_column="1"
+                android:gravity="center_horizontal"
+                android:text="10"
+                android:padding="30dp" />
+            <TextView
+                android:layout_column="2"
+                android:gravity="center_horizontal"
+                android:text="對方發球"
+                android:padding="25dp"
+                android:layout_marginLeft="-5dp" />
+
+            <TextView
+                android:layout_column="3"
+                android:gravity="center_horizontal"
+                android:text="10"
+                android:padding="30dp" />
 
         </TableRow>
+
+        <TableRow android:layout_marginTop="-40dp">
+            <TextView
+                android:layout_column="0"
+                android:gravity="center_horizontal"
+                android:text="攔網"
+                android:padding="25dp"
+                android:layout_marginLeft="-5dp" />
+            <TextView
+                android:layout_column="1"
+                android:gravity="center_horizontal"
+                android:text="10"
+                android:padding="30dp" />
+            <TextView
+                android:layout_column="2"
+                android:gravity="center_horizontal"
+                android:text="對方攔網"
+                android:padding="25dp"
+                android:layout_marginLeft="-5dp" />
+
+            <TextView
+                android:layout_column="3"
+                android:gravity="center_horizontal"
+                android:text="10"
+                android:padding="30dp" />
+
+        </TableRow>
+
+
 
     </TableLayout>
 

@@ -50,7 +50,7 @@
 
 
         <TableRow android:layout_marginTop="-25dp"
-            android:id="row_count1_1">
+            android:id="@+id/row_count1_1">
             <TextView
                 android:layout_column="0"
                 android:gravity="center_horizontal"
@@ -90,7 +90,7 @@
             android:layout_height="fill_parent"
             android:layout_marginTop="-20dp"
             android:baselineAligned="false"
-            android:id="row_count1_2">
+            android:id="@+id/row_count1_2">
             <TextView
                 android:layout_column="0"
                 android:gravity="center_horizontal"
@@ -124,7 +124,7 @@
         </TableRow>
 
         <TableRow android:layout_marginTop="-40dp"
-            android:id="row_count1_3">
+            android:id="@+id/row_count1_3">
             <TextView
                 android:layout_column="0"
                 android:gravity="center_horizontal"
@@ -158,7 +158,7 @@
         </TableRow>
 
         <TableRow android:layout_marginTop="-40dp"
-            android:id="row_count1_4">
+            android:id="@+id/row_count1_4">
             <TextView
                 android:layout_column="0"
                 android:gravity="center_horizontal"
@@ -192,7 +192,7 @@
         </TableRow>
 
         <TableRow android:layout_marginTop="-40dp"
-            android:id="row_count1_5">
+            android:id="@+id/row_count1_5">
             <TextView
                 android:layout_column="0"
                 android:gravity="center_horizontal"
@@ -227,7 +227,7 @@
         </TableRow>
 
         <TableRow android:layout_marginTop="-40dp"
-            android:id="row_count1_6">
+            android:id="@+id/row_cunt1_6">
             <TextView
                 android:layout_column="0"
                 android:gravity="center_horizontal"
@@ -261,7 +261,7 @@
         </TableRow>
 
         <TableRow android:layout_marginTop="-40dp"
-            android:id="row_count1_7"
+            android:id="@+id/row_count1_7"
             android:longClickable="false">
 
             <TextView

@@ -35,7 +35,7 @@
         android:id="@+id/textView_statistic"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="25dp"
         android:textSize="48dp" />
 
     <TableLayout
@@ -49,7 +49,8 @@
         android:orientation="vertical" >
 
 
-        <TableRow android:layout_marginTop="-20dp">
+        <TableRow android:layout_marginTop="-25dp"
+            android:id="row_count1_1">
             <TextView
                 android:layout_column="0"
                 android:gravity="center_horizontal"
@@ -59,7 +60,9 @@
                 android:layout_column="1"
                 android:gravity="center_horizontal"
                 android:text="得分"
-                android:padding="30dp" />
+                android:padding="30dp"
+                android:textSize="20dp"
+                android:layout_marginLeft="-35dp" />
             <TextView
                 android:layout_column="2"
                 android:gravity="center_horizontal"
@@ -70,7 +73,9 @@
                 android:layout_column="3"
                 android:gravity="center_horizontal"
                 android:text="失分"
-                android:padding="30dp" />
+                android:padding="30dp"
+                android:textSize="20dp"
+                android:layout_marginLeft="-30dp" />
 
         </TableRow>
 
@@ -83,84 +88,197 @@
         <TableRow
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_marginTop="-20dp">
+            android:layout_marginTop="-20dp"
+            android:baselineAligned="false"
+            android:id="row_count1_2">
             <TextView
                 android:layout_column="0"
                 android:gravity="center_horizontal"
                 android:text="攻擊"
                 android:padding="25dp"
-                android:layout_marginLeft="-5dp" />
+                android:layout_marginLeft="-20dp"
+                android:textSize="20dp" />
             <TextView
                 android:layout_column="1"
                 android:gravity="center_horizontal"
                 android:text="10"
-                android:padding="30dp" />
+                android:padding="30dp"
+                android:textSize="20dp"
+                android:layout_marginLeft="-35dp" />
             <TextView
                 android:layout_column="2"
                 android:gravity="center_horizontal"
                 android:text="對方攻擊"
                 android:padding="25dp"
-                android:layout_marginLeft="-5dp" />
+                android:layout_marginLeft="-15dp"
+                android:textSize="20dp" />
 
             <TextView
                 android:layout_column="3"
                 android:gravity="center_horizontal"
                 android:text="10"
-                android:padding="30dp" />
+                android:padding="30dp"
+                android:textSize="20dp"
+                android:layout_marginLeft="-30dp" />
 
         </TableRow>
 
-        <TableRow android:layout_marginTop="-40dp">
+        <TableRow android:layout_marginTop="-40dp"
+            android:id="row_count1_3">
             <TextView
                 android:layout_column="0"
                 android:gravity="center_horizontal"
                 android:text="發球"
                 android:padding="25dp"
-                android:layout_marginLeft="-5dp" />
+                android:layout_marginLeft="-20dp"
+                android:textSize="20dp" />
             <TextView
                 android:layout_column="1"
                 android:gravity="center_horizontal"
                 android:text="10"
-                android:padding="30dp" />
+                android:padding="30dp"
+                android:textSize="20dp"
+                android:layout_marginLeft="-35dp" />
             <TextView
                 android:layout_column="2"
                 android:gravity="center_horizontal"
                 android:text="對方發球"
                 android:padding="25dp"
-                android:layout_marginLeft="-5dp" />
+                android:layout_marginLeft="-15dp"
+                android:textSize="20dp" />
 
             <TextView
                 android:layout_column="3"
                 android:gravity="center_horizontal"
                 android:text="10"
-                android:padding="30dp" />
+                android:padding="30dp"
+                android:textSize="20dp"
+                android:layout_marginLeft="-30dp" />
 
         </TableRow>
 
-        <TableRow android:layout_marginTop="-40dp">
+        <TableRow android:layout_marginTop="-40dp"
+            android:id="row_count1_4">
             <TextView
                 android:layout_column="0"
                 android:gravity="center_horizontal"
                 android:text="攔網"
                 android:padding="25dp"
-                android:layout_marginLeft="-5dp" />
+                android:layout_marginLeft="-20dp"
+                android:textSize="20dp" />
             <TextView
                 android:layout_column="1"
                 android:gravity="center_horizontal"
                 android:text="10"
-                android:padding="30dp" />
+                android:padding="30dp"
+                android:textSize="20dp"
+                android:layout_marginLeft="-35dp" />
             <TextView
                 android:layout_column="2"
                 android:gravity="center_horizontal"
                 android:text="對方攔網"
                 android:padding="25dp"
-                android:layout_marginLeft="-5dp" />
+                android:layout_marginLeft="-15dp"
+                android:textSize="20dp" />
 
             <TextView
                 android:layout_column="3"
                 android:gravity="center_horizontal"
                 android:text="10"
-                android:padding="30dp" />
+                android:padding="30dp"
+                android:textSize="20dp"
+                android:layout_marginLeft="-30dp" />
+
+        </TableRow>
+
+        <TableRow android:layout_marginTop="-40dp"
+            android:id="row_count1_5">
+            <TextView
+                android:layout_column="0"
+                android:gravity="center_horizontal"
+                android:text="對方失誤"
+                android:padding="25dp"
+                android:layout_marginLeft="-20dp"
+                android:textSize="20dp" />
+            <TextView
+                android:layout_column="1"
+                android:gravity="center_horizontal"
+                android:text="10"
+                android:padding="30dp"
+                android:textSize="20dp"
+                android:layout_marginLeft="-35dp" />
+            <TextView
+                android:layout_column="2"
+                android:gravity="center_horizontal"
+                android:text="各種失誤"
+                android:padding="25dp"
+                android:layout_marginLeft="-15dp"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_column="3"
+                android:gravity="center_horizontal"
+                android:text="10"
+                android:padding="30dp"
+                android:textIsSelectable="false"
+                android:textSize="20dp"
+                android:layout_marginLeft="-30dp" />
+
+        </TableRow>
+
+        <TableRow android:layout_marginTop="-40dp"
+            android:id="row_count1_6">
+            <TextView
+                android:layout_column="0"
+                android:gravity="center_horizontal"
+                android:text="總計"
+                android:padding="25dp"
+                android:layout_marginLeft="-20dp"
+                android:textSize="20dp" />
+            <TextView
+                android:layout_column="1"
+                android:gravity="center_horizontal"
+                android:text="40"
+                android:padding="30dp"
+                android:textSize="20dp"
+                android:layout_marginLeft="-35dp" />
+            <TextView
+                android:layout_column="2"
+                android:gravity="center_horizontal"
+                android:text="犯規"
+                android:padding="25dp"
+                android:layout_marginLeft="-15dp"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_column="3"
+                android:gravity="center_horizontal"
+                android:text="10"
+                android:padding="30dp"
+                android:textSize="20dp"
+                android:layout_marginLeft="-30dp" />
+
+        </TableRow>
+
+        <TableRow android:layout_marginTop="-40dp"
+            android:id="row_count1_7"
+            android:longClickable="false">
+
+            <TextView
+                android:layout_column="2"
+                android:gravity="center_horizontal"
+                android:text="總計"
+                android:padding="25dp"
+                android:layout_marginLeft="-15dp"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_column="3"
+                android:gravity="center_horizontal"
+                android:text="50"
+                android:padding="30dp"
+                android:textSize="20dp"
+                android:layout_marginLeft="-30dp" />
 
         </TableRow>
 

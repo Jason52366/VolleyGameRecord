@@ -26,7 +26,6 @@ public class Record1 extends Activity {
 
     ArrayList gamePointList = new ArrayList();
     ArrayList scoreList = new ArrayList();
-    ArrayList playerList = new ArrayList();
     ArrayList offCourtPlayerList = new ArrayList();
     List<Button> playerButtonsList = new ArrayList<Button>();
 
@@ -44,8 +43,6 @@ public class Record1 extends Activity {
     Button btnPlayerL1;
     Button btnPlayerL2;
 
-
-
     Button btn_upLoadGame;
     Button btn_getPoint;
     Button btn_losePoint;
@@ -59,14 +56,15 @@ public class Record1 extends Activity {
     String dts = DataCenter.getInstance().getStringValue("date");
     ArrayList ways = ScoreCenter.getInstance().getWayArray();
     ArrayList<PlayerInfo> infoItem = DataCenter.getInstance().getPlayerInfo();
+    ArrayList playerList = DataCenter.getInstance().getPlayerArray();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record1);
+        LoadButton();
         LoadPlayerPosition();
         LoadOffCourtPlayer();
-        LoadButton();
         ClickChangePlayer();
         UploadGame_Btn();        //結束比賽
         GetPoint_Btn();          //得分了
@@ -118,7 +116,6 @@ public class Record1 extends Activity {
         btnPlayerL1 = (Button)findViewById(R.id.button_record1liberal1);
         btnPlayerL2 = (Button)findViewById(R.id.button_record1liberal2);
 
-
         playerButtonsList = Arrays.asList(btnPlayer1, btnPlayer2, btnPlayer3, btnPlayer4, btnPlayer5, btnPlayer6);
 
         btn_upLoadGame = (Button)findViewById(R.id.button_record1UploadGame);
@@ -129,13 +126,20 @@ public class Record1 extends Activity {
             btnPlayerL1.setVisibility(View.INVISIBLE);
             btnPlayerL2.setVisibility(View.INVISIBLE);
         }else if(playerList.size() == 7){
+            String a = playerList.get(6).toString();
+            btnPlayerL1.setText("自由("+a+")");
             btnPlayerL2.setVisibility(View.INVISIBLE);
+        }else{
+            String a = playerList.get(6).toString();
+            btnPlayerL1.setText("自由("+a+")");
+            a = playerList.get(7).toString();
+            btnPlayerL2.setText("自由("+a+")");
         }
+
 
     }
 
     public void LoadPlayerPosition(){
-        playerList = DataCenter.getInstance().getPlayerArray();
         if(switchPosition){
             String tmp = playerList.get(5).toString();
             playerList.set(5,playerList.get(0).toString());

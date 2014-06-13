@@ -155,7 +155,14 @@ public class Record3  extends Activity {
             rdBtnPlayerL1.setVisibility(View.INVISIBLE);
             rdBtnPlayerL2.setVisibility(View.INVISIBLE);
         }else if(playerList.size() == 7){
+            String a = playerList.get(6).toString();
+            rdBtnPlayerL1.setText("自由("+a+")");
             rdBtnPlayerL2.setVisibility(View.INVISIBLE);
+        }else{
+            String a = playerList.get(6).toString();
+            rdBtnPlayerL1.setText("自由("+a+")");
+            a = playerList.get(7).toString();
+            rdBtnPlayerL2.setText("自由("+a+")");
         }
     }
 

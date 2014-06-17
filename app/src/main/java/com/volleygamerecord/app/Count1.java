@@ -62,7 +62,7 @@ public class Count1 extends Activity {
         FindEachViewById();
         for (int i = 0; i < ways.size(); i ++) {
             String tmp = ways.get(i).toString();
-            if(tmp.contains("號位")){
+            if(tmp.contains("4號位")){
 
             }else{
                 Log.d("No","QQQ");

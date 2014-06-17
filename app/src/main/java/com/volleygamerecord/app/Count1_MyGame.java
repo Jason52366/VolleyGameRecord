@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.parse.GetCallback;
 import com.parse.ParseException;
@@ -43,9 +42,9 @@ public class Count1_MyGame extends Activity {
                     Log.d("Count1", "Rival Score is "+scoreList.get(1));
 
                     //比賽資訊的顯示
-                    TextView dataContent = (TextView)findViewById(R.id.textView_count1);
-                    dataContent.setText("比賽| "+date+"\n"+"對手| "+rivalName+"\n"+"比分| "
-                    +scoreList.get(0)+":"+scoreList.get(1));
+                    //TextView dataContent = (TextView)findViewById(R.id.textView_count1);
+                    //dataContent.setText("比賽| "+date+"\n"+"對手| "+rivalName+"\n"+"比分| "
+                    //+scoreList.get(0)+":"+scoreList.get(1));
                 }
                 else {
                     // something went wrong
@@ -53,7 +52,6 @@ public class Count1_MyGame extends Activity {
             }
         });
 
-        TextView textView_count1 = (TextView)findViewById(R.id.textView_count1);
         Button btn_next_game = (Button)findViewById(R.id.btn_next_game);
         btn_next_game.setAlpha(0);
 

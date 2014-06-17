@@ -2,7 +2,6 @@ package com.volleygamerecord.app;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -16,9 +15,9 @@ import java.util.ArrayList;
  */
 public class Record3  extends Activity {
 
-    String wayA ="";
+    String wayA ="失分";
     String wayB ="";
-    String wayC = null;
+    String wayC ="";
     String playerName = "未記錄球員";
     String losePointWay = null;
     RadioButton rdButtonA1 = null;
@@ -69,7 +68,7 @@ public class Record3  extends Activity {
         btn_record3Confirm.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick (View v){
-                if(wayC == null){
+                if(wayC.equals("")){
                     losePointWay = wayA+wayB;
                 }else{
                     losePointWay = wayC;
@@ -186,6 +185,7 @@ public class Record3  extends Activity {
                         btn.setChecked(false);
                     }
                 }
+
                 playerName = buttonView.getText().toString();
             }
         }
@@ -195,57 +195,50 @@ public class Record3  extends Activity {
     private RadioGroup.OnCheckedChangeListener listenA=new RadioGroup.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
+            wayC = "";
+            closeRadioGroupC();
             int id= group.getCheckedRadioButtonId();
             switch (id) {
 
                 case R.id.radioButton_record3a1:
                     wayA = rdButtonA1.getText().toString();
-                    closeRadioGroupC();
                     break;
                 case R.id.radioButton_record3a2:
                     wayA = rdButtonA2.getText().toString();
-                    closeRadioGroupC();
                     break;
                 case R.id.radioButton_record3a3:
                     wayA = rdButtonA3.getText().toString();
-                    closeRadioGroupC();
                     break;
                 case R.id.radioButton_record3a4:
                     wayA = rdButtonA4.getText().toString();
-                    closeRadioGroupC();
                     break;
                 default:
-                    wayA = "";
                     break;
-
             }
         }
     };
+
     //radioGroup B區
     private RadioGroup.OnCheckedChangeListener listenB=new RadioGroup.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
+            wayC = "";
+            closeRadioGroupC();
             int id= group.getCheckedRadioButtonId();
             switch (id) {
                 case R.id.radioButton_record3b1:
                     wayB = rdButtonB1.getText().toString();
-                    closeRadioGroupC();
-                    Log.d("wayB",wayB);
                     break;
                 case R.id.radioButton_record3b2:
                     wayB = rdButtonB2.getText().toString();
-                    closeRadioGroupC();
                     break;
                 case R.id.radioButton_record3b3:
                     wayB = rdButtonB3.getText().toString();
-                    closeRadioGroupC();
                     break;
                 case R.id.radioButton_record3b4:
                     wayB = rdButtonB4.getText().toString();
-                    closeRadioGroupC();
                     break;
                 default:
-                    wayB = "";
                     break;
             }
         }
@@ -271,6 +264,8 @@ public class Record3  extends Activity {
                 //關閉GROUP12
                 radioGroup1.check(-1);
                 radioGroup2.check(-1);
+                wayA = "";
+                wayB = "";
                 wayC = buttonView.getText().toString();
             }
         }
@@ -282,7 +277,7 @@ public class Record3  extends Activity {
             RadioButton btn = radioGroup3List.get(i);
             btn.setChecked(false);
         }
-        wayC = null;
+        wayC = "";
     }
 
 }

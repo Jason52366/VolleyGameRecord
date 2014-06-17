@@ -10,33 +10,33 @@
         android:layout_height="wrap_content"
         android:text="下一局"
         android:id="@+id/btn_next_game"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_marginLeft="42dp"
-        android:layout_marginBottom="40dp"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:layout_alignBaseline="@+id/btn_end_game"
+        android:layout_alignBottom="@+id/btn_end_game"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Gameset"
         android:id="@+id/btn_end_game"
-        android:layout_marginRight="42dp"
+        android:layout_marginRight="33dp"
         android:textSize="24dp"
-        android:layout_alignTop="@+id/btn_next_game"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="26dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="本局統計"
         android:id="@+id/textView_statistic"
+        android:textSize="48dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:textSize="48dp" />
+        android:layout_centerHorizontal="true" />
 
     <TableLayout
         android:layout_width="fill_parent"
@@ -46,7 +46,8 @@
         android:layout_below="@+id/textView_statistic"
         android:layout_above="@+id/btn_next_game"
         android:id="@+id/table_count1playerscore"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:minHeight="250dp">
 
 
         <TableRow android:layout_marginTop="-25dp"
@@ -55,7 +56,7 @@
                 android:layout_column="0"
                 android:gravity="center_horizontal"
                 android:text="      "
-                android:padding="30dp" />
+                android:padding="25dp" />
             <TextView
                 android:layout_column="1"
                 android:gravity="center_horizontal"
@@ -104,7 +105,8 @@
                 android:text="10"
                 android:padding="30dp"
                 android:textSize="20dp"
-                android:layout_marginLeft="-35dp" />
+                android:layout_marginLeft="-35dp"
+                android:id="@+id/txV_count1_WeAtt" />
             <TextView
                 android:layout_column="2"
                 android:gravity="center_horizontal"
@@ -119,7 +121,8 @@
                 android:text="10"
                 android:padding="30dp"
                 android:textSize="20dp"
-                android:layout_marginLeft="-30dp" />
+                android:layout_marginLeft="-30dp"
+                android:id="@+id/txV_count1_RivAtt" />
 
         </TableRow>
 
@@ -138,7 +141,8 @@
                 android:text="10"
                 android:padding="30dp"
                 android:textSize="20dp"
-                android:layout_marginLeft="-35dp" />
+                android:layout_marginLeft="-35dp"
+                android:id="@+id/txV_count1_WeSer" />
             <TextView
                 android:layout_column="2"
                 android:gravity="center_horizontal"
@@ -153,7 +157,8 @@
                 android:text="10"
                 android:padding="30dp"
                 android:textSize="20dp"
-                android:layout_marginLeft="-30dp" />
+                android:layout_marginLeft="-30dp"
+                android:id="@+id/txV_count1_RivSer" />
 
         </TableRow>
 
@@ -172,7 +177,8 @@
                 android:text="10"
                 android:padding="30dp"
                 android:textSize="20dp"
-                android:layout_marginLeft="-35dp" />
+                android:layout_marginLeft="-35dp"
+                android:id="@+id/txV_count1_WeBlock" />
             <TextView
                 android:layout_column="2"
                 android:gravity="center_horizontal"
@@ -187,7 +193,8 @@
                 android:text="10"
                 android:padding="30dp"
                 android:textSize="20dp"
-                android:layout_marginLeft="-30dp" />
+                android:layout_marginLeft="-30dp"
+                android:id="@+id/txV_count1_RivBlock" />
 
         </TableRow>
 
@@ -206,7 +213,8 @@
                 android:text="10"
                 android:padding="30dp"
                 android:textSize="20dp"
-                android:layout_marginLeft="-35dp" />
+                android:layout_marginLeft="-35dp"
+                android:id="@+id/txV_count1_RivErr" />
             <TextView
                 android:layout_column="2"
                 android:gravity="center_horizontal"
@@ -222,7 +230,8 @@
                 android:padding="30dp"
                 android:textIsSelectable="false"
                 android:textSize="20dp"
-                android:layout_marginLeft="-30dp" />
+                android:layout_marginLeft="-30dp"
+                android:id="@+id/txV_count1_WeErr" />
 
         </TableRow>
 
@@ -241,7 +250,8 @@
                 android:text="40"
                 android:padding="30dp"
                 android:textSize="20dp"
-                android:layout_marginLeft="-35dp" />
+                android:layout_marginLeft="-35dp"
+                android:id="@+id/txV_count1_GetTotal" />
             <TextView
                 android:layout_column="2"
                 android:gravity="center_horizontal"
@@ -256,13 +266,16 @@
                 android:text="10"
                 android:padding="30dp"
                 android:textSize="20dp"
-                android:layout_marginLeft="-30dp" />
+                android:layout_marginLeft="-30dp"
+                android:id="@+id/txV_count1_WeFoul" />
 
         </TableRow>
 
         <TableRow android:layout_marginTop="-40dp"
             android:id="@+id/row_count1_7"
-            android:longClickable="false">
+            android:longClickable="false"
+            android:measureWithLargestChild="false"
+            android:minHeight="250dp">
 
             <TextView
                 android:layout_column="2"
@@ -278,22 +291,13 @@
                 android:text="50"
                 android:padding="30dp"
                 android:textSize="20dp"
-                android:layout_marginLeft="-30dp" />
+                android:layout_marginLeft="-30dp"
+                android:id="@+id/txV_count1_LoseTotal" />
 
         </TableRow>
 
 
 
     </TableLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/textView_count1"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="20dp" />
 
 </RelativeLayout>

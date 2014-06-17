@@ -55,6 +55,7 @@ public class Record1 extends Activity {
     String our = DataCenter.getInstance().getStringValue("team");
     String dts = DataCenter.getInstance().getStringValue("date");
     ArrayList ways = ScoreCenter.getInstance().getWayArray();
+    ArrayList playerForPoint = ScoreCenter.getInstance().getPlayerArray();
     ArrayList<PlayerInfo> infoItem = DataCenter.getInstance().getPlayerInfo();
     ArrayList playerList = DataCenter.getInstance().getPlayerArray();
 
@@ -94,6 +95,7 @@ public class Record1 extends Activity {
         gameScore.put("ourTeam",our);
         gameScore.put("date", dts);
         gameScore.put("scoreDetail",ways);
+        gameScore.put("playerDetail",playerForPoint);
         gameScore.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
@@ -216,7 +218,6 @@ public class Record1 extends Activity {
 
                 PutItemOnParse();
 
-                ScoreCenter.getInstance().cleanArrays();
                 Intent 結束比賽 = new Intent();
                 結束比賽.setClass(Record1.this, Count1.class);
                 startActivity(結束比賽);

@@ -2,7 +2,6 @@ package com.volleygamerecord.app;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -21,10 +20,10 @@ public class Record2 extends Activity {
 
     String getPointWay = null;
     String playerName = "未記錄球員";
-    String wayA = "";
+    String wayA = "得分";
     String wayB = "";
     String wayC = "";
-    String wayD = null;
+    String wayD = "";
 
 
 
@@ -56,7 +55,7 @@ public class Record2 extends Activity {
     RadioButton rdBtnPlayerL1;
     RadioButton rdBtnPlayerL2;
 
-    int checkclose ;
+    int checkClose ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,7 +147,6 @@ public class Record2 extends Activity {
                 for (RadioButton btn : rdBtnPlayerList) {
                     if (btn != buttonView) {
                         btn.setChecked(false);
-                    } else {
                     }
                 }
                 playerName = buttonView.getText().toString();
@@ -178,7 +176,6 @@ public class Record2 extends Activity {
                     CloseRadioGroup(1);
                     break;
                 default:
-                    wayA = "未記錄";
                 break;
             }
         }
@@ -199,7 +196,6 @@ public class Record2 extends Activity {
                     CloseRadioGroup(2);
                     break;
                 default:
-                    wayB = "未記錄";
                     break;
             }
         }
@@ -229,7 +225,6 @@ public class Record2 extends Activity {
                     CloseRadioGroup(3);
                     break;
                 default:
-                    wayC = "未記錄";
                     break;
             }
         }
@@ -254,7 +249,7 @@ public class Record2 extends Activity {
                     CloseRadioGroup(4);
                     break;
                 default:
-                    wayD = null;
+                    wayD = "";
                     break;
             }
         }
@@ -265,13 +260,15 @@ public class Record2 extends Activity {
             radioGroup1.check(-1);
             radioGroup2.check(-1);
             radioGroup3.check(-1);
+            checkClose = 4;
         }else{
             radioGroup4.check(-1);
+            checkClose = 1;
         }
     }
 
     private void GetPointWayCombiner (){
-        if (checkclose != 4){
+        if (checkClose != 4){
             getPointWay = wayA + "/" + wayB + "/" + wayC;
         }else
         {
@@ -281,7 +278,6 @@ public class Record2 extends Activity {
     //
     private  void LoadPlayerPosition(){
         playerList = DataCenter.getInstance().getPlayerArray();
-        Log.d("Record2",""+playerList.toString());
         rdBtnPlayer1.setText(playerList.get(0).toString());
         rdBtnPlayer2.setText(playerList.get(1).toString());
         rdBtnPlayer3.setText(playerList.get(2).toString());

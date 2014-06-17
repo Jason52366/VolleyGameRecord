@@ -210,7 +210,7 @@
             android:checked="false"
             android:layout_below="@+id/textView_record2others"
             android:layout_centerHorizontal="true"
-            android:textSize="24dp" />
+            android:textSize="22dp" />
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -220,7 +220,7 @@
             android:checked="false"
             android:layout_alignTop="@+id/radioButton_record2other2"
             android:layout_toLeftOf="@+id/textView_record2others"
-            android:textSize="24dp" />
+            android:textSize="22dp" />
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -230,7 +230,7 @@
             android:layout_alignTop="@+id/radioButton_record2other2"
             android:layout_toRightOf="@+id/radioButton_record2other2"
             android:checked="false"
-            android:textSize="24dp" />
+            android:textSize="22dp" />
 
        </RadioGroup>
 
@@ -239,10 +239,10 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_alignTop="@+id/record2rdg2"
-            android:layout_alignLeft="@+id/radioButton_record2player5"
-            android:layout_alignStart="@+id/radioButton_record2player5"
             android:layout_alignBottom="@+id/textView_record2others"
-            android:layout_toLeftOf="@+id/textView_record2others">>
+            android:layout_toLeftOf="@+id/button_record2confirm"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -288,7 +288,8 @@
                 android:layout_alignStart="@+id/radioButton_record2a3"
                 android:checked="false"
                 android:textSize="22dp"
-                android:layout_marginLeft="-5dp" />
+                android:layout_marginLeft="-5dp"
+                android:singleLine="true" />
 
             <RadioButton
                 android:layout_width="wrap_content"
@@ -298,7 +299,8 @@
                 android:checked="false"
                 android:textSize="22dp"
                 android:longClickable="true"
-                android:layout_marginLeft="-5dp" />
+                android:layout_marginLeft="-5dp"
+                android:singleLine="true" />
         </RadioGroup>
 
     <RadioButton

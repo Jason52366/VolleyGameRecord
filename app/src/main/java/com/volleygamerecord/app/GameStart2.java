@@ -50,7 +50,7 @@ public class GameStart2  extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gamestart2);
         FindEachViewById();
-        SettingListView();
+        SettingTableView();
         getPlayerFromParse();
         ChoosePlayer();         //ItemClickListner
         SureBtn();              //Sure_btnListener
@@ -75,7 +75,7 @@ public class GameStart2  extends Activity {
         posList.add(PosL2);
     }
 
-    private void SettingListView(){
+    private void SettingTableView(){
         listInput = (ListView) findViewById(R.id.listView_gamestart2Player);
         infoItems = new ArrayList<PlayerInfo>();
         infoListAdapter = new PlayerInfoAdapter(this, infoItems);

@@ -19,7 +19,8 @@ import java.util.List;
  */
 public class Count1_MyGame extends Activity {
     List scoreList = null;
-    String obID = null;
+    String obID = DataCenter.getInstance().getStringValue("objectsId");
+    ;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,6 @@ public class Count1_MyGame extends Activity {
         setContentView(R.layout.activity_count1);
 
         //獲得從Mygame選擇的比賽objectID
-        obID = DataCenter.getInstance().getStringValue("objectsId");
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("GameScore");
         query.getInBackground(obID, new GetCallback<ParseObject>() {

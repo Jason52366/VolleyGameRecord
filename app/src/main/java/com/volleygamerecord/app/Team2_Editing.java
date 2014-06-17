@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.parse.FindCallback;
-import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -262,14 +261,11 @@ public class Team2_Editing extends Activity {
                     theTeam.get(0).put("playerNumber", numList);
                     theTeam.get(0).put("position", posList);
                     theTeam.get(0).put("teamName", teamName.getText().toString());
-
                     theTeam.get(0).saveInBackground(new SaveCallback() {
                         @Override
                         public void done(ParseException e) {
-                            Log.d("!!!!", "上傳成功");
-                            for (int i = 0; i < infoItems.size(); i++) {
-                                Log.d("!!!!", infoItems.get(i).getPosition());
-                            }
+                            Log.d("球員上傳", "上傳成功");
+
                         }
                     });
                 }

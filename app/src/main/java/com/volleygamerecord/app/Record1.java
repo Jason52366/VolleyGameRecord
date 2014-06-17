@@ -215,7 +215,7 @@ public class Record1 extends Activity {
 
                 gamePointList.add(ourScoreInt);
                 gamePointList.add(rivalScoreInt);
-
+                DataCenter.getInstance().setDataArray(gamePointList);
                 PutItemOnParse();
 
                 Intent 結束比賽 = new Intent();

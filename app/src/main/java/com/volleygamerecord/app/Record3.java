@@ -197,25 +197,33 @@ public class Record3  extends Activity {
     private RadioGroup.OnCheckedChangeListener listenA=new RadioGroup.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
-            wayC = "";
-            closeRadioGroupC();
+
             int id= group.getCheckedRadioButtonId();
             switch (id) {
-
                 case R.id.radioButton_record3a1:
                     wayA = rdButtonA1.getText().toString();
+                    wayC = "";
+                    closeRadioGroupC();
                     break;
                 case R.id.radioButton_record3a2:
                     wayA = rdButtonA2.getText().toString();
+                    wayC = "";
+                    closeRadioGroupC();
                     break;
                 case R.id.radioButton_record3a3:
                     wayA = rdButtonA3.getText().toString();
+                    wayC = "";
+                    closeRadioGroupC();
                     break;
                 case R.id.radioButton_record3a4:
                     wayA = rdButtonA4.getText().toString();
+                    wayC = "";
+                    closeRadioGroupC();
                     break;
                 case R.id.radioButton_record3a5:
                     wayA = rdButtonA5.getText().toString();
+                    wayC = "";
+                    closeRadioGroupC();
                     break;
                 default:
                     break;
@@ -227,21 +235,28 @@ public class Record3  extends Activity {
     private RadioGroup.OnCheckedChangeListener listenB=new RadioGroup.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
-            wayC = "";
-            closeRadioGroupC();
+
             int id= group.getCheckedRadioButtonId();
             switch (id) {
                 case R.id.radioButton_record3b1:
                     wayB = rdButtonB1.getText().toString();
+                    closeRadioGroupC();
+                    wayC = "";
                     break;
                 case R.id.radioButton_record3b2:
                     wayB = rdButtonB2.getText().toString();
+                    closeRadioGroupC();
+                    wayC = "";
                     break;
                 case R.id.radioButton_record3b3:
                     wayB = rdButtonB3.getText().toString();
+                    closeRadioGroupC();
+                    wayC = "";
                     break;
                 case R.id.radioButton_record3b4:
                     wayB = rdButtonB4.getText().toString();
+                    closeRadioGroupC();
+                    wayC = "";
                     break;
                 default:
                     break;

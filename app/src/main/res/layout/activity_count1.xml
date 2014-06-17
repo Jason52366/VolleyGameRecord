@@ -146,7 +146,7 @@
             <TextView
                 android:layout_column="2"
                 android:gravity="center_horizontal"
-                android:text="對方發球"
+                android:text="我方犯規"
                 android:padding="25dp"
                 android:layout_marginLeft="-15dp"
                 android:textSize="20dp" />
@@ -158,7 +158,7 @@
                 android:padding="30dp"
                 android:textSize="20dp"
                 android:layout_marginLeft="-30dp"
-                android:id="@+id/txV_count1_RivSer" />
+                android:id="@+id/txV_count1_WeFoul" />
 
         </TableRow>
 
@@ -255,35 +255,10 @@
             <TextView
                 android:layout_column="2"
                 android:gravity="center_horizontal"
-                android:text="犯規"
-                android:padding="25dp"
-                android:layout_marginLeft="-15dp"
-                android:textSize="20dp" />
-
-            <TextView
-                android:layout_column="3"
-                android:gravity="center_horizontal"
-                android:text="10"
-                android:padding="30dp"
-                android:textSize="20dp"
-                android:layout_marginLeft="-30dp"
-                android:id="@+id/txV_count1_WeFoul" />
-
-        </TableRow>
-
-        <TableRow android:layout_marginTop="-40dp"
-            android:id="@+id/row_count1_7"
-            android:longClickable="false"
-            android:measureWithLargestChild="false"
-            android:minHeight="250dp">
-
-            <TextView
-                android:layout_column="2"
-                android:gravity="center_horizontal"
                 android:text="總計"
                 android:padding="25dp"
                 android:layout_marginLeft="-15dp"
-                android:textSize="20dp" />
+                android:textSize="20dp"/>
 
             <TextView
                 android:layout_column="3"
@@ -295,7 +270,6 @@
                 android:id="@+id/txV_count1_LoseTotal" />
 
         </TableRow>
-
 
 
     </TableLayout>

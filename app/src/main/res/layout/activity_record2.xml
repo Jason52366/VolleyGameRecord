@@ -169,8 +169,7 @@
 
         android:layout_gravity="center_horizontal"
         android:layout_below="@+id/textView_record2ways"
-        android:layout_alignLeft="@+id/button_record2confirm"
-        android:layout_alignStart="@+id/button_record2confirm">
+        android:layout_toRightOf="@+id/record2rdg1">
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -216,7 +215,7 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="103dp"
-            android:text="對手失誤"
+            android:text="對方失誤"
             android:id="@+id/radioButton_record2other1"
             android:checked="false"
             android:layout_alignTop="@+id/radioButton_record2other2"
@@ -242,8 +241,8 @@
             android:layout_alignTop="@+id/record2rdg2"
             android:layout_alignLeft="@+id/radioButton_record2player5"
             android:layout_alignStart="@+id/radioButton_record2player5"
-            android:layout_toLeftOf="@+id/textView_record2others"
-            android:layout_alignBottom="@+id/textView_record2others">>
+            android:layout_alignBottom="@+id/textView_record2others"
+            android:layout_toLeftOf="@+id/textView_record2others">>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

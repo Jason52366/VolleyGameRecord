@@ -53,9 +53,9 @@ public class Count1 extends Activity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_count1);
-        FindEachViewById();
-        CalculatePoint();
-        ShowDataInTable();
+        FindEachViewById(); //------
+        CalculatePoint();   //------算分數
+        ShowDataInTable();  //------秀分數
 
         btn_next_game.setOnClickListener(new Button.OnClickListener(){
             @Override

@@ -210,7 +210,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="其他"
+        android:text="其他XD"
         android:id="@+id/textView_record3others"
         android:textSize="30dp"
         android:layout_below="@+id/record3rdg2"

@@ -103,9 +103,9 @@
         android:layout_height="wrap_content"
         android:focusable="false"
         android:layout_below="@+id/textView_record3opponentattack"
-        android:layout_toLeftOf="@+id/textView_record3opponentattack">
+        android:layout_toLeftOf="@+id/btn_record3Confirm">
     <RadioButton
-        android:layout_width="172dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="對方4號位"
         android:id="@+id/radioButton_record3a1"
@@ -113,12 +113,12 @@
         android:layout_centerHorizontal="true"
         android:checked="false"
         android:textSize="25dp"
-        android:singleLine="true" />
+        android:singleLine="false" />
 
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="快攻"
+        android:text="對方快攻"
         android:id="@+id/radioButton_record3a2"
         android:layout_below="@+id/radioButton_record3a1"
         android:layout_centerHorizontal="true"
@@ -128,7 +128,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="背位"
+        android:text="對方背位"
         android:id="@+id/radioButton_record3a3"
         android:layout_below="@+id/radioButton_record3a2"
         android:layout_alignLeft="@+id/radioButton_record3a1"
@@ -139,7 +139,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="後排"
+        android:text="對方後排"
         android:id="@+id/radioButton_record3a4"
         android:layout_below="@+id/radioButton_record3a3"
         android:layout_centerHorizontal="true"

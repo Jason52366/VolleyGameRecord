@@ -3,7 +3,6 @@ package com.volleygamerecord.app;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -45,44 +44,8 @@ public class LogIn extends Activity {
         btn_test.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                // Creating and Building the Dialog
-                AlertDialog.Builder builder = new AlertDialog.Builder(LogIn.this);
-                builder.setTitle("Select The Difficulty Level");
-                CharSequence[] cs = items.toArray(new CharSequence[items.size()]);
-                builder.setSingleChoiceItems(cs, -1, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int item) {
-                        switch(item)
-                        {
-                            case 0:
-                               Log.d("XD",""+item);
-                                // Your code when first option seletced
-                                break;
-                            case 1:
-                                Log.d("XDD",""+item);
-                                // Your code when 2nd  option seletced
-                                break;
-                            case 2:
-                                Log.d("XDDD",""+item);
-                                // Your code when 3rd option seletced
-                                break;
-                            case 3:
-                                Log.d("XDDD",""+item);
-                                // Your code when 4th  option seletced
-                                break;
-                            case 4:
-                                Log.d("XDDDD",""+item);
-                                // Your code when 4th  option seletced
-                                break;
-                            case 5:
-                                Log.d("XDDDDD",""+item);
-                                // Your code when 4th  option seletced
-                                break;
-                        }
-                        levelDialog.dismiss();
-                    }
-                });
-                levelDialog = builder.create();
-                levelDialog.show();
+
+
             }
         });
 

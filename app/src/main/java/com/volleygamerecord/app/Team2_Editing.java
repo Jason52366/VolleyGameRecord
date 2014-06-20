@@ -128,9 +128,8 @@ public class Team2_Editing extends Activity {
     private void checkInfo(){
         String tmp1 = editname.getText().toString();
         String tmp2 = editnum.getText().toString();
-        String tmp3 = editpos.getText().toString();
 
-        if(!tmp1.equals("") && !tmp2.equals("") && !tmp3.equals("") && !teamName.equals("")){
+        if(!tmp1.equals("") && !tmp2.equals("") && !teamName.equals("")){
             addOk = true;
         }
     }

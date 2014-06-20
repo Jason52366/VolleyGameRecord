@@ -31,6 +31,8 @@ public class Record2 extends Activity {
     RadioButton rdButtonA2;
     RadioButton rdButtonA3;
     RadioButton rdButtonA4;
+    RadioButton rdButtonA5;
+    RadioButton rdButtonA6;
     RadioButton rdButtonB1;
     RadioButton rdButtonB2;
     RadioButton rdButtonC1;
@@ -91,6 +93,8 @@ public class Record2 extends Activity {
         rdButtonA2 =(RadioButton)findViewById(R.id.radioButton_record2a2);
         rdButtonA3 =(RadioButton)findViewById(R.id.radioButton_record2a3);
         rdButtonA4 =(RadioButton)findViewById(R.id.radioButton_record2a4);
+        rdButtonA4 =(RadioButton)findViewById(R.id.radioButton_record2a5);
+        rdButtonA4 =(RadioButton)findViewById(R.id.radioButton_record2a6);
         radioGroup2=(RadioGroup)findViewById(R.id.record2rdg2);
         rdButtonB1 =(RadioButton)findViewById(R.id.radioButton_record2b1);
         rdButtonB2 =(RadioButton)findViewById(R.id.radioButton_record2b2);
@@ -173,6 +177,14 @@ public class Record2 extends Activity {
                     break;
                 case R.id.radioButton_record2a4:
                     wayA = rdButtonA4.getText().toString();
+                    CloseRadioGroup(1);
+                    break;
+                case R.id.radioButton_record2a5:
+                    wayA = rdButtonA5.getText().toString();
+                    CloseRadioGroup(1);
+                    break;
+                case R.id.radioButton_record2a6:
+                    wayA = rdButtonA6.getText().toString();
                     CloseRadioGroup(1);
                     break;
                 default:

@@ -104,7 +104,7 @@ public class Count1 extends Activity {
             //------得分計算
             if(tmp.contains("我方") && tmp.contains("號位")){
                 a1 = a1 + 1;
-            }else if (tmp.contains("我方快攻") || tmp.contains("我方後排")){
+            }else if (tmp.contains("我方快攻") || tmp.contains("我方後排") || tmp.contains("我方二攻")){
                 a1 = a1 + 1;
             }else if (tmp.contains("發球得分")){
                 a2 = a2 + 1;

@@ -25,6 +25,7 @@ public class Record3  extends Activity {
     RadioButton rdButtonA3 = null;
     RadioButton rdButtonA4 = null;
     RadioButton rdButtonA5 = null;
+    RadioButton rdButtonA6 = null;
     RadioButton rdButtonB1 = null;
     RadioButton rdButtonB2 = null;
     RadioButton rdButtonB3 = null;
@@ -92,6 +93,7 @@ public class Record3  extends Activity {
         rdButtonA3 =(RadioButton)findViewById(R.id.radioButton_record3a3);
         rdButtonA4 =(RadioButton)findViewById(R.id.radioButton_record3a4);
         rdButtonA5 =(RadioButton)findViewById(R.id.radioButton_record3a5);
+        rdButtonA6 =(RadioButton)findViewById(R.id.radioButton_record3a6);
         //---
         radioGroup2=(RadioGroup)findViewById(R.id.record3rdg2);
         rdButtonB1 =(RadioButton)findViewById(R.id.radioButton_record3b1);
@@ -107,6 +109,7 @@ public class Record3  extends Activity {
         rdButtonC6 =(RadioButton)findViewById(R.id.radioButton_record3c6);
         rdButtonC7 =(RadioButton)findViewById(R.id.radioButton_record3c7);
         rdButtonC8 =(RadioButton)findViewById(R.id.radioButton_record3c8);
+
         radioGroup3List = new ArrayList<RadioButton>();
         radioGroup3List.add(rdButtonC1);
         radioGroup3List.add(rdButtonC2);
@@ -222,6 +225,11 @@ public class Record3  extends Activity {
                     break;
                 case R.id.radioButton_record3a5:
                     wayA = rdButtonA5.getText().toString();
+                    wayC = "";
+                    closeRadioGroupC();
+                    break;
+                case R.id.radioButton_record3a6:
+                    wayA = rdButtonA6.getText().toString();
                     wayC = "";
                     closeRadioGroupC();
                     break;

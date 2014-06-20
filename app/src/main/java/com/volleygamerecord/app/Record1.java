@@ -44,8 +44,10 @@ public class Record1 extends Activity {
     Button btnPlayerL2;
 
     Button btn_upLoadGame;
+    Button btn_backSpace;
     Button btn_getPoint;
     Button btn_losePoint;
+
     Boolean switchPosition = false;
 
     //從datacenter拿資料
@@ -70,6 +72,7 @@ public class Record1 extends Activity {
         UploadGame_Btn();        //結束比賽
         GetPoint_Btn();          //得分了
         LosePoint_Btn();         //失分了
+        BackSpace_Btn();         //反悔球
 
     }
 
@@ -121,6 +124,7 @@ public class Record1 extends Activity {
         playerButtonsList = Arrays.asList(btnPlayer1, btnPlayer2, btnPlayer3, btnPlayer4, btnPlayer5, btnPlayer6);
 
         btn_upLoadGame = (Button)findViewById(R.id.button_record1UploadGame);
+        btn_backSpace = (Button)findViewById(R.id.button_record1BackSpace);
         btn_getPoint = (Button)findViewById(R.id.button_record1GetPoint);
         btn_losePoint = (Button)findViewById(R.id.button_record1LosePoint);
 
@@ -251,6 +255,37 @@ public class Record1 extends Activity {
         });
     }
 
+    private void BackSpace_Btn(){
+        btn_backSpace.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                scoreList = ScoreCenter.getInstance().getScoreArray();
+                if(scoreList.size() != 0){
+                    if ((Boolean)scoreList.get(scoreList.size()-1)){
+                        ourScoreInt = ourScoreInt - 1;
+                        scoreList.remove(scoreList.size()-1);
+                        if (!(Boolean)scoreList.get(scoreList.size()-1)){
+                            //計分錯誤輪轉要反轉回去QQ
+                            String tmp = playerList.get(5).toString();
+                            playerList.set(5,playerList.get(4).toString());
+                            playerList.set(4,playerList.get(3).toString());
+                            playerList.set(3,playerList.get(2).toString());
+                            playerList.set(2,playerList.get(1).toString());
+                            playerList.set(1,playerList.get(0).toString());
+                            playerList.set(0,tmp);
+                            DataCenter.getInstance().setPlayerArray(playerList);
+                            LoadPlayerPosition();
+                        }
+                    }else{
+                        rivalScoreInt = rivalScoreInt - 1;
+                        scoreList.remove(scoreList.size()-1);
+                    }
+                    calculateScore();
+                }
+            }
+        });
+    }
+
     private void calculateScore(){
         scoreList = ScoreCenter.getInstance().getScoreArray();
         //避免在Record2,Record3按返回時重複加分
@@ -259,7 +294,6 @@ public class Record1 extends Activity {
             int i = (scoreList.size());
             if ((Boolean) scoreList.get((i - 1))) {
                 ourScoreInt = ourScoreInt + 1;
-
                 //判斷是否該移位, i>=2是避免分數不到兩筆時，跑後面的（i-2）為負GET不到值
                 if (i >= 2 && !(Boolean)scoreList.get((i - 2))) {
                     switchPosition = true;

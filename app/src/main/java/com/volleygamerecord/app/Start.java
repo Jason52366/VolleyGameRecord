@@ -27,7 +27,7 @@ public class Start  extends Activity {
             @Override
             public void onClick(View v) {
 //                Intent 企圖 = new Intent();
-//                企圖.setClass(Start.this, .Setting class);
+//                企圖.setClass(Start.this, .Setting.class);
 //                startActivity(企圖);
             }
         });

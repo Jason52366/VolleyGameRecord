@@ -30,12 +30,12 @@ public class ScoreCenter {
     //////////////////////////////////////////////////
     public void setScoreArray(Boolean point, String way, String player){
         ScoreArray.add(point);
+        Log.d("XDDDD",""+ScoreArray.get(0).toString());
         WayArray.add(way);
         PlayerArray.add(player);
     }
 
     public void backSpaceScoreArray(){
-        ScoreArray.remove(ScoreArray.size()-1);
         WayArray.remove(WayArray.size()-1);
         PlayerArray.remove(PlayerArray.size()-1);
 

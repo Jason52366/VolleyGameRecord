@@ -259,29 +259,33 @@ public class Record1 extends Activity {
         btn_backSpace.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                scoreList = ScoreCenter.getInstance().getScoreArray();
                 if(scoreList.size() != 0){
                     if ((Boolean)scoreList.get(scoreList.size()-1)){
                         ourScoreInt = ourScoreInt - 1;
                         scoreList.remove(scoreList.size()-1);
-                        if (scoreList.size()!=1 && !(Boolean)scoreList.get(scoreList.size()-1)){
-                            //計分錯誤輪轉要反轉回去QQ
-                            String tmp = playerList.get(5).toString();
-                            playerList.set(5,playerList.get(4).toString());
-                            playerList.set(4,playerList.get(3).toString());
-                            playerList.set(3,playerList.get(2).toString());
-                            playerList.set(2,playerList.get(1).toString());
-                            playerList.set(1,playerList.get(0).toString());
-                            playerList.set(0,tmp);
-                            DataCenter.getInstance().setPlayerArray(playerList);
-                            LoadPlayerPosition();
+                        if(scoreList.size()> 1) {
+                            if (!(Boolean) scoreList.get(scoreList.size() - 1)) {
+                                //計分錯誤輪轉要反轉回去QQ
+                                String tmp = playerList.get(5).toString();
+                                playerList.set(5, playerList.get(4).toString());
+                                playerList.set(4, playerList.get(3).toString());
+                                playerList.set(3, playerList.get(2).toString());
+                                playerList.set(2, playerList.get(1).toString());
+                                playerList.set(1, playerList.get(0).toString());
+                                playerList.set(0, tmp);
+                                DataCenter.getInstance().setPlayerArray(playerList);
+                                LoadPlayerPosition();
+                            }
                         }
                     }else{
                         rivalScoreInt = rivalScoreInt - 1;
-                        scoreList.remove(scoreList.size()-1);
+                        scoreList.remove(scoreList.size() - 1);
                     }
                     ScoreCenter.getInstance().backSpaceScoreArray();
-                    calculateScore();
+                    TextView ourScore = (TextView)findViewById(R.id.textView_record1OurScore);
+                    TextView rivalSocre = (TextView)findViewById(R.id.textView_record1RivalScore);
+                    rivalSocre.setText(String.valueOf(rivalScoreInt));
+                    ourScore.setText(String.valueOf(ourScoreInt));
                 }
             }
         });

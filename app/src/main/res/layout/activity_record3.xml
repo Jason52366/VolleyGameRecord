@@ -85,7 +85,7 @@
         android:checked="false"
         android:textSize="20dp"
         android:layout_below="@+id/radioButton_record3player3"
-        android:layout_toRightOf="@+id/radioButton_record3player3" />
+        android:layout_toLeftOf="@+id/radioButton_record3liberal2" />
 
     <TextView
         android:layout_width="wrap_content"

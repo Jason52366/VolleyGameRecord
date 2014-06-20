@@ -116,7 +116,7 @@ public class Count1 extends Activity {
             //------失分計算
             if(tmp.contains("對方") && tmp.contains("號位")){
                 b1 = b1 + 1;
-            }else if(tmp.contains("對方快攻") || tmp.contains("對方後排")){
+            }else if(tmp.contains("對方快攻") || tmp.contains("對方後排")|| tmp.contains("對方二攻")){
                 b1 = b1 + 1;
             }else if(tmp.contains("我方犯規")){
                 b2 = b2 + 1;

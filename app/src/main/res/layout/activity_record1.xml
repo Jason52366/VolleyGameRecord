@@ -83,7 +83,8 @@
         android:text="本局結束"
         android:id="@+id/button_record1UploadGame"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignRight="@+id/button_record1player1"
+        android:layout_alignEnd="@+id/button_record1player1" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -102,7 +103,7 @@
         android:id="@+id/button_record1player4"
         android:textSize="25dp"
         android:layout_alignTop="@+id/button_record1player3"
-        android:layout_toLeftOf="@+id/button_record1UploadGame" />
+        android:layout_toLeftOf="@+id/textView_player" />
 
     <Button
         android:layout_width="wrap_content"
@@ -174,5 +175,15 @@
         android:layout_below="@+id/button_record1player1"
         android:layout_alignLeft="@+id/button_record1player1"
         android:layout_alignStart="@+id/button_record1player1" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="悔球"
+        android:id="@+id/button_record1BackSpace"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/button_record1liberal1"
+        android:layout_alignStart="@+id/button_record1liberal1"
+        android:textSize="24dp" />
 
 </RelativeLayout>

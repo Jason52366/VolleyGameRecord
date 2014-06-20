@@ -103,6 +103,7 @@ public class Count2 extends Activity {
         super.onResume();
         if (mChartView == null) {
             LinearLayout layout = (LinearLayout) findViewById(R.id.chart);
+            layout.setVisibility(View.GONE);
             mChartView = ChartFactory.getPieChartView(this, mSeries, mRenderer);
             mRenderer.setClickEnabled(true);
             mRenderer.setSelectableBuffer(10);

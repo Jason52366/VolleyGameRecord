@@ -85,7 +85,7 @@ public class Count1 extends Activity {
     private void FindEachViewById(){
         btn_end_game = (Button)findViewById(R.id.btn_end_game);
         btn_next_game = (Button)findViewById(R.id.btn_next_game);
-        scoreTable = (TableLayout)findViewById(R.id.table_count1playerscore);
+        scoreTable = (TableLayout)findViewById(R.id.table_count1roughrecord);
         WeAttack = (TextView)findViewById(R.id.txV_count1_WeAtt);
         RivAttack = (TextView)findViewById(R.id.txV_count1_RivAtt);
         WeServe = (TextView)findViewById(R.id.txV_count1_WeSer);

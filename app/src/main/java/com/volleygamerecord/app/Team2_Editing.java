@@ -59,6 +59,7 @@ public class Team2_Editing extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team2);
         FindEachViewId();
+        confirmTeamEdit.setVisibility(View.INVISIBLE);
         dialog = ProgressDialog.show(Team2_Editing.this,"", "請等待...", true);
         //InfoSetOnKeyListener();
         SettingListView();
@@ -222,7 +223,9 @@ public class Team2_Editing extends Activity {
                     editnum.requestFocus();  //cursor回到填number那邊
 
                     listInput.setAdapter(infoListAdapter);
+                    confirmTeamEdit.setVisibility(View.VISIBLE);
                     addOk = false;
+
                     }else {
                         new AlertDialog.Builder(Team2_Editing.this)
                                 .setMessage("隊伍資料不可空白唷")

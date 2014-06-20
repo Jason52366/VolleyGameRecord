@@ -31,6 +31,7 @@ public class Start  extends Activity {
 //                startActivity(企圖);
             }
         });
+        btn_startConfiguration.setVisibility(View.INVISIBLE);
 
         //button_startManageTeam
         Button btn_startManageTeam = (Button)findViewById(R.id.button_startManageTeam);

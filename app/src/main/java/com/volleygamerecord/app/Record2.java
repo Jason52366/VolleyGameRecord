@@ -93,8 +93,8 @@ public class Record2 extends Activity {
         rdButtonA2 =(RadioButton)findViewById(R.id.radioButton_record2a2);
         rdButtonA3 =(RadioButton)findViewById(R.id.radioButton_record2a3);
         rdButtonA4 =(RadioButton)findViewById(R.id.radioButton_record2a4);
-        rdButtonA4 =(RadioButton)findViewById(R.id.radioButton_record2a5);
-        rdButtonA4 =(RadioButton)findViewById(R.id.radioButton_record2a6);
+        rdButtonA5 =(RadioButton)findViewById(R.id.radioButton_record2a5);
+        rdButtonA6 =(RadioButton)findViewById(R.id.radioButton_record2a6);
         radioGroup2=(RadioGroup)findViewById(R.id.record2rdg2);
         rdButtonB1 =(RadioButton)findViewById(R.id.radioButton_record2b1);
         rdButtonB2 =(RadioButton)findViewById(R.id.radioButton_record2b2);

@@ -88,6 +88,11 @@
         </activity>
 
         <activity
+            android:name="com.volleygamerecord.app.Setting"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
             android:name="com.volleygamerecord.app.MyGame"
             android:label="@string/app_name" >
         </activity>

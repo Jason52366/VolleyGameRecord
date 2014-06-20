@@ -26,12 +26,12 @@ public class Start  extends Activity {
         btn_startConfiguration.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-//                Intent 企圖 = new Intent();
-//                企圖.setClass(Start.this, .Setting class);
-//                startActivity(企圖);
+             Intent 企圖 = new Intent();
+              企圖.setClass(Start.this,Setting.class);
+               startActivity(企圖);
             }
         });
-        btn_startConfiguration.setVisibility(View.INVISIBLE);
+       // btn_startConfiguration.setVisibility(View.INVISIBLE);
 
         //button_startManageTeam
         Button btn_startManageTeam = (Button)findViewById(R.id.button_startManageTeam);

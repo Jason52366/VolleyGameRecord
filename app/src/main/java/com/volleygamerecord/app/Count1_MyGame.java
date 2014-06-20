@@ -101,10 +101,8 @@ public class Count1_MyGame extends Activity {
                 if (e == null) {
                     score = (ArrayList)gameData.get("score");
                     ways  = (ArrayList)gameData.get("scoreDetail");
-
                     CalculatePoint();   //------算分數
                     ShowDataInTable();  //------秀分數
-
                 }
                 else {
                     Log.d("QQQ","ERROR:"+e);

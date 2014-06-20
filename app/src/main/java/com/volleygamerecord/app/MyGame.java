@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,6 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.parse.FindCallback;
+import com.parse.Parse;
+import com.parse.ParseFacebookUtils;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
@@ -29,13 +32,29 @@ public class MyGame extends Activity {
     ArrayAdapter<String> adapter;
 
     protected void onCreate(Bundle savedInstanceState) {
+        NetworkOnMainThreadException();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mygame);
+
         SettingTableView();//---製作表格前置
         GetDataFromParse();//---拿Parse資料
         ShowGameData();    //---看比賽資料
         DeleteGameData();  //---刪比賽資料
 
+    }
+
+    private void NetworkOnMainThreadException(){
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                .detectDiskReads()
+                .detectDiskWrites()
+                .detectNetwork()
+                .penaltyLog()
+                .build());
+        StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
+                .detectLeakedSqlLiteObjects()
+                .penaltyLog()
+                .penaltyDeath()
+                .build());
     }
 
     private void SettingTableView(){
@@ -66,6 +85,8 @@ public class MyGame extends Activity {
                     //如果完成抓取資料的動作，將請等待的對話框關閉
                     dialog.dismiss();
                 } else {
+                    Parse.initialize(MyGame.this, "OOyy4I805eCgkyEGCiZtAH2RybkVl2tWi4qulbkw", "AOXZIHWss8wAiupkyTQuhEelITKfQ3LUeXAdHVTL");
+                    ParseFacebookUtils.initialize("1393614940913937");
                     Log.e("parseReturn", e.toString());
                     dialog.dismiss();
                 }

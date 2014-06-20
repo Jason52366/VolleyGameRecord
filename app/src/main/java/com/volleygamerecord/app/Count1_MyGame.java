@@ -52,7 +52,6 @@ public class Count1_MyGame extends Activity {
     int b4 = 0;
     String b5 = "0";
 
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_count1);
@@ -93,6 +92,8 @@ public class Count1_MyGame extends Activity {
         btn_next_game = (Button)findViewById(R.id.btn_next_game);
     }
 
+
+
     private void GetDataFromParse(){
         ParseQuery<ParseObject> query = ParseQuery.getQuery("GameScore");
         query.getInBackground(obID, new GetCallback<ParseObject>() {
@@ -103,6 +104,7 @@ public class Count1_MyGame extends Activity {
 
                     CalculatePoint();   //------算分數
                     ShowDataInTable();  //------秀分數
+
                 }
                 else {
                     Log.d("QQQ","ERROR:"+e);

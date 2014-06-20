@@ -102,7 +102,7 @@
             <TextView
                 android:layout_column="1"
                 android:gravity="center_horizontal"
-                android:text="10"
+                android:text="0"
                 android:padding="30dp"
                 android:textSize="20dp"
                 android:layout_marginLeft="-35dp"
@@ -118,7 +118,7 @@
             <TextView
                 android:layout_column="3"
                 android:gravity="center_horizontal"
-                android:text="10"
+                android:text="0"
                 android:padding="30dp"
                 android:textSize="20dp"
                 android:layout_marginLeft="-30dp"
@@ -138,7 +138,7 @@
             <TextView
                 android:layout_column="1"
                 android:gravity="center_horizontal"
-                android:text="10"
+                android:text="0"
                 android:padding="30dp"
                 android:textSize="20dp"
                 android:layout_marginLeft="-35dp"
@@ -154,7 +154,7 @@
             <TextView
                 android:layout_column="3"
                 android:gravity="center_horizontal"
-                android:text="10"
+                android:text="0"
                 android:padding="30dp"
                 android:textSize="20dp"
                 android:layout_marginLeft="-30dp"
@@ -174,7 +174,7 @@
             <TextView
                 android:layout_column="1"
                 android:gravity="center_horizontal"
-                android:text="10"
+                android:text="0"
                 android:padding="30dp"
                 android:textSize="20dp"
                 android:layout_marginLeft="-35dp"
@@ -190,7 +190,7 @@
             <TextView
                 android:layout_column="3"
                 android:gravity="center_horizontal"
-                android:text="10"
+                android:text="0"
                 android:padding="30dp"
                 android:textSize="20dp"
                 android:layout_marginLeft="-30dp"
@@ -210,7 +210,7 @@
             <TextView
                 android:layout_column="1"
                 android:gravity="center_horizontal"
-                android:text="10"
+                android:text="0"
                 android:padding="30dp"
                 android:textSize="20dp"
                 android:layout_marginLeft="-35dp"
@@ -226,7 +226,7 @@
             <TextView
                 android:layout_column="3"
                 android:gravity="center_horizontal"
-                android:text="10"
+                android:text="0"
                 android:padding="30dp"
                 android:textIsSelectable="false"
                 android:textSize="20dp"
@@ -247,7 +247,7 @@
             <TextView
                 android:layout_column="1"
                 android:gravity="center_horizontal"
-                android:text="40"
+                android:text="0"
                 android:padding="30dp"
                 android:textSize="20dp"
                 android:layout_marginLeft="-35dp"
@@ -263,7 +263,7 @@
             <TextView
                 android:layout_column="3"
                 android:gravity="center_horizontal"
-                android:text="50"
+                android:text="0"
                 android:padding="30dp"
                 android:textSize="20dp"
                 android:layout_marginLeft="-30dp"

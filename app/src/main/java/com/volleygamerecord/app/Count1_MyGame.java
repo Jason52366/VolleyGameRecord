@@ -3,6 +3,7 @@ package com.volleygamerecord.app;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
  * Created by Jay on 2014/4/11.
  */
 public class Count1_MyGame extends Activity {
-    String obID = DataCenter.getInstance().getStringValue("objectsId");
+    String obID;
 
     ArrayList ways = new ArrayList();
     ArrayList score = new ArrayList();
@@ -55,10 +56,10 @@ public class Count1_MyGame extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_count1);
+        obID = DataCenter.getInstance().getStringValue("objectsId");
         FindEachViewById(); //------
-        GetDataFromParse(); //------用objectID拿資料
-        CalculatePoint();   //------算分數
-        ShowDataInTable();  //------秀分數
+        GetDataFromParse(); //------用objectID拿資料，拿完之後會自動算分跑資料
+
 
 
         btn_next_game.setVisibility(View.INVISIBLE);
@@ -99,9 +100,12 @@ public class Count1_MyGame extends Activity {
                 if (e == null) {
                     score = (ArrayList)gameData.get("score");
                     ways  = (ArrayList)gameData.get("scoreDetail");
+
+                    CalculatePoint();   //------算分數
+                    ShowDataInTable();  //------秀分數
                 }
                 else {
-
+                    Log.d("QQQ","ERROR:"+e);
                 }
             }
         });

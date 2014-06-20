@@ -264,7 +264,7 @@ public class Record1 extends Activity {
                     if ((Boolean)scoreList.get(scoreList.size()-1)){
                         ourScoreInt = ourScoreInt - 1;
                         scoreList.remove(scoreList.size()-1);
-                        if (!(Boolean)scoreList.get(scoreList.size()-1)){
+                        if (scoreList.size()!=1 && !(Boolean)scoreList.get(scoreList.size()-1)){
                             //計分錯誤輪轉要反轉回去QQ
                             String tmp = playerList.get(5).toString();
                             playerList.set(5,playerList.get(4).toString());
@@ -280,6 +280,7 @@ public class Record1 extends Activity {
                         rivalScoreInt = rivalScoreInt - 1;
                         scoreList.remove(scoreList.size()-1);
                     }
+                    ScoreCenter.getInstance().backSpaceScoreArray();
                     calculateScore();
                 }
             }

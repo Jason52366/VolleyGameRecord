@@ -33,6 +33,14 @@ public class ScoreCenter {
         WayArray.add(way);
         PlayerArray.add(player);
     }
+
+    public void backSpaceScoreArray(){
+        ScoreArray.remove(ScoreArray.size()-1);
+        WayArray.remove(WayArray.size()-1);
+        PlayerArray.remove(PlayerArray.size()-1);
+
+    }
+
     public ArrayList getScoreArray(){
         ArrayList ret = ScoreArray;
         ArrayList aaa = new ArrayList();

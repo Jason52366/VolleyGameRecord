@@ -74,6 +74,7 @@ public class Record2 extends Activity {
             public void onClick (View v){
                 GetPointWayCombiner();
                 ScoreCenter.getInstance().setScoreArray(true,getPointWay,playerName);
+
                 setResult(2);
                 Record2.this.finish();
             }

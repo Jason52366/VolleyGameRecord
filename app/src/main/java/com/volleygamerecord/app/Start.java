@@ -22,7 +22,7 @@ public class Start  extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        Button btn_startConfiguration = (Button)findViewById(R.id.button_startConfiguration);
+/*       Button btn_startConfiguration = (Button)findViewById(R.id.button_startConfiguration);
         btn_startConfiguration.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -32,7 +32,7 @@ public class Start  extends Activity {
             }
         });
         btn_startConfiguration.setVisibility(View.INVISIBLE);
-
+*/
         //button_startManageTeam
         Button btn_startManageTeam = (Button)findViewById(R.id.button_startManageTeam);
         btn_startManageTeam.setOnClickListener(new Button.OnClickListener(){

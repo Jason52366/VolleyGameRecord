@@ -634,6 +634,52 @@
                 android:textSize="20dp"
                 android:layout_marginLeft="-30dp"
                 android:layout_marginTop="-7dp"/>
+        </TableRow>
+
+
+        <TableRow android:layout_marginTop="-40dp"
+            android:id="@+id/row_cunt2_15">
+            <TextView
+                android:layout_column="0"
+                android:gravity="center_horizontal"
+                android:text="22"
+                android:padding="25dp"
+                android:layout_marginLeft="-20dp"
+                android:textSize="20dp"
+                android:layout_marginTop="-7dp" />
+            <TextView
+                android:layout_column="1"
+                android:gravity="center_horizontal"
+                android:text="10"
+                android:padding="25dp"
+                android:textSize="20dp"
+                android:layout_marginLeft="-30dp"
+                android:layout_marginTop="-7dp"  />
+            <TextView
+                android:layout_column="2"
+                android:gravity="center_horizontal"
+                android:text="10"
+                android:padding="25dp"
+                android:layout_marginLeft="-15dp"
+                android:textSize="20dp"
+                android:layout_marginTop="-7dp" />
+
+            <TextView
+                android:layout_column="3"
+                android:gravity="center_horizontal"
+                android:text="10"
+                android:padding="25dp"
+                android:textSize="20dp"
+                android:layout_marginLeft="-30dp"
+                android:layout_marginTop="-7dp" />
+            <TextView
+                android:layout_column="4"
+                android:gravity="center_horizontal"
+                android:text="30"
+                android:padding="25dp"
+                android:textSize="20dp"
+                android:layout_marginLeft="-30dp"
+                android:layout_marginTop="-7dp"/>
 
         </TableRow>
 

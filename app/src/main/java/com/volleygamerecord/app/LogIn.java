@@ -66,7 +66,7 @@ public class LogIn extends Activity {
         Parse.enableLocalDatastore(this);
         /*                               Application ID                  ,     Client ID     */
         Parse.initialize(this, "OOyy4I805eCgkyEGCiZtAH2RybkVl2tWi4qulbkw", "AOXZIHWss8wAiupkyTQuhEelITKfQ3LUeXAdHVTL");
-            ParseFacebookUtils.initialize("1393614940913937");
+            ParseFacebookUtils.initialize("622192161184300");
 
         //Login的確定按鈕
         Button btn_loginLogin = (Button)findViewById(R.id.button_loginLogin);

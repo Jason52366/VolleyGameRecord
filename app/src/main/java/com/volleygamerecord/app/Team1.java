@@ -62,7 +62,7 @@ public class Team1 extends Activity {
                     dialog.dismiss();
 
                 } else {
-                    Log.e("parseReturn", e.toString());
+                    Log.e("parseReturn_Team1", e.toString());
                     dialog.dismiss();
 
                 }

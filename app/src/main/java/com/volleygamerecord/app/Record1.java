@@ -103,9 +103,9 @@ public class Record1 extends Activity {
             @Override
             public void done(ParseException e) {
                 if(e == null){
-                    Log.e("parseReturn","Upload成功！");
+                    Log.e("parseReturn_Record1","Record1_Upload成功！");
                 }else {
-                    Log.e("parseReturn",e.toString());
+                    Log.e("parseReturn_Record1",e.toString());
                 }
             }
         });

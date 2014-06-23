@@ -150,7 +150,7 @@ public class LogIn extends Activity {
                                   if (e == null) {
                                           ParseObject.pinAllInBackground(parseObjects);
                                    } else {
-                                      Log.e("parseReturn", e.toString());
+                                      Log.e("parseReturn_LogIn-1", e.toString());
                                   }
                               }
                           });
@@ -164,7 +164,7 @@ public class LogIn extends Activity {
                                   if (e == null) {
                                           ParseObject.pinAllInBackground(parseObjects);
                                    } else {
-                                      Log.e("parseReturn", e.toString());
+                                      Log.e("parseReturn_LogIn-2", e.toString());
                                   }
                               }
                           });

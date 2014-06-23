@@ -88,7 +88,7 @@ public class GameStart1  extends Activity {
                     spinner2.setAdapter(ourTeamArrayList);
                     dialog.dismiss();
                 } else {
-                    Log.e("parseReturn", e.toString());
+                    Log.e("parseReturn_GameStart1", e.toString());
                 }
             }
         });

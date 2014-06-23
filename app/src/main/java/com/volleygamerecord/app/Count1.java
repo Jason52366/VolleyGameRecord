@@ -25,7 +25,7 @@ public class Count1 extends Activity {
 
     Button btn_next_game = null;
     Button btn_end_game = null;
-    Button btn_ErrorDetail;
+    Button btn_ErrorDetail = null;
 
     TableLayout scoreTable;
 
@@ -55,7 +55,6 @@ public class Count1 extends Activity {
     int er4 = 0;
     int er5 = 0;
     int er6 = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

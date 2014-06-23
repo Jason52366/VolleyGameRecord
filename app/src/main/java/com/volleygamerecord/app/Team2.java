@@ -214,12 +214,12 @@ public class Team2 extends Activity {
             @Override
             public void done(ParseException e) {
                 if (e == null) {
-                    Log.e("parseReturn", "成功上傳新隊伍");
+                    Log.e("parseReturn_Team2", "Team2_成功上傳新隊伍");
                     Intent endNewTeam = new Intent();
                     endNewTeam.setClass(Team2.this, Team1.class);
                     startActivity(endNewTeam);
                 } else {
-                    Log.e("parseReturn", e.toString());
+                    Log.e("parseReturn_Team2", e.toString());
                 }
             }
         });

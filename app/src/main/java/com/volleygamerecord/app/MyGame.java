@@ -87,7 +87,7 @@ public class MyGame extends Activity {
                 } else {
                     Parse.initialize(MyGame.this, "OOyy4I805eCgkyEGCiZtAH2RybkVl2tWi4qulbkw", "AOXZIHWss8wAiupkyTQuhEelITKfQ3LUeXAdHVTL");
                     ParseFacebookUtils.initialize("1393614940913937");
-                    Log.e("parseReturn", e.toString());
+                    Log.e("parseReturn_MyGame", e.toString());
                     dialog.dismiss();
                 }
             }

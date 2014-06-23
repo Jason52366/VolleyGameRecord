@@ -102,7 +102,7 @@ public class GameStart2  extends Activity {
                     }
                     dialog.dismiss();
                 } else {
-                    Log.e("parseReturn", e.toString());
+                    Log.e("parseReturn_GameStart2", e.toString());
                 }
             }
 

@@ -167,7 +167,7 @@ public class Team2_Editing extends Activity {
 
                     }
                 } else {
-                    Log.e("parseReturn", e.toString());
+                    Log.e("parseReturn_Team2_Editing", e.toString());
                     dialog.dismiss();
 
                 }

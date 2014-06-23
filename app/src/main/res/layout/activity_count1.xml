@@ -215,13 +215,12 @@
                 android:textSize="20dp"
                 android:layout_marginLeft="-35dp"
                 android:id="@+id/txV_count1_RivErr" />
-            <TextView
-                android:layout_column="2"
-                android:gravity="center_horizontal"
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="各種失誤"
-                android:padding="25dp"
-                android:layout_marginLeft="-15dp"
-                android:textSize="20dp" />
+                android:id="@+id/button_count1ErrorDetail" />
 
             <TextView
                 android:layout_column="3"

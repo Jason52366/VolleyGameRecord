@@ -1,6 +1,8 @@
 package com.volleygamerecord.app;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +25,7 @@ public class Count1 extends Activity {
 
     Button btn_next_game = null;
     Button btn_end_game = null;
+    Button btn_ErrorDetail;
 
     TableLayout scoreTable;
 
@@ -36,7 +39,6 @@ public class Count1 extends Activity {
     TextView WeFoul;
     TextView GetTotal;
     TextView LoseTotal;
-
     int a1 = 0;
     int a2 = 0;
     int a3 = 0;
@@ -47,38 +49,27 @@ public class Count1 extends Activity {
     int b3 = 0;
     int b4 = 0;
     String b5 = "0";
+    int er1 = 0;
+    int er2 = 0;
+    int er3 = 0;
+    int er4 = 0;
+    int er5 = 0;
+    int er6 = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_count1);
+
         FindEachViewById(); //------
         CalculatePoint();   //------算分數
         ShowDataInTable();  //------秀分數
+        ErrorDetail_btn();  //------秀失誤
+        NextGame_Btn();     //------下一局
+        EndGame_Btn();      //------結束比賽
 
-        btn_next_game.setOnClickListener(new Button.OnClickListener(){
-            @Override
-            public void onClick (View v){
-                ScoreCenter.getInstance().cleanArrays();
-                Intent intent = new Intent();
-                intent.setClass(Count1.this, Record1.class);
-                startActivity(intent);
-                Count1.this.finish();
-            }
-
-        });
-
-        btn_end_game.setOnClickListener(new Button.OnClickListener(){
-            @Override
-            public void onClick (View v){
-                ScoreCenter.getInstance().cleanArrays();
-                Intent intent = new Intent();
-                intent.setClass(Count1.this, Count2.class);
-               startActivity(intent);
-            }
-
-        });
     }
 
 
@@ -96,6 +87,7 @@ public class Count1 extends Activity {
         WeFoul = (TextView)findViewById(R.id.txV_count1_WeFoul);
         GetTotal = (TextView)findViewById(R.id.txV_count1_GetTotal);
         LoseTotal = (TextView)findViewById(R.id.txV_count1_LoseTotal);
+        btn_ErrorDetail = (Button)findViewById(R.id.button_count1ErrorDetail);
     }
 
     private void CalculatePoint(){
@@ -125,6 +117,22 @@ public class Count1 extends Activity {
             }else if (tmp.contains("失誤") && !tmp.contains("對方")){
                 b4 = b4 + 1;
             }
+            //------失誤計算
+            if(tmp.contains("失誤")){
+                if (tmp.contains("舉球")){
+                    er1 = er1 + 1;
+                }else if(tmp.contains("攔網")){
+                    er2 = er2 + 1;
+                }else if(tmp.contains("接發")){
+                    er3 = er3 + 1;
+                }else if(tmp.contains("攻擊")){
+                    er4 = er4 + 1;
+                }else if(tmp.contains("防守")){
+                    er5 = er5 + 1;
+                }else if(tmp.contains("發球")){
+                    er6 = er6 + 1;
+                }
+            }
         }
         a5 = score.get(0).toString();
         b5 = score.get(1).toString();
@@ -141,5 +149,55 @@ public class Count1 extends Activity {
         RivBlock.setText(String.valueOf(b3));
         WeErr.setText(String.valueOf(b4));
         LoseTotal.setText(b5);
+    }
+
+    private void ErrorDetail_btn(){
+        btn_ErrorDetail.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(Count1.this)
+                        .setTitle("失誤記錄")
+                        .setMessage("舉球失誤："+er1+"\n攔網失誤："+er2+"\n接發失誤："+er3+
+                                  "\n攻擊失誤："+er4+"\n防守失誤："+er5+"\n發球失誤："+er6)
+                        .setPositiveButton("了解", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+                        .create()
+                        .show()
+                ;
+            }
+        });
+
+    }
+
+
+    private void NextGame_Btn(){
+        btn_next_game.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ScoreCenter.getInstance().cleanArrays();
+                Intent intent = new Intent();
+                intent.setClass(Count1.this, Record1.class);
+                startActivity(intent);
+                Count1.this.finish();
+            }
+        });
+
+    }
+
+    private void EndGame_Btn(){
+        btn_end_game.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ScoreCenter.getInstance().cleanArrays();
+                Intent intent = new Intent();
+                intent.setClass(Count1.this, Start.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

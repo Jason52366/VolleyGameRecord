@@ -3,6 +3,7 @@ package com.volleygamerecord.app;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -44,7 +45,19 @@ public class LogIn extends Activity {
         btn_test.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
+                new AlertDialog.Builder(LogIn.this)
+                        .setTitle("Error")
+                        .setMessage("Please fill out\n the entire form")
+                        .setPositiveButton("Close", new DialogInterface.OnClickListener() {
 
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+                        .create()
+                        .show()
+                ;
 
             }
         });
@@ -63,19 +76,16 @@ public class LogIn extends Activity {
 
                 final ProgressDialog dialog = ProgressDialog.show(LogIn.this,"", "鴿子封包傳遞中", true);
                 ParseFacebookUtils.logIn(permissions, LogIn.this,new LogInCallback() {
-
                     @Override
                     public void done(ParseUser user, ParseException err) {
                         DataCenter.getInstance().setValue("parseUserName", user.getUsername());
-
                         // Code to handle login.  沒有網路會死在這行
                         Session session = ParseFacebookUtils.getSession();
-                        if(session != null && session.isOpened())
-                        {
-                        makeMeRequest();
+                        if(session != null && session.isOpened()){
+                            makeMeRequest();
+                            dialog.dismiss();
                         }else {
                             dialog.dismiss();
-
                         }
 
                     }

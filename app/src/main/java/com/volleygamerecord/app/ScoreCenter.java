@@ -36,8 +36,11 @@ public class ScoreCenter {
     }
 
     public void backSpaceScoreArray(){
-        WayArray.remove(WayArray.size()-1);
-        PlayerArray.remove(PlayerArray.size()-1);
+        if (WayArray.size() !=1 && PlayerArray.size() != 1) {
+            //分數Array已經在RECORD1砍過一格了
+            WayArray.remove(WayArray.size() - 1);
+            PlayerArray.remove(PlayerArray.size() - 1);
+        }
 
     }
 

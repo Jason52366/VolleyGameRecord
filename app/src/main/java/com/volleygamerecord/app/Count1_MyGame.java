@@ -202,7 +202,7 @@ public class Count1_MyGame extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(Count1_MyGame.this, Count2.class);
+                intent.setClass(Count1_MyGame.this, MyGame.class);
                 startActivity(intent);
             }
         });

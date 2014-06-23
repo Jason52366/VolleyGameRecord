@@ -7,10 +7,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.parse.FindCallback;
@@ -30,16 +30,18 @@ public class MyGame extends Activity {
     ArrayList<String> items;
     ArrayList<String> objectsId;
     ArrayAdapter<String> adapter;
+    Button back = null;
 
     protected void onCreate(Bundle savedInstanceState) {
         NetworkOnMainThreadException();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mygame);
-
+        back = (Button)findViewById(R.id.button_MyGame_Back);
         SettingTableView();//---製作表格前置
         GetDataFromParse();//---拿Parse資料
         ShowGameData();    //---看比賽資料
         DeleteGameData();  //---刪比賽資料
+        Back_Btn();        //---返回
 
     }
 
@@ -87,8 +89,7 @@ public class MyGame extends Activity {
                 } else {
                     Parse.initialize(MyGame.this, "OOyy4I805eCgkyEGCiZtAH2RybkVl2tWi4qulbkw", "AOXZIHWss8wAiupkyTQuhEelITKfQ3LUeXAdHVTL");
                     ParseFacebookUtils.initialize("1393614940913937");
-                    Log.e("parseReturn_MyGame", e.toString());
-                    dialog.dismiss();
+                    MyGame.this.recreate();
                 }
             }
         });
@@ -140,5 +141,19 @@ public class MyGame extends Activity {
             }
         });
 
+    }
+
+    private void Back_Btn() {
+        back.setText("返回");
+        back.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent intent = new Intent();
+                //intent.setClass(MyGame.this, MyGame.class);
+                //startActivity(intent);
+                MyGame.this.recreate();
+
+            }
+        });
     }
 }

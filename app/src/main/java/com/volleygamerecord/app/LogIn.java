@@ -79,6 +79,7 @@ public class LogIn extends Activity {
                 ParseFacebookUtils.logIn(permissions, LogIn.this,new LogInCallback() {
                     @Override
                     public void done(ParseUser user, ParseException err) {
+                        Log.e("ParseBack","Error『"+err+"』");
                         DataCenter.getInstance().setValue("parseUserName", user.getUsername());
                         // Code to handle login.  沒有網路會死在這行
                         Session session = ParseFacebookUtils.getSession();

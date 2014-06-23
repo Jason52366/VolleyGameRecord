@@ -42,6 +42,7 @@ public class LogIn extends Activity {
         setContentView(R.layout.activity_log_in);
 
         Button btn_test = (Button)findViewById(R.id.button_TEST);
+        btn_test.setVisibility(View.INVISIBLE);
         btn_test.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {

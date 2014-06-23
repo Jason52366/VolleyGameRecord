@@ -14,8 +14,6 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.parse.FindCallback;
-import com.parse.Parse;
-import com.parse.ParseFacebookUtils;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
@@ -87,9 +85,7 @@ public class MyGame extends Activity {
                     //如果完成抓取資料的動作，將請等待的對話框關閉
                     dialog.dismiss();
                 } else {
-                    Parse.initialize(MyGame.this, "OOyy4I805eCgkyEGCiZtAH2RybkVl2tWi4qulbkw", "AOXZIHWss8wAiupkyTQuhEelITKfQ3LUeXAdHVTL");
-                    ParseFacebookUtils.initialize("1393614940913937");
-                    MyGame.this.recreate();
+
                 }
             }
         });
@@ -148,10 +144,10 @@ public class MyGame extends Activity {
         back.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent();
-                //intent.setClass(MyGame.this, MyGame.class);
-                //startActivity(intent);
-                MyGame.this.recreate();
+                Intent intent = new Intent();
+                intent.setClass(MyGame.this, Start.class);
+                startActivity(intent);
+
 
             }
         });
